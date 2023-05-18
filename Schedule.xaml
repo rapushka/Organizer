@@ -1,0 +1,181 @@
+﻿<Page x:Class="Organizer.Schedule"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Organizer"
+      mc:Ignorable="d" 
+     d:DesignWidth="1293" d:DesignHeight="560"
+      Title="Schedule">
+    <Page.Resources>
+        <Style x:Key="ButtonRStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="#C5B2E2"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Bd" CornerRadius="0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" 
+                                ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="#80DADADA"/>
+                                <Setter Property="Background" TargetName="Bd" Value="#ad9ac9"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="#80DADADA"/>
+                                <Setter Property="Background" TargetName="Bd" Value="#ad9ac9"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="#80DADADA"/>
+                                <Setter Property="Background" TargetName="Bd" Value="#ad9ac9"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="313*"/>
+            <ColumnDefinition Width="314*"/>
+            <ColumnDefinition Width="292*"/>
+            <ColumnDefinition Width="291*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55.2"/>
+            <RowDefinition Height="43.2"/>
+            <RowDefinition Height="31.2"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="62"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="5,15,5,0">
+                <Label Content="Фамилия ученика:"
+                       FontSize="18" FontFamily="Segoe UI Light" Width="153"/>
+                <TextBox Height="30"
+                         Text="" 
+                         Width="227"
+                         FontSize="18" FontFamily="Segoe UI Light"
+                         Margin="5,0,0,0"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="2">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="5,15,5,0">
+                <Label Content="Группа:" 
+                       FontSize="18" FontFamily="Segoe UI Light"/>
+                <TextBox Height="30" 
+                         Width="225"
+                        FontSize="18" FontFamily="Segoe UI Light"
+                         Margin="5,0,0,0"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="3">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="5,15,5,0">
+                <Label Content="Дата с:" 
+                       FontSize="18" FontFamily="Segoe UI Light"/>
+                <DatePicker FontSize="18" FontFamily="Segoe UI Light" 
+                            Width="195" Margin="13,0,0,0"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="4">
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="5,10,5,0">
+                <CheckBox Content="Проведено" 
+                          FontSize="18" FontFamily="Segoe UI Light" 
+                          Width="123" Height="22"/>
+                <CheckBox Content="Не проведено"
+                          FontSize="18" FontFamily="Segoe UI Light" 
+                          Width="153" Height="26"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="1">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="5,0,0,0">
+                <Label Content="Дата по:" 
+                       FontSize="18" FontFamily="Segoe UI Light" 
+                       Height="37" Width="82"/>
+                <DatePicker FontSize="18" FontFamily="Segoe UI Light" 
+                            Width="190" Height="34"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="3">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="5,5,5,0">
+                <CheckBox Content="Сегодня" 
+                          FontSize="18" FontFamily="Segoe UI Light" 
+                          Width="123" Height="26"/>
+                <CheckBox Content="Применить" 
+                          FontSize="18" FontFamily="Segoe UI Light" 
+                          Width="123" Height="26"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="3" Grid.ColumnSpan="5">
+            <StackPanel HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Orientation="Horizontal"
+                        Margin="5">
+                <DataGrid Width="1283"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="0">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Button Width="40" Height="40"  
+                        Style="{DynamicResource ButtonRStyle1}" >
+                    <Image Height="30" Source="выгрузить.ico" Stretch="Fill" Width="30"/>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="3">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Button Content="Проведено" 
+                        Width="250" Height="31"  
+                        Style="{DynamicResource ButtonRStyle1}" 
+                        FontSize="18" FontFamily="Segoe UI Light"/>
+
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="4">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Button Content="Добавить занятие" 
+                        Width="250" Height="31"  
+                        Style="{DynamicResource ButtonRStyle1}" 
+                        FontSize="18" FontFamily="Segoe UI Light" Click="Button_Click_4"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
