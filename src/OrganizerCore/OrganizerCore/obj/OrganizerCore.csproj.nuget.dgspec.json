@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Diploms\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj": {}
+    "C:\\Projects\\Diploms\\Organizer\\src\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Diploms\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj": {
+    "C:\\Projects\\Diploms\\Organizer\\src\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Diploms\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj",
+        "projectUniqueName": "C:\\Projects\\Diploms\\Organizer\\src\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj",
         "projectName": "OrganizerCore",
-        "projectPath": "C:\\Projects\\Diploms\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj",
+        "projectPath": "C:\\Projects\\Diploms\\Organizer\\src\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj",
         "packagesPath": "C:\\Users\\Rapuska\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Diploms\\OrganizerCore\\OrganizerCore\\obj\\",
+        "outputPath": "C:\\Projects\\Diploms\\Organizer\\src\\OrganizerCore\\OrganizerCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rapuska\\AppData\\Roaming\\NuGet\\NuGet.Config"
