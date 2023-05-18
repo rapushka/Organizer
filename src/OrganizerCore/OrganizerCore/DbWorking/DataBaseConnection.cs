@@ -28,7 +28,7 @@ namespace Organizer.DbWorking
 			_currentContext.Database.Migrate();
 			_currentContext.Database.EnsureCreated();
 
-			_currentContext.TypesOfClasses.Load();
+			_currentContext.TypesOfLessons.Load();
 
 			return _currentContext;
 		}

@@ -5,11 +5,11 @@ namespace Organizer.DbWorking
 {
 	public class ApplicationContext : DbContext
 	{
-		public DbSet<TypeOfClass> TypesOfClasses { get; set; } = null!;
+		public DbSet<TypeOfLesson> TypesOfLessons { get; set; } = null!;
 
 		public ApplicationContext()
 		{
-			Table<TypeOfClass>.Value = TypesOfClasses;
+			Table<TypeOfLesson>.Value = TypesOfLessons;
 		}
 
 		public DbSet<T> GetTable<T>()
