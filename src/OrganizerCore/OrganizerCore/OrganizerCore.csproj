@@ -20,4 +20,12 @@
       <Folder Include="Migrations\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Resources\Background.jpeg" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Resources\Background.jpeg" />
+    </ItemGroup>
+
 </Project>
