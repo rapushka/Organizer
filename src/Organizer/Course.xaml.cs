@@ -18,7 +18,7 @@ namespace Organizer
     /// <summary>
     /// Логика взаимодействия для Course.xaml
     /// </summary>
-    public partial class Course : Page
+    public partial class Course : Page // CoursesListPage
     {
         public Course()
         {

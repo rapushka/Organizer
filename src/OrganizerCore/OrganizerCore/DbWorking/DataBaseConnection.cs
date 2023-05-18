@@ -29,6 +29,7 @@ namespace Organizer.DbWorking
 			_currentContext.Database.EnsureCreated();
 
 			_currentContext.TypesOfLessons.Load();
+			_currentContext.Courses.Load();
 
 			return _currentContext;
 		}
