@@ -1,12 +1,14 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using Organizer.DbWorking;
+using OrganizerCore.Windows.Pages;
 
 namespace OrganizerCore
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MainWindow
 	{
 		public MainWindow()
 		{
@@ -17,22 +19,23 @@ namespace OrganizerCore
 
 		private void ScheduleButton_Click(object sender, RoutedEventArgs e)
 		{
-			// MainFrame.Content = new Schedule();
+			// OpenPage<Schedule>();
 		}
 
 		private void StudentsButton_Click(object sender, RoutedEventArgs e)
 		{
-			// MainFrame.Content = new Student();
+			// OpenPage<Student>();
 		}
 
 		private void GroupsButton_Click(object sender, RoutedEventArgs e)
 		{
-			// MainFrame.Content = new Group();
+			// OpenPage<Group>();
 		}
 
-		private void CoursesButton_Click(object sender, RoutedEventArgs e)
-		{
-			// MainFrame.Content = new Course();
-		}
+		private void CoursesButton_Click(object sender, RoutedEventArgs e) => OpenPage<CoursesListPage>();
+
+		private void OpenPage<TPage>()
+			where TPage : Page, new()
+			=> MainFrame.Content = new TPage();
 	}
 }
