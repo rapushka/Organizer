@@ -138,3 +138,6 @@ C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-w
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\MainWindow.baml
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\CoursesListPage.g.cs
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\CoursesListPage.baml
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\TopicEditPage.g.cs
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\TopicEditPage.baml
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\App.baml

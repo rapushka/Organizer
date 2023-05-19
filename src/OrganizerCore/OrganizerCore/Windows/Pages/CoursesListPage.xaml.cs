@@ -49,10 +49,15 @@ public partial class CoursesListPage
 		TopicsOfCourseDataGrid.AddColumn("Количество занятий", nameof(Topic.CountOfLessons));
 	}
 
-	private void AddLessonButton_Click(object sender, RoutedEventArgs e)
+	private void EditSelectedTopicButton_Click(object sender, RoutedEventArgs e)
 	{
-		// NavigationService.Navigate(new View_Subject());
+		if (TopicsOfCourseDataGrid.SelectedItem is Topic selectedTopic)
+		{
+			EditTopic(selectedTopic);
+		}
 	}
+
+	private void AddTopicButton_Click(object sender, RoutedEventArgs e) => EditTopic(new Topic());
 
 	private void AddCourseButton_Click(object sender, RoutedEventArgs e)
 	{
@@ -66,6 +71,8 @@ public partial class CoursesListPage
 			TopicsOfCourseDataGrid.ItemsSource = Context.Topics.Where((t) => t.Course == selectedCourse).ToList();
 		}
 	}
+
+	private void EditTopic(Topic topic) => NavigationService!.Navigate(new TopicEditPage(topic));
 }
 
 public static class DataGridExtensions
