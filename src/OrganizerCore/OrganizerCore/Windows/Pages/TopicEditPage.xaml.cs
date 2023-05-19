@@ -37,4 +37,9 @@ public partial class TopicEditPage
 		LessonsDataGrid.AddColumn("Вид", $"{nameof(Lesson.Type)}.{nameof(TypeOfLesson.Title)}");
 		LessonsDataGrid.AddColumn("Количество часов", nameof(Lesson.HoursAmount));
 	}
+
+	private void EditLessonsTypeButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		
+	}
 }

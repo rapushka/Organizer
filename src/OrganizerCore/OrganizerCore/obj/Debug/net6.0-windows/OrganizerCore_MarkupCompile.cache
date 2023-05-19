@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\App.xaml
-31878257814
+4-1863232384
 
-231377995110
+24-1896708580
 2121731991194
-Windows\MainWindow.xaml;Windows\Pages\CoursesListPage.xaml;Windows\Pages\TopicEditPage.xaml;
+Windows\MainWindow.xaml;Windows\Pages\CoursesListPage.xaml;Windows\Pages\TopicEditPage.xaml;Windows\Pages\TypeOfLessonEditPage.xaml;
 
-False
+True
 

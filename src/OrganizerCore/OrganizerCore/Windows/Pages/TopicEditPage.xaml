@@ -82,7 +82,8 @@
                     Padding="5"
                     Margin="10"
                     Height="45"
-                    Content="Редактировать Типы занятий" />
+                    Click="EditLessonsTypeButton_OnClick"
+                    Content="Редактировать Виды занятий" />
             <Button Style="{StaticResource PurpleButton}"
                     Padding="5"
                     Margin="10"
