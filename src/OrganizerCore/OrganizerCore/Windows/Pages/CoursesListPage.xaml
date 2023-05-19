@@ -5,7 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:OrganizerCore.Windows.Pages"
       mc:Ignorable="d"
-      Title="CoursesListPage" Height="450" Width="800">
+      Title="CoursesListPage" Height="450" Width="800"
+
+      Loaded="Page_Loaded">
     <Page.Resources>
         <Style x:Key="ButtonRStyle1" TargetType="{x:Type Button}">
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
@@ -54,28 +56,28 @@
             </Setter>
         </Style>
     </Page.Resources>
-        <Grid>
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500*"/>
-            <ColumnDefinition Width="618*"/>
-            <ColumnDefinition Width="500*"/>
+            <ColumnDefinition Width="500*" />
+            <ColumnDefinition Width="618*" />
+            <ColumnDefinition Width="500*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="210*"/>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="191*"/>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="55" />
+            <RowDefinition Height="210*" />
+            <RowDefinition Height="55" />
+            <RowDefinition Height="191*" />
+            <RowDefinition Height="55" />
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Margin="5,10,5,5">
-                <TextBlock Text="Наименование:" 
-                           FontSize="18" FontFamily="Segoe UI Light" Width="129"/>
+                <TextBlock Text="Наименование:"
+                           FontSize="18" FontFamily="Segoe UI Light" Width="129" />
                 <TextBox Height="30" Width="741"
-                         FontSize="18" FontFamily="Segoe UI Light"/>
+                         FontSize="18" FontFamily="Segoe UI Light" />
             </StackPanel>
         </Border>
         <Border Grid.Row="0" Grid.Column="2">
@@ -83,13 +85,13 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Margin="5,10,5,5">
-                <TextBlock Text="Стоимость:" 
-                           FontSize="18" FontFamily="Segoe UI Light" Width="92"/>
+                <TextBlock Text="Стоимость:"
+                           FontSize="18" FontFamily="Segoe UI Light" Width="92" />
                 <TextBox Height="30" Width="130"
                          FontSize="18" FontFamily="Segoe UI Light"
-                         Margin="0,0,5,0"/>
+                         Margin="0,0,5,0" />
                 <TextBox Height="30" Width="130"
-                         FontSize="18" FontFamily="Segoe UI Light"/>
+                         FontSize="18" FontFamily="Segoe UI Light" />
             </StackPanel>
         </Border>
         <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0">
@@ -97,7 +99,7 @@
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Margin="5,5,5,5">
-                <DataGrid x:Name="CoursesDataGrid" Width="1283" Margin="0,0,0,-0.2"/>
+                <DataGrid x:Name="CoursesDataGrid" Width="1283" Margin="0,0,0,-0.2" AutoGenerateColumns="False" />
             </StackPanel>
         </Border>
         <Border Grid.Row="2" Grid.Column="2">
@@ -105,11 +107,11 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Margin="5,5,5,5">
-                <Button Content="Добавить курс" 
-                        Width="370" Height="31"  
-                        Style="{DynamicResource ButtonRStyle1}" 
-                        FontSize="18" FontFamily="Segoe UI Light" 
-                        Click="AddCourseButton_Click"/>
+                <Button Content="Добавить курс"
+                        Width="370" Height="31"
+                        Style="{DynamicResource ButtonRStyle1}"
+                        FontSize="18" FontFamily="Segoe UI Light"
+                        Click="AddCourseButton_Click" />
             </StackPanel>
         </Border>
         <Border Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="0">
@@ -117,7 +119,7 @@
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Margin="5,5,5,5">
-                <DataGrid x:Name="TopicsOfCourseDataGrid" Width="1283" Margin="0,0,0,-0.2"/>
+                <DataGrid x:Name="TopicsOfCourseDataGrid" Width="1283" Margin="0,0,0,-0.2" />
             </StackPanel>
         </Border>
         <Border Grid.Row="4" Grid.Column="2">
@@ -125,11 +127,11 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Margin="5,5,5,5">
-                <Button Content="Добавить занятие" 
-                        Width="370" Height="31"  
-                        Style="{DynamicResource ButtonRStyle1}" 
-                        FontSize="18" FontFamily="Segoe UI Light" 
-                        Click="AddLessonButton_Click"/>
+                <Button Content="Добавить занятие"
+                        Width="370" Height="31"
+                        Style="{DynamicResource ButtonRStyle1}"
+                        FontSize="18" FontFamily="Segoe UI Light"
+                        Click="AddLessonButton_Click" />
             </StackPanel>
         </Border>
     </Grid>
