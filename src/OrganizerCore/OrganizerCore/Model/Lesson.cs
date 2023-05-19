@@ -10,5 +10,5 @@ public class Lesson
 	public       int          Number      { get; set; }
 	public       float        HoursAmount { get; set; }
 
-	public override string ToString() => $"Занятие {Number} по теме {Topic.Title}";
+	public override string ToString() => $"Занятие {Number} по теме {Topic.Title} в курсе {Topic.Course.Title}";
 }

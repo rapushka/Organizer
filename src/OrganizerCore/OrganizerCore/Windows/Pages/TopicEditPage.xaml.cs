@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
@@ -32,11 +33,22 @@ public partial class TopicEditPage
 	{
 		LessonsDataGrid.Columns.Clear();
 
-		LessonsDataGrid.AddColumn("ID", nameof(Lesson.Id), Visibility.Collapsed);
-		LessonsDataGrid.AddColumn("Номер занятия", nameof(Lesson.Number));
-		LessonsDataGrid.AddColumn("Вид", $"{nameof(Lesson.Type)}.{nameof(TypeOfLesson.Title)}");
-		LessonsDataGrid.AddColumn("Количество часов", nameof(Lesson.HoursAmount));
+		LessonsDataGrid.AddTextColumn("ID", nameof(Lesson.Id), Visibility.Collapsed);
+		LessonsDataGrid.AddTextColumn("Номер занятия", nameof(Lesson.Number));
+		LessonsDataGrid.AddComboBoxColumn
+		(
+			header: "Вид",
+			binding: nameof(Lesson.Type),
+			itemsSource: TypesOfLessons,
+			displayMemberPath: nameof(TypeOfLesson.Title),
+			selectedValuePath: nameof(TypeOfLesson.Id)
+		);
+
+		LessonsDataGrid.AddTextColumn("Количество часов", nameof(Lesson.HoursAmount));
 	}
+
+	private static IEnumerable<TypeOfLesson> TypesOfLessons
+		=> DataBaseConnection.Instance.Observable<TypeOfLesson>();
 
 	private void EditLessonsTypeButton_OnClick(object sender, RoutedEventArgs e)
 		=> NavigationService!.Navigate(new TypesOfLessonsListPage());

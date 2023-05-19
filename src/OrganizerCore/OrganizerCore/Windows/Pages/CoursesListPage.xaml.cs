@@ -32,21 +32,21 @@ public partial class CoursesListPage
 	{
 		CoursesDataGrid.Columns.Clear();
 
-		CoursesDataGrid.AddColumn("ID", nameof(Course.Id), Visibility.Collapsed);
-		CoursesDataGrid.AddColumn("Название", nameof(Course.Title));
-		CoursesDataGrid.AddColumn("Описание", nameof(Course.Description));
-		CoursesDataGrid.AddColumn("Продолжительность", nameof(Course.Duration));
-		CoursesDataGrid.AddColumn("Стоимость", nameof(Course.Price));
-		CoursesDataGrid.AddColumn("Количество занятий", nameof(Course.LessonsCount));
+		CoursesDataGrid.AddTextColumn("ID", nameof(Course.Id), Visibility.Collapsed);
+		CoursesDataGrid.AddTextColumn("Название", nameof(Course.Title));
+		CoursesDataGrid.AddTextColumn("Описание", nameof(Course.Description));
+		CoursesDataGrid.AddTextColumn("Продолжительность", nameof(Course.Duration));
+		CoursesDataGrid.AddTextColumn("Стоимость", nameof(Course.Price));
+		CoursesDataGrid.AddTextColumn("Количество занятий", nameof(Course.LessonsCount));
 	}
 
 	private void SetupTopicsOfCourseDataGrid()
 	{
 		TopicsOfCourseDataGrid.Columns.Clear();
 
-		TopicsOfCourseDataGrid.AddColumn("ID", nameof(Topic.Id), Visibility.Collapsed);
-		TopicsOfCourseDataGrid.AddColumn("Название", nameof(Topic.Title));
-		TopicsOfCourseDataGrid.AddColumn("Количество занятий", nameof(Topic.CountOfLessons));
+		TopicsOfCourseDataGrid.AddTextColumn("ID", nameof(Topic.Id), Visibility.Collapsed);
+		TopicsOfCourseDataGrid.AddTextColumn("Название", nameof(Topic.Title));
+		TopicsOfCourseDataGrid.AddTextColumn("Количество занятий", nameof(Topic.CountOfLessons));
 	}
 
 	private void EditSelectedTopicButton_Click(object sender, RoutedEventArgs e)

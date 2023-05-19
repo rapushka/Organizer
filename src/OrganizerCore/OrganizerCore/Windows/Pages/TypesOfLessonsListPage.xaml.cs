@@ -30,8 +30,8 @@ public partial class TypesOfLessonsListPage
 	{
 		TypesOfLessonsDataGrid.Columns.Clear();
 
-		TypesOfLessonsDataGrid.AddColumn("ID", nameof(TypeOfLesson.Id), Visibility.Collapsed);
-		TypesOfLessonsDataGrid.AddColumn("Название", nameof(TypeOfLesson.Title));
+		TypesOfLessonsDataGrid.AddTextColumn("ID", nameof(TypeOfLesson.Id), Visibility.Collapsed);
+		TypesOfLessonsDataGrid.AddTextColumn("Название", nameof(TypeOfLesson.Title));
 	}
 
 	private void AddButton_OnClick(object sender, RoutedEventArgs e)
