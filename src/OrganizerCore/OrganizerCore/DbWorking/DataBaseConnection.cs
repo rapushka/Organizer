@@ -30,6 +30,7 @@ namespace Organizer.DbWorking
 
 			_currentContext.TypesOfLessons.Load();
 			_currentContext.Courses.Load();
+			_currentContext.Topics.Load();
 
 			return _currentContext;
 		}

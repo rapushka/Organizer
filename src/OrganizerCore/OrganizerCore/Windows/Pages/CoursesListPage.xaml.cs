@@ -9,17 +9,13 @@ namespace OrganizerCore.Windows.Pages;
 
 public partial class CoursesListPage
 {
-	public CoursesListPage()
-	{
-		InitializeComponent();
-	}
+	public CoursesListPage() => InitializeComponent();
 
 	private void Page_Loaded(object sender, RoutedEventArgs e)
 	{
 		var dbContext = DataBaseConnection.Instance.CurrentContext;
 		var courses = dbContext.Courses.ToList();
 
-		// Assign data to DataGrid
 		CoursesDataGrid.ItemsSource = courses;
 
 		ApplyCustomColumnDefinitions();

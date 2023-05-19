@@ -6,12 +6,14 @@ namespace Organizer.DbWorking
 	public class ApplicationContext : DbContext
 	{
 		public DbSet<TypeOfLesson> TypesOfLessons { get; set; } = null!;
-		public DbSet<Course>       Courses { get; set; } = null!;
+		public DbSet<Course>       Courses        { get; set; } = null!;
+		public DbSet<Topic>        Topics          { get; set; } = null!;
 
 		public ApplicationContext()
 		{
 			Table<TypeOfLesson>.Value = TypesOfLessons;
 			Table<Course>.Value = Courses;
+			Table<Topic>.Value = Topics;
 		}
 
 		public DbSet<T> GetTable<T>()
