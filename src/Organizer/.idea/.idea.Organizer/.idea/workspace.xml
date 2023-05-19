@@ -8,8 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.g.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/TopicEditPage.baml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/TopicEditPage.baml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/TopicEditPage.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/TopicEditPage.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/ref/OrganizerCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/ref/OrganizerCore.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/refint/OrganizerCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/refint/OrganizerCore.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

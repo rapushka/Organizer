@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:OrganizerCore.Windows.Pages"
       mc:Ignorable="d"
-      Title="TopicEditPage" Height="450" Width="400"
+      Title="TopicEditPage" Height="450" Width="450"
 
       Loaded="Page_OnLoaded">
     <Grid>
