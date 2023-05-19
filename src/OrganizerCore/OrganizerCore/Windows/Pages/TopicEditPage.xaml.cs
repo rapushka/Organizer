@@ -42,4 +42,10 @@ public partial class TopicEditPage
 		=> NavigationService!.Navigate(new TypesOfLessonsListPage());
 
 	private void OkButton_OnClick(object sender, RoutedEventArgs e) => NavigationService!.GoBack();
+
+	private void TitleTextBox_OnLostFocus(object sender, RoutedEventArgs e)
+	{
+		_topic.Title = TitleTextBox.Text;
+		Context.SaveChanges();
+	}
 }

@@ -56,6 +56,7 @@
                  Margin="10"
                  FontSize="16"
                  FontFamily="Segoe UI Light"
+                 LostFocus="TitleTextBox_OnLostFocus"
                  Text="[Название темы]" />
 
         <TextBlock Grid.Column="0" Grid.Row="3"
