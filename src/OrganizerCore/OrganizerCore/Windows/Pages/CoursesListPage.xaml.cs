@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using Organizer.DbWorking;
-using Organizer.Model;
+using OrganizerCore.DbWorking;
+using OrganizerCore.Model;
 using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages;

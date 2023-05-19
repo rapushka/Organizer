@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Organizer.Model;
 using System.Linq;
+using OrganizerCore.Model;
 
-namespace Organizer.DbWorking;
+namespace OrganizerCore.DbWorking;
 
 public static class Dependencies
 {

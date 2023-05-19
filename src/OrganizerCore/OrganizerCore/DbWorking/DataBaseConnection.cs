@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
 
-namespace Organizer.DbWorking;
+namespace OrganizerCore.DbWorking;
 
 public class DataBaseConnection
 {

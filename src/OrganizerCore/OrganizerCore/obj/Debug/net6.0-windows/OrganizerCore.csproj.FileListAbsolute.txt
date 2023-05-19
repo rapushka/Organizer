@@ -122,7 +122,6 @@ C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-w
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.csproj.AssemblyReference.cache
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\App.g.cs
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore_MarkupCompile.cache
-C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore_MarkupCompile.lref
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.g.resources
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.GeneratedMSBuildEditorConfig.editorconfig
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.AssemblyInfoInputs.cache

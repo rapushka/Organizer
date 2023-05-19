@@ -1,13 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using Organizer.DbWorking;
-using Organizer.Model;
+using OrganizerCore.DbWorking;
+using OrganizerCore.Model;
+using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
-using static System.Windows.MessageBoxButton;
-using static System.Windows.MessageBoxImage;
-using static System.Windows.MessageBoxResult;
 
 namespace OrganizerCore.Windows.Pages;
 
@@ -16,6 +13,9 @@ public partial class TypesOfLessonsListPage
 	public TypesOfLessonsListPage() => InitializeComponent();
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
+
+	private ObservableCollection<TypeOfLesson> TypesOfLessons
+		=> (ObservableCollection<TypeOfLesson>)TypesOfLessonsDataGrid.ItemsSource;
 
 	private void TypesOfLessonsListPage_OnLoaded(object sender, RoutedEventArgs e)
 	{
@@ -50,44 +50,23 @@ public partial class TypesOfLessonsListPage
 
 	private void RemoveButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		if (TypesOfLessonsDataGrid.SelectedItem is TypeOfLesson selectedType)
+		if (TypesOfLessonsDataGrid.SelectedItem is TypeOfLesson selectedType
+		    && MessageBoxUtils.ConfirmDeletion(of: selectedType))
 		{
-			var dependentEntries = Dependencies.For(selectedType);
-
-			if (dependentEntries.Any())
-			{
-				var entries = string.Join(",\n", dependentEntries);
-
-				var result = MessageBox.Show
-				(
-					messageBoxText: $"В бд остались связаные записи:\n{entries}\n\nПродолжить?",
-					caption: "Предупреждение",
-					button: YesNo,
-					icon: Warning
-				);
-				if (result != Yes)
-				{
-					return;
-				}
-			}
-
-			var typesOfLessons = (ObservableCollection<TypeOfLesson>)TypesOfLessonsDataGrid.ItemsSource;
-			typesOfLessons.Remove(selectedType);
+			TypesOfLessons.Remove(selectedType);
+			Save();
 		}
 	}
 
 	private void TypesOfLessonsDataGrid_OnCellEditEnding(object? sender, DataGridCellEditEndingEventArgs e)
 	{
-		if (e.EditingElement is not TextBox editedCell
-		    || e.Row.DataContext is not TypeOfLesson editedTypeOfLesson)
+		if (e.EditingElement is TextBox editedCell
+		    && e.Row.DataContext is TypeOfLesson editedTypeOfLesson)
 		{
-			return;
+			editedTypeOfLesson.Title = editedCell.Text;
+			Save();
 		}
-
-		var editedValue = editedCell.Text;
-		editedTypeOfLesson.Title = editedValue;
-
-		Context.SaveChanges();
-		MessageBox.Show(string.Join(", ", Context.TypesOfLessons.Select((tol) => tol.Title)));
 	}
+
+	private static void Save() => Context.SaveChanges();
 }

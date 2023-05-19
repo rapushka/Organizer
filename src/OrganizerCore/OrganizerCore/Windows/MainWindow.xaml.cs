@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using Organizer.DbWorking;
+using OrganizerCore.DbWorking;
 using OrganizerCore.Windows.Pages;
 
 namespace OrganizerCore

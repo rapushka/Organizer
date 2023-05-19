@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using Organizer.DbWorking;
+using OrganizerCore.DbWorking;
 
-namespace Organizer.Model;
+namespace OrganizerCore.Model;
 
 public class Topic
 {

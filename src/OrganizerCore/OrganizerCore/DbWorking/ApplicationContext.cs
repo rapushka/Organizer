@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Organizer.Model;
+using OrganizerCore.Model;
 
-namespace Organizer.DbWorking
+namespace OrganizerCore.DbWorking
 {
 	public class ApplicationContext : DbContext
 	{

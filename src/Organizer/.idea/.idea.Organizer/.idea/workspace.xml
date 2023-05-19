@@ -8,24 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/DbWorking/Dependencies.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_3jx3i5rj_wpftmp.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_3jx3i5rj_wpftmp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_3jx3i5rj_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_3jx3i5rj_wpftmp.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_vwkaxiza_wpftmp.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_vwkaxiza_wpftmp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_vwkaxiza_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_vwkaxiza_wpftmp.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/DbWorking/DataBaseConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/DbWorking/DataBaseConnection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/MessageBoxUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/App.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/App.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/CoursesListPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/CoursesListPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypesOfLessonsListPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypesOfLessonsListPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypesOfLessonsListPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypesOfLessonsListPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/ref/OrganizerCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/ref/OrganizerCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/refint/OrganizerCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/refint/OrganizerCore.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.lref" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
