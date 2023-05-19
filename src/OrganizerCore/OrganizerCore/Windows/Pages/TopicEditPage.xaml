@@ -88,11 +88,6 @@
                     Margin="10"
                     Height="45"
                     Content="ОК" />
-            <Button Style="{StaticResource PurpleButton}"
-                    Padding="5"
-                    Margin="10"
-                    Height="45"
-                    Content="Отмена" />
         </StackPanel>
     </Grid>
 </Page>
