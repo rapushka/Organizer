@@ -8,25 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypeOfLessonEditPage.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypeOfLessonEditPage.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_0mc4jijp_wpftmp.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_0mc4jijp_wpftmp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_0mc4jijp_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_0mc4jijp_wpftmp.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/TypeOfLessonEditPage.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TopicEditPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/App.baml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.g.resources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.lref" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.lref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/MainWindow.baml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/CoursesListPage.baml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/TopicEditPage.baml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/TopicEditPage.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/TopicEditPage.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypeOfLessonEditPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypesOfLessonsListPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypeOfLessonEditPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/TypesOfLessonsListPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.lref" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

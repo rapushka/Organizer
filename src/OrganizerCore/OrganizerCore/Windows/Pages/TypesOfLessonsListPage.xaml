@@ -1,11 +1,12 @@
-﻿<Page x:Class="OrganizerCore.Windows.Pages.TypeOfLessonEditPage"
+﻿<Page x:Class="OrganizerCore.Windows.Pages.TypesOfLessonsListPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:OrganizerCore.Windows.Pages"
       mc:Ignorable="d"
-      Title="TypeOfLessonEditPage" Height="450" Width="300">
+      Title="TypeOfLessonEditPage" Height="450" Width="300"
+      Loaded="TypesOfLessonsListPage_OnLoaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -60,7 +61,7 @@
                 Padding="5"
                 Margin="10"
                 Height="45"
+                Click="OkBase_OnClick"
                 Content="ОК" />
-
     </Grid>
 </Page>
