@@ -11,37 +11,41 @@ public partial class CoursesListPage
 {
 	public CoursesListPage() => InitializeComponent();
 
+	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
+
 	private void Page_Loaded(object sender, RoutedEventArgs e)
 	{
-		var dbContext = DataBaseConnection.Instance.CurrentContext;
-		var courses = dbContext.Courses.ToList();
+		var courses = Context.Courses.ToList();
 
 		CoursesDataGrid.ItemsSource = courses;
 
-		ApplyCustomColumnDefinitions();
+		ApplyCustomColumns();
 	}
 
-	private void ApplyCustomColumnDefinitions()
+	private void ApplyCustomColumns()
+	{
+		SetupCoursesDataGrid();
+		SetupTopicsOfCourseDataGrid();
+	}
+
+	private void SetupCoursesDataGrid()
 	{
 		CoursesDataGrid.Columns.Clear();
 
-		AddColumn("ID", nameof(Course.Id), Visibility.Collapsed);
-		AddColumn("Название", nameof(Course.Title));
-		AddColumn("Описание", nameof(Course.Description));
-		AddColumn("Продолжительность", nameof(Course.Duration));
-		AddColumn("Стоимость", nameof(Course.Price));
-		AddColumn("Количество занятий", nameof(Course.LessonsCount));
+		CoursesDataGrid.AddColumn("ID", nameof(Course.Id), Visibility.Collapsed);
+		CoursesDataGrid.AddColumn("Название", nameof(Course.Title));
+		CoursesDataGrid.AddColumn("Описание", nameof(Course.Description));
+		CoursesDataGrid.AddColumn("Продолжительность", nameof(Course.Duration));
+		CoursesDataGrid.AddColumn("Стоимость", nameof(Course.Price));
+		CoursesDataGrid.AddColumn("Количество занятий", nameof(Course.LessonsCount));
 	}
 
-	private void AddColumn(string header, string binding, Visibility visibility = Visibility.Visible)
+	private void SetupTopicsOfCourseDataGrid()
 	{
-		var column = new DataGridTextColumn
-		{
-			Header = header,
-			Binding = new Binding(binding),
-			Visibility = visibility,
-		};
-		CoursesDataGrid.Columns.Add(column);
+		TopicsOfCourseDataGrid.Columns.Clear();
+
+		TopicsOfCourseDataGrid.AddColumn("ID", nameof(Topic.Id), Visibility.Collapsed);
+		TopicsOfCourseDataGrid.AddColumn("Название", nameof(Topic.Title));
 	}
 
 	private void AddLessonButton_Click(object sender, RoutedEventArgs e)
@@ -52,5 +56,30 @@ public partial class CoursesListPage
 	private void AddCourseButton_Click(object sender, RoutedEventArgs e)
 	{
 		// NavigationService.Navigate(new AddCourse());
+	}
+
+	private void CoursesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+		if (CoursesDataGrid.SelectedItem is Course selectedCourse)
+		{
+			TopicsOfCourseDataGrid.ItemsSource = Context.Topics.Where((t) => t.Course == selectedCourse).ToList();
+		}
+	}
+}
+
+public static class DataGridExtensions
+{
+	public static void AddColumn
+		(this DataGrid @this, string header, string binding, Visibility visibility = Visibility.Visible)
+	{
+		@this.Columns.Add
+		(
+			new DataGridTextColumn
+			{
+				Header = header,
+				Binding = new Binding(binding),
+				Visibility = visibility,
+			}
+		);
 	}
 }

@@ -99,7 +99,8 @@
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Margin="5,5,5,5">
-                <DataGrid x:Name="CoursesDataGrid" Width="1283" Margin="0,0,0,-0.2" AutoGenerateColumns="False" />
+                <DataGrid x:Name="CoursesDataGrid" Width="1283" Margin="0,0,0,-0.2" AutoGenerateColumns="False"
+                          SelectionChanged="CoursesDataGrid_SelectionChanged" />
             </StackPanel>
         </Border>
         <Border Grid.Row="2" Grid.Column="2">
@@ -119,7 +120,7 @@
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Margin="5,5,5,5">
-                <DataGrid x:Name="TopicsOfCourseDataGrid" Width="1283" Margin="0,0,0,-0.2" />
+                <DataGrid x:Name="TopicsOfCourseDataGrid" Width="1283" Margin="0,0,0,-0.2" AutoGenerateColumns="False" />
             </StackPanel>
         </Border>
         <Border Grid.Row="4" Grid.Column="2">
