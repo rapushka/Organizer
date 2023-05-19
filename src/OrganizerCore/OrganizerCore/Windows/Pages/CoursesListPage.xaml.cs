@@ -46,6 +46,7 @@ public partial class CoursesListPage
 
 		TopicsOfCourseDataGrid.AddColumn("ID", nameof(Topic.Id), Visibility.Collapsed);
 		TopicsOfCourseDataGrid.AddColumn("Название", nameof(Topic.Title));
+		TopicsOfCourseDataGrid.AddColumn("Количество занятий", nameof(Topic.CountOfLessons));
 	}
 
 	private void AddLessonButton_Click(object sender, RoutedEventArgs e)
