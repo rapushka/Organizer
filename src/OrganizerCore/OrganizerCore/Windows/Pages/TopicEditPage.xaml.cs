@@ -39,7 +39,7 @@ public partial class TopicEditPage
 	}
 
 	private void EditLessonsTypeButton_OnClick(object sender, RoutedEventArgs e)
-	{
-		NavigationService!.Navigate(new TypesOfLessonsListPage());
-	}
+		=> NavigationService!.Navigate(new TypesOfLessonsListPage());
+
+	private void OkButton_OnClick(object sender, RoutedEventArgs e) => NavigationService!.GoBack();
 }

@@ -87,6 +87,7 @@
                     Padding="5"
                     Margin="10"
                     Height="45"
+                    Click="OkButton_OnClick"
                     Content="ОК" />
         </StackPanel>
     </Grid>
