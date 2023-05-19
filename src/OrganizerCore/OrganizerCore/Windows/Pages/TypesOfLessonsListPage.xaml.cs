@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +17,7 @@ public partial class TypesOfLessonsListPage
 
 	private void TypesOfLessonsListPage_OnLoaded(object sender, RoutedEventArgs e)
 	{
-		TypesOfLessonsDataGrid.ItemsSource = Context.TypesOfLessons.ToList();
+		TypesOfLessonsDataGrid.ItemsSource = DataBaseConnection.Instance.Observable<TypeOfLesson>();
 
 		SetupTypesOfLessonsTable();
 	}
@@ -34,14 +35,16 @@ public partial class TypesOfLessonsListPage
 	private void AddButton_OnClick(object sender, RoutedEventArgs e)
 	{
 		var newType = new TypeOfLesson();
-		TypesOfLessonsDataGrid.Items.Add(newType);
 
-		TypesOfLessonsDataGrid.SelectedItem = newType;
-		TypesOfLessonsDataGrid.ScrollIntoView(newType);
-		TypesOfLessonsDataGrid.BeginEdit();
+		if (TypesOfLessonsDataGrid.ItemsSource is ObservableCollection<TypeOfLesson> typesOfLessons)
+		{
+			typesOfLessons.Add(newType);
+
+			TypesOfLessonsDataGrid.SelectedItem = newType;
+			TypesOfLessonsDataGrid.ScrollIntoView(newType);
+			TypesOfLessonsDataGrid.BeginEdit();
+		}
 	}
-
-	private void EditButton_OnClick(object sender, RoutedEventArgs e) { }
 
 	private void RemoveButton_OnClick(object sender, RoutedEventArgs e) { }
 
@@ -56,7 +59,6 @@ public partial class TypesOfLessonsListPage
 		var editedValue = editedCell.Text;
 		editedTypeOfLesson.Title = editedValue;
 
-		Context.Entry(editedTypeOfLesson).State = EntityState.Modified;
 		Context.SaveChanges();
 		MessageBox.Show(string.Join(", ", Context.TypesOfLessons.Select((tol) => tol.Title)));
 	}
