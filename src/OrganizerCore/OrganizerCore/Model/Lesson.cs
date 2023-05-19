@@ -9,4 +9,6 @@ public class Lesson
 	public       Topic        Topic       { get; set; } = null!;
 	public       int          Number      { get; set; }
 	public       float        HoursAmount { get; set; }
+
+	public override string ToString() => $"Занятие {Number} по теме {Topic.Title}";
 }
