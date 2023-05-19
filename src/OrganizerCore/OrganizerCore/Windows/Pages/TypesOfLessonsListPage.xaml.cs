@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,6 +7,7 @@ using Organizer.Model;
 using OrganizerCore.Tools.Extensions;
 using static System.Windows.MessageBoxButton;
 using static System.Windows.MessageBoxImage;
+using static System.Windows.MessageBoxResult;
 
 namespace OrganizerCore.Windows.Pages;
 
@@ -53,24 +52,29 @@ public partial class TypesOfLessonsListPage
 	{
 		if (TypesOfLessonsDataGrid.SelectedItem is TypeOfLesson selectedType)
 		{
-			var dependentEntries = CheckForDependentEntries(selectedType);
+			var dependentEntries = Dependencies.For(selectedType);
 
 			if (dependentEntries.Any())
 			{
 				var entries = string.Join(",\n", dependentEntries);
 
-				MessageBox.Show($"В бд остались связаные записи!\n\n{entries}", "Отмена удаления");
+				var result = MessageBox.Show
+				(
+					messageBoxText: $"В бд остались связаные записи:\n{entries}\n\nПродолжить?",
+					caption: "Предупреждение",
+					button: YesNo,
+					icon: Warning
+				);
+				if (result != Yes)
+				{
+					return;
+				}
 			}
-			else
-			{
-				var typesOfLessons = (ObservableCollection<TypeOfLesson>)TypesOfLessonsDataGrid.ItemsSource;
-				typesOfLessons.Remove(selectedType);
-			}
+
+			var typesOfLessons = (ObservableCollection<TypeOfLesson>)TypesOfLessonsDataGrid.ItemsSource;
+			typesOfLessons.Remove(selectedType);
 		}
 	}
-
-	private static List<string> CheckForDependentEntries(TypeOfLesson type)
-		=> Context.Lessons.Where((l) => l.Type.Id == type.Id).Select((l) => $"{l} из таблицы Занятия").ToList();
 
 	private void TypesOfLessonsDataGrid_OnCellEditEnding(object? sender, DataGridCellEditEndingEventArgs e)
 	{
