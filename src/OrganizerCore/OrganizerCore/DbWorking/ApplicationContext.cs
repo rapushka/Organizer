@@ -7,13 +7,15 @@ namespace Organizer.DbWorking
 	{
 		public DbSet<TypeOfLesson> TypesOfLessons { get; set; } = null!;
 		public DbSet<Course>       Courses        { get; set; } = null!;
-		public DbSet<Topic>        Topics          { get; set; } = null!;
+		public DbSet<Topic>        Topics         { get; set; } = null!;
+		public DbSet<Lesson>       Lessons        { get; set; } = null!;
 
 		public ApplicationContext()
 		{
 			Table<TypeOfLesson>.Value = TypesOfLessons;
 			Table<Course>.Value = Courses;
 			Table<Topic>.Value = Topics;
+			Table<Lesson>.Value = Lessons;
 		}
 
 		public DbSet<T> GetTable<T>()

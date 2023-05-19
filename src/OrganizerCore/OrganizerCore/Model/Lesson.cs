@@ -1,0 +1,12 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Organizer.Model;
+
+public class Lesson
+{
+	[Key] public int          Id          { get; set; }
+	public       TypeOfLesson Type        { get; set; } = null!;
+	public       Topic        Topic       { get; set; } = null!;
+	public       int          Number      { get; set; }
+	public       float        HoursAmount { get; set; }
+}
