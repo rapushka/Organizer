@@ -77,12 +77,12 @@
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
                     Margin="10"
-                    Height="45"
+                    Height="50"
                     Click="AddLessonButton_OnClick"
                     Content="Добавить занятие" />
             <Button Style="{StaticResource PurpleButton}"
                     Margin="10"
-                    Height="45"
+                    Height="50"
                     Click="RemoveLessonButton_OnClick"
                     Content="Удалить занятие" />
         </StackPanel>
@@ -92,12 +92,12 @@
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
                     Margin="10"
-                    Height="45"
+                    Height="50"
                     Click="EditLessonsTypesListButton_OnClick"
                     Content="Редактировать Виды занятий" />
             <Button Style="{StaticResource PurpleButton}"
                     Margin="10"
-                    Height="45"
+                    Height="50"
                     Click="OkButton_OnClick"
                     Content="ОК" />
         </StackPanel>

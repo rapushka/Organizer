@@ -23,15 +23,23 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Text="Наименование:" />
-            <TextBox Grid.Column="1" Text="[Наименование]" />
+            <TextBlock Grid.Column="0"
+                       Style="{StaticResource Header}"
+                       Text="Поиск по названию:" />
+            <TextBox Grid.Column="1"
+                     Style="{StaticResource TextBox}" />
         </Grid>
 
         <TextBlock Grid.Row="1"
+                   Style="{StaticResource Header}"
                    Margin="10,0"
                    VerticalAlignment="Bottom"
                    Text="Курсы:" />
-        <DataGrid Grid.Row="2" />
+        <DataGrid Grid.Row="2"
+                  x:Name="CoursesDataGrid"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  SelectionChanged="CoursesDataGrid_SelectionChanged" />
 
         <StackPanel Grid.Row="3"
                     Orientation="Horizontal"
@@ -39,19 +47,26 @@
                     Margin="0,0,25,0">
             <Button
                 Style="{StaticResource PurpleButton}"
-                Margin="10,0"
+                Margin="10"
+                Height="50"
+                Click="AddCourseButton_Click"
                 Content="Добавить" />
             <Button
                 Style="{StaticResource PurpleButton}"
-                Margin="10,0"
+                Margin="10"
+                Height="50"
                 Content="Удалить" />
         </StackPanel>
 
         <TextBlock Grid.Row="4"
+                   Style="{StaticResource Header}"
                    Margin="10,0"
                    VerticalAlignment="Bottom"
                    Text="Темы курса:" />
-        <DataGrid Grid.Row="5" />
+        <DataGrid Grid.Row="5"
+                  x:Name="TopicsOfCourseDataGrid"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False" />
 
         <StackPanel Grid.Row="6"
                     Orientation="Horizontal"
@@ -59,15 +74,20 @@
                     Margin="0,0,25,0">
             <Button
                 Style="{StaticResource PurpleButton}"
-                Margin="10,0"
+                Margin="10"
+                Height="50"
+                Click="AddTopicButton_Click"
                 Content="Добавить" />
             <Button
                 Style="{StaticResource PurpleButton}"
-                Margin="10,0"
-                Content="Изменить" />
+                Margin="10"
+                Height="50"
+                Click="EditSelectedTopicButton_Click"
+                Content="Редактировать" />
             <Button
                 Style="{StaticResource PurpleButton}"
-                Margin="10,0"
+                Margin="10"
+                Height="50"
                 Content="Удалить" />
         </StackPanel>
 
