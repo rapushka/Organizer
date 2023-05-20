@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools.Extensions;
@@ -20,16 +22,56 @@ public partial class TopicEditPage
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
+	private static IEnumerable<TypeOfLesson> TypesOfLessons => DataBaseConnection.Instance.Observe<TypeOfLesson>();
+
+	private static ObservableCollection<Lesson> Lessons => DataBaseConnection.Instance.Observe<Lesson>();
+
 	private void Page_OnLoaded(object sender, RoutedEventArgs e)
 	{
 		CourseTitleTextBox.Text = _topic.Course.Title;
 		TitleTextBox.Text = _topic.Title;
-		LessonsDataGrid.ItemsSource = Context.Lessons.Where((l) => l.Topic == _topic).ToList();
 
-		SetupLessonsTable();
+		ShowLessonsOnlyForCurrentTopic();
+		SetupLessonsColumns();
 	}
 
-	private void SetupLessonsTable()
+	private void EditLessonsTypesListButton_OnClick(object sender, RoutedEventArgs e)
+		=> NavigationService!.Navigate(new TypesOfLessonsListPage());
+
+	private void OkButton_OnClick(object sender, RoutedEventArgs e) => NavigationService!.GoBack();
+
+	private void AddLessonButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		var newLesson = new Lesson
+		{
+			Type = TypesOfLessons.First(),
+			Topic = _topic,
+		};
+		Lessons.Add(newLesson);
+
+		LessonsDataGrid.FocusOn(newLesson);
+	}
+
+	private void TitleTextBox_OnLostFocus(object sender, RoutedEventArgs e)
+	{
+		_topic.Title = TitleTextBox.Text;
+		Context.SaveChanges();
+	}
+
+	private void ShowLessonsOnlyForCurrentTopic()
+	{
+		var lessonsViewSource = new CollectionViewSource
+		{
+			Source = Lessons,
+		};
+		lessonsViewSource.Filter += LessonsViewSource_Filter;
+		LessonsDataGrid.ItemsSource = lessonsViewSource.View;
+	}
+
+	private void LessonsViewSource_Filter(object sender, FilterEventArgs e)
+		=> e.Accepted = (e.Item as Lesson)?.Topic == _topic;
+
+	private void SetupLessonsColumns()
 	{
 		LessonsDataGrid.Columns.Clear();
 
@@ -45,19 +87,5 @@ public partial class TopicEditPage
 		);
 
 		LessonsDataGrid.AddTextColumn("Количество часов", nameof(Lesson.HoursAmount));
-	}
-
-	private static IEnumerable<TypeOfLesson> TypesOfLessons
-		=> DataBaseConnection.Instance.Observable<TypeOfLesson>();
-
-	private void EditLessonsTypeButton_OnClick(object sender, RoutedEventArgs e)
-		=> NavigationService!.Navigate(new TypesOfLessonsListPage());
-
-	private void OkButton_OnClick(object sender, RoutedEventArgs e) => NavigationService!.GoBack();
-
-	private void TitleTextBox_OnLostFocus(object sender, RoutedEventArgs e)
-	{
-		_topic.Title = TitleTextBox.Text;
-		Context.SaveChanges();
 	}
 }

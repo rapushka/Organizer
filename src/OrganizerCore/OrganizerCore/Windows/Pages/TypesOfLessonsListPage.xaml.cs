@@ -19,7 +19,7 @@ public partial class TypesOfLessonsListPage
 
 	private void TypesOfLessonsListPage_OnLoaded(object sender, RoutedEventArgs e)
 	{
-		TypesOfLessonsDataGrid.ItemsSource = DataBaseConnection.Instance.Observable<TypeOfLesson>();
+		TypesOfLessonsDataGrid.ItemsSource = DataBaseConnection.Instance.Observe<TypeOfLesson>();
 
 		SetupTypesOfLessonsTable();
 	}
@@ -37,21 +37,20 @@ public partial class TypesOfLessonsListPage
 	private void AddButton_OnClick(object sender, RoutedEventArgs e)
 	{
 		var newType = new TypeOfLesson();
+		TypesOfLessons.Add(newType);
 
-		if (TypesOfLessonsDataGrid.ItemsSource is ObservableCollection<TypeOfLesson> typesOfLessons)
-		{
-			typesOfLessons.Add(newType);
-
-			TypesOfLessonsDataGrid.SelectedItem = newType;
-			TypesOfLessonsDataGrid.ScrollIntoView(newType);
-			TypesOfLessonsDataGrid.BeginEdit();
-		}
+		TypesOfLessonsDataGrid.FocusOn(newType);
 	}
 
 	private void RemoveButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		if (TypesOfLessonsDataGrid.SelectedItem is TypeOfLesson selectedType
-		    && MessageBoxUtils.ConfirmDeletion(of: selectedType))
+		if (TypesOfLessonsDataGrid.SelectedItem is not TypeOfLesson selectedType)
+		{
+			MessageBoxUtils.ShowError("Не выбран вид!");
+			return;
+		}
+
+		if (MessageBoxUtils.ConfirmDeletion(of: selectedType))
 		{
 			TypesOfLessons.Remove(selectedType);
 			Save();
@@ -60,12 +59,10 @@ public partial class TypesOfLessonsListPage
 
 	private void TypesOfLessonsDataGrid_OnCellEditEnding(object? sender, DataGridCellEditEndingEventArgs e)
 	{
-		if (e.EditingElement is TextBox editedCell
-		    && e.Row.DataContext is TypeOfLesson editedTypeOfLesson)
-		{
-			editedTypeOfLesson.Title = editedCell.Text;
-			Save();
-		}
+		var editedCell = (TextBox)e.EditingElement;
+		var editedTypeOfLesson = (TypeOfLesson)e.Row.DataContext;
+		editedTypeOfLesson.Title = editedCell.Text;
+		Save();
 	}
 
 	private static void Save() => Context.SaveChanges();

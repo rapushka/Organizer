@@ -15,7 +15,7 @@ public class DataBaseConnection
 
 	public ApplicationContext CurrentContext => _currentContext ?? throw new NullReferenceException();
 
-	public ObservableCollection<T> Observable<T>()
+	public ObservableCollection<T> Observe<T>()
 		where T : class
 		=> CurrentContext.GetTable<T>().Local.ToObservableCollection();
 
