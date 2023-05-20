@@ -16,10 +16,7 @@ public partial class CoursesListPage
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
-	private ObservableCollection<Course> Courses
-		=> (ObservableCollection<Course>)CoursesDataGrid.ItemsSource;
-	private ObservableCollection<Topic> TopicsOfCourse
-		=> (ObservableCollection<Topic>)TopicsOfCourseDataGrid.ItemsSource;
+	private ObservableCollection<Topic> TopicsOfCourse => DataBaseConnection.Instance.Observe<Topic>();
 
 	private Course SelectedCourse => (Course)CoursesDataGrid.SelectedItem;
 
