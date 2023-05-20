@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Data;
@@ -7,6 +8,7 @@ using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
+using static System.ComponentModel.ListSortDirection;
 
 namespace OrganizerCore.Windows.Pages;
 
@@ -32,7 +34,7 @@ public partial class TopicEditPage
 		CourseTitleTextBox.Text = _topic.Course.Title;
 		TitleTextBox.Text = _topic.Title;
 
-		ShowLessonsOnlyForCurrentTopic();
+		SetupLessonsList();
 		SetupLessonsColumns();
 	}
 
@@ -75,13 +77,16 @@ public partial class TopicEditPage
 		Context.SaveChanges();
 	}
 
-	private void ShowLessonsOnlyForCurrentTopic()
+	private void SetupLessonsList()
 	{
 		var lessonsViewSource = new CollectionViewSource
 		{
 			Source = Lessons,
 		};
+
 		lessonsViewSource.Filter += LessonsViewSource_Filter;
+		lessonsViewSource.SortDescriptions.Add(new SortDescription(nameof(Lesson.Number), Ascending));
+
 		LessonsDataGrid.ItemsSource = lessonsViewSource.View;
 	}
 
