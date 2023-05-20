@@ -33,6 +33,7 @@
                   FontFamily="Segoe UI Light"
                   Margin="10"
                   IsReadOnly="False"
+                  CanUserAddRows="False"
                   CellEditEnding="TypesOfLessonsDataGrid_OnCellEditEnding" />
 
         <StackPanel Grid.Column="0" Grid.Row="2"
