@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
+using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages;
@@ -66,10 +67,13 @@ public partial class CoursesListPage
 
 	private void EditSelectedTopicButton_Click(object sender, RoutedEventArgs e)
 	{
-		if (TopicsOfCourseDataGrid.SelectedItem is Topic selectedTopic)
+		if (TopicsOfCourseDataGrid.SelectedItem is not Topic selectedTopic)
 		{
-			EditTopic(selectedTopic);
+			MessageBoxUtils.ShowError("Сначала выберите тему!");
+			return;
 		}
+
+		EditTopic(selectedTopic);
 	}
 
 	private void EditTopic(Topic topic) => NavigationService!.Navigate(new TopicEditPage(topic));
