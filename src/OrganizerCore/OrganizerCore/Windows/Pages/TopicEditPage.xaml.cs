@@ -50,6 +50,7 @@ public partial class TopicEditPage
 		Lessons.Add(newLesson);
 
 		LessonsDataGrid.FocusOn(newLesson);
+		Context.SaveChanges();
 	}
 
 	private void TitleTextBox_OnLostFocus(object sender, RoutedEventArgs e)
@@ -88,4 +89,6 @@ public partial class TopicEditPage
 
 		LessonsDataGrid.AddTextColumn("Количество часов", nameof(Lesson.HoursAmount));
 	}
+
+	private void LessonsDataGrid_OnLostFocus(object sender, RoutedEventArgs e) => Context.SaveChanges();
 }
