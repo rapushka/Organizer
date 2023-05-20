@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
@@ -14,22 +16,30 @@ public partial class CoursesListPage
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
+	private ObservableCollection<Course> Courses
+		=> (ObservableCollection<Course>)CoursesDataGrid.ItemsSource;
+	private ObservableCollection<Topic> TopicsOfCourse
+		=> (ObservableCollection<Topic>)TopicsOfCourseDataGrid.ItemsSource;
+
+	private Course SelectedCourse => (Course)CoursesDataGrid.SelectedItem;
+
 	private void Page_Loaded(object sender, RoutedEventArgs e)
 	{
 		var courses = Context.Courses.ToList();
 
 		CoursesDataGrid.ItemsSource = courses;
 
-		ApplyCustomColumns();
+		DataGridsSetup();
 	}
 
-	private void ApplyCustomColumns()
+	private void DataGridsSetup()
 	{
-		SetupCoursesDataGrid();
-		SetupTopicsOfCourseDataGrid();
+		SetupCoursesColumns();
+		SetupTopicsOfCoursesList();
+		SetupTopicsOfCourseColumns();
 	}
 
-	private void SetupCoursesDataGrid()
+	private void SetupCoursesColumns()
 	{
 		CoursesDataGrid.Columns.Clear();
 
@@ -41,7 +51,21 @@ public partial class CoursesListPage
 		CoursesDataGrid.AddTextColumn("Количество занятий", nameof(Course.LessonsCount));
 	}
 
-	private void SetupTopicsOfCourseDataGrid()
+	private void SetupTopicsOfCoursesList()
+	{
+		var lessonsViewSource = new CollectionViewSource
+		{
+			Source = DataBaseConnection.Instance.Observe<Topic>(),
+		};
+
+		lessonsViewSource.Filter += LessonsViewSource_Filter;
+		TopicsOfCourseDataGrid.ItemsSource = lessonsViewSource.View;
+	}
+
+	private void LessonsViewSource_Filter(object sender, FilterEventArgs e)
+		=> e.Accepted = (e.Item as Topic)?.Course == SelectedCourse;
+
+	private void SetupTopicsOfCourseColumns()
 	{
 		TopicsOfCourseDataGrid.Columns.Clear();
 
@@ -51,29 +75,47 @@ public partial class CoursesListPage
 	}
 
 	private void CoursesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-	{
-		if (CoursesDataGrid.SelectedItem is Course selectedCourse)
-		{
-			TopicsOfCourseDataGrid.ItemsSource = Context.Topics.Where((t) => t.Course == selectedCourse).ToList();
-		}
-	}
+		=> TopicsOfCourseDataGrid.ItemsSource = Context.Topics.Where((t) => t.Course == SelectedCourse).ToList();
 
 	private void AddCourseButton_Click(object sender, RoutedEventArgs e)
 	{
 		// NavigationService.Navigate(new AddCourse());
 	}
 
-	private void AddTopicButton_Click(object sender, RoutedEventArgs e) => EditTopic(new Topic());
-
-	private void EditSelectedTopicButton_Click(object sender, RoutedEventArgs e)
+	private void AddTopicButton_Click(object sender, RoutedEventArgs e)
 	{
-		if (TopicsOfCourseDataGrid.SelectedItem is not Topic selectedTopic)
+		if (CoursesDataGrid.SelectedItem is not Course selectedCourse)
 		{
-			MessageBoxUtils.ShowError("Сначала выберите тему!");
+			MessageBoxUtils.ShowError("Сначала выберите курс!");
 			return;
 		}
 
-		EditTopic(selectedTopic);
+		var topic = new Topic
+		{
+			Course = selectedCourse,
+		};
+
+		TopicsOfCourse.Add(topic);
+		EditTopic(topic);
+	}
+
+	private void EditSelectedTopicButton_Click(object sender, RoutedEventArgs e)
+	{
+		if (EnsureCourseSelected(out var selectedTopic))
+		{
+			EditTopic(selectedTopic!);
+		}
+	}
+
+	private bool EnsureCourseSelected(out Topic? selectedTopic)
+	{
+		selectedTopic = TopicsOfCourseDataGrid.SelectedItem as Topic;
+		if (selectedTopic is null)
+		{
+			MessageBoxUtils.ShowError("Сначала выберите тему!");
+		}
+
+		return selectedTopic is null;
 	}
 
 	private void EditTopic(Topic topic) => NavigationService!.Navigate(new TopicEditPage(topic));
