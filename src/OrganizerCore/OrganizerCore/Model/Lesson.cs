@@ -2,7 +2,7 @@
 
 namespace OrganizerCore.Model;
 
-public class Lesson
+public class Lesson : Table
 {
 	[Key] public int          Id          { get; set; }
 	public       TypeOfLesson Type        { get; set; } = null!;

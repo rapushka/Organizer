@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
+using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages;
@@ -51,6 +52,21 @@ public partial class TopicEditPage
 
 		LessonsDataGrid.FocusOn(newLesson);
 		Context.SaveChanges();
+	}
+
+	private void RemoveLessonButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (LessonsDataGrid.SelectedItem is not Lesson selectedLesson)
+		{
+			MessageBoxUtils.ShowError("Не выбрано занятие!");
+			return;
+		}
+
+		if (MessageBoxUtils.ConfirmDeletion(of: selectedLesson))
+		{
+			Lessons.Remove(selectedLesson);
+			Context.SaveChanges();
+		}
 	}
 
 	private void TitleTextBox_OnLostFocus(object sender, RoutedEventArgs e)

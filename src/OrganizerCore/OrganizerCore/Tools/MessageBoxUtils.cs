@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
@@ -12,7 +13,8 @@ public static class MessageBoxUtils
 {
 	private static MessageBoxButton OK => MessageBoxButton.OK;
 
-	public static bool ConfirmDeletion(TypeOfLesson of)
+	public static bool ConfirmDeletion<T>(T of)
+		where T : Table
 	{
 		var dependentEntries = Dependencies.For(of);
 
