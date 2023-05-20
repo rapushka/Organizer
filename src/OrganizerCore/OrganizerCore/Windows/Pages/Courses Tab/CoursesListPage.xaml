@@ -39,6 +39,7 @@
                   x:Name="CoursesDataGrid"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
+                  LostFocus="CoursesDataGrid_OnLostFocus"
                   SelectionChanged="CoursesDataGrid_SelectionChanged" />
 
         <StackPanel Grid.Row="3"

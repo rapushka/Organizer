@@ -7,7 +7,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="" />
+    <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AddCourse.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AddCourseStudent.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AddGroup.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AddSchedule.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AddStudent.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Course.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EditCourse.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EditGroup.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EditIndCourse.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EditSchedule.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EditStudent.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Group.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/MainWindow.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Organizer.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Organizer.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Organizer_MarkupCompile.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Organizer_MarkupCompile.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Schedule.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Student.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/View_Subject.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Tools/MessageBoxUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Tools/MessageBoxUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/TopicEditPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/TopicEditPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/TopicEditPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/TopicEditPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.g.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/Courses Tab/TopicEditPage.baml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/Courses Tab/TopicEditPage.baml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/Courses Tab/TopicEditPage.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/Courses Tab/TopicEditPage.g.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +107,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "2-courses-list-management",
+    "git-widget-placeholder": "2-2-topics-crud",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Projects/Diploms/Organizer/src/Organizer/Organizer.sln",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
@@ -129,6 +156,7 @@
       <workItem from="1684450632490" duration="302000" />
       <workItem from="1684451646921" duration="5626000" />
       <workItem from="1684501316476" duration="798000" />
+      <workItem from="1684600405270" duration="29000" />
     </task>
     <servers />
   </component>

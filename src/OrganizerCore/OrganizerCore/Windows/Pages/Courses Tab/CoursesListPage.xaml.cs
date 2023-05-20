@@ -73,4 +73,6 @@ public partial class CoursesListPage
 	}
 
 	private void EditTopic(Topic topic) => NavigationService!.Navigate(new TopicEditPage(topic));
+
+	private void CoursesDataGrid_OnLostFocus(object sender, RoutedEventArgs e) => Context.SaveChanges();
 }

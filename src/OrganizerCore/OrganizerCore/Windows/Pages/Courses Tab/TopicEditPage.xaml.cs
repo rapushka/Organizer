@@ -31,7 +31,7 @@ public partial class TopicEditPage
 
 	private void Page_OnLoaded(object sender, RoutedEventArgs e)
 	{
-		CourseTitleTextBox.Text = _topic.Course.Title;
+		CourseTitleTextBlock.Text = _topic.Course.Title;
 		TitleTextBox.Text = _topic.Title;
 
 		SetupLessonsList();
