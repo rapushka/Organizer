@@ -41,13 +41,9 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
-                    Margin="10"
-                    Height="50"
                     Click="AddButton_OnClick"
                     Content="Добавить" />
             <Button Style="{StaticResource PurpleButton}"
-                    Margin="10"
-                    Height="50"
                     Click="RemoveButton_OnClick"
                     Content="Удалить" />
         </StackPanel>
@@ -55,8 +51,6 @@
         <Button Grid.Column="0" Grid.Row="3"
                 Grid.ColumnSpan="2"
                 Style="{StaticResource PurpleButton}"
-                Margin="10"
-                Height="50"
                 Click="OkBase_OnClick"
                 Content="ОК" />
     </Grid>
