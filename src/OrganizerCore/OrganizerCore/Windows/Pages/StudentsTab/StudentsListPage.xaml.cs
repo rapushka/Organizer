@@ -11,19 +11,16 @@ public partial class StudentsListPage
 {
 	public StudentsListPage() => InitializeComponent();
 
+	public Student SelectedStudent => (Student)StudentsDataGrid.SelectedItem;
+
 	private void StudentsListPage_OnLoaded(object sender, RoutedEventArgs e)
 	{
 		SetupStudentsDataGrid();
-		SetupCoursesColumns();
+		SetupStudentsColumns();
+		ShowIndividualCourses();
 	}
 
-	private void ShowIndividualCoursesButton_Click(object sender, RoutedEventArgs e) { }
-
-	private void ShowGroupCoursesButton_Click(object sender, RoutedEventArgs e) { }
-
-	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupStudentsDataGrid();
-
-	private void OnPickedBirthdateChanged(object? sender, SelectionChangedEventArgs e) => SetupStudentsDataGrid();
+#region Students Table setup
 
 	private void SetupStudentsDataGrid()
 	{
@@ -36,7 +33,7 @@ public partial class StudentsListPage
 		StudentsDataGrid.ItemsSource = studentsViewSource.View;
 	}
 
-	private void SetupCoursesColumns()
+	private void SetupStudentsColumns()
 	{
 		StudentsDataGrid.Columns.Clear();
 
@@ -60,4 +57,77 @@ public partial class StudentsListPage
 
 		e.Accepted = fitsByName && fitsByBirthdate;
 	}
+
+#endregion
+
+#region Courses Table setup
+
+	private void ShowIndividualCourses()
+	{
+		SetupForCoursesTable<IndividualCoursesOfStudent>();
+		SetupStudentIndividualCoursesColumns();
+	}
+
+	private void ShowGroupCourses()
+	{
+		SetupForCoursesTable<GroupCoursesOfStudent>();
+		SetupStudentGroupCoursesColumns();
+	}
+
+	private void SetupForCoursesTable<T>()
+		where T : class
+	{
+		var lessonsViewSource = new CollectionViewSource
+		{
+			Source = DataBaseConnection.Instance.Observe<T>(),
+		};
+
+		lessonsViewSource.Filter += FilterCoursesBySelectedStudent;
+		CoursesOfStudentDataGrid.ItemsSource = lessonsViewSource.View;
+	}
+
+	private void FilterCoursesBySelectedStudent(object sender, FilterEventArgs e)
+	{
+		if (e.Item is IndividualCoursesOfStudent individualCourse)
+		{
+			e.Accepted = individualCourse.Student == SelectedStudent;
+		}
+
+		if (e.Item is GroupCoursesOfStudent groupCourse)
+		{
+			e.Accepted = groupCourse.Student == SelectedStudent;
+		}
+	}
+
+	private void SetupStudentGroupCoursesColumns()
+	{
+		CoursesOfStudentDataGrid.Columns.Clear();
+
+		CoursesOfStudentDataGrid.AddTextColumn("ID", nameof(GroupCoursesOfStudent.Id), Visibility.Collapsed);
+		CoursesOfStudentDataGrid.AddTextColumn("Группа", nameof(GroupCoursesOfStudent.Group));
+		CoursesOfStudentDataGrid.AddTextColumn("Показатель", nameof(GroupCoursesOfStudent.Indicator));
+		CoursesOfStudentDataGrid.AddTextColumn("Количество занятий", nameof(GroupCoursesOfStudent.LessonsCount));
+	}
+
+	private void SetupStudentIndividualCoursesColumns()
+	{
+		CoursesOfStudentDataGrid.Columns.Clear();
+
+		CoursesOfStudentDataGrid.AddTextColumn("ID", nameof(IndividualCoursesOfStudent.Id), Visibility.Collapsed);
+		CoursesOfStudentDataGrid.AddTextColumn("Курс", nameof(IndividualCoursesOfStudent.Course));
+		CoursesOfStudentDataGrid.AddTextColumn("Дата начала", nameof(IndividualCoursesOfStudent.BeginningDate));
+		CoursesOfStudentDataGrid.AddTextColumn("Дата окончания", nameof(IndividualCoursesOfStudent.EndingDate));
+		CoursesOfStudentDataGrid.AddTextColumn("Показатель", nameof(IndividualCoursesOfStudent.Indicator));
+		CoursesOfStudentDataGrid.AddTextColumn("Количество занятий", nameof(IndividualCoursesOfStudent.LessonsCount));
+	}
+
+#endregion
+
+	private void ShowIndividualCoursesButton_Click(object sender, RoutedEventArgs e) { }
+
+	private void ShowGroupCoursesButton_Click(object sender, RoutedEventArgs e) { }
+
+	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupStudentsDataGrid();
+
+	private void OnPickedBirthdateChanged(object? sender, SelectionChangedEventArgs e) => SetupStudentsDataGrid();
 }

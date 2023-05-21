@@ -13,4 +13,6 @@ public class Group : Table
 	public       int      MinAge                  { get; set; }
 	public       int      MaxAge                  { get; set; }
 	public       int      MaxStudentsInGroupCount { get; set; }
+
+	public override string ToString() => Title;
 }
