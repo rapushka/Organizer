@@ -68,18 +68,33 @@
                 Content="Груповые курсы" />
         </StackPanel>
 
-        <DockPanel Grid.Column="1" Grid.Row="2">
+        <StackPanel Grid.Column="1" Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
             <Button
                 Style="{StaticResource PurpleButton}"
                 FontSize="12"
                 Height="25"
-                Content="Добавить ученика" />
+                Content="Добавить" />
             <Button
                 Style="{StaticResource PurpleButton}"
                 FontSize="12"
                 Height="25"
+                Content="Изменить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                FontSize="12"
+                Height="25"
+                Content="Удалить" />
+        </StackPanel>
+
+        <Button Grid.Column="1" Grid.Row="3"
+                Style="{StaticResource PurpleButton}"
+                FontSize="12"
+                Height="25"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
                 Content="Записать на курс" />
-        </DockPanel>
 
         <DataGrid Grid.Column="0" Grid.Row="3"
                   x:Name="StudentCoursesDataGrid"
@@ -87,7 +102,7 @@
                   IsReadOnly="True" />
 
         <Grid Grid.Column="1" Grid.Row="3"
-              VerticalAlignment="Top">
+              VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="4*" />
