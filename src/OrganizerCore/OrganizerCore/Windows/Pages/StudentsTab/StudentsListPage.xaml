@@ -136,7 +136,7 @@
                       Width="125"
                       SelectionChanged="OnIndicatorSelected"
                       SelectedIndex="0">
-                <ComboBoxItem Content="Неудивительно" />
+                <ComboBoxItem Content="Неудовлетворительно" />
                 <ComboBoxItem Content="Удовлетворительно" />
                 <ComboBoxItem Content="Хорошо" />
             </ComboBox>
