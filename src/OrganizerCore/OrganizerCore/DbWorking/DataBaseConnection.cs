@@ -29,5 +29,6 @@ public class DataBaseConnection
 		_currentContext.Courses.Load();
 		_currentContext.Topics.Load();
 		_currentContext.Lessons.Load();
+		_currentContext.Students.Load();
 	}
 }

@@ -9,6 +9,7 @@ namespace OrganizerCore.DbWorking
 		public DbSet<Course>       Courses        { get; set; } = null!;
 		public DbSet<Topic>        Topics         { get; set; } = null!;
 		public DbSet<Lesson>       Lessons        { get; set; } = null!;
+		public DbSet<Student>      Students       { get; set; } = null!;
 
 		public ApplicationContext()
 		{
@@ -16,6 +17,7 @@ namespace OrganizerCore.DbWorking
 			Table<Course>.Value = Courses;
 			Table<Topic>.Value = Topics;
 			Table<Lesson>.Value = Lessons;
+			Table<Student>.Value = Students;
 		}
 
 		public DbSet<T> GetTable<T>()
