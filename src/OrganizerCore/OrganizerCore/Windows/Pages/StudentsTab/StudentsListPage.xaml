@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
-      Title="StudentsListPage" Height="450" Width="800">
+      Title="StudentsListPage" Height="450" Width="800"
+      Loaded="StudentsListPage_OnLoaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
@@ -29,7 +30,6 @@
                 TextChanged="FullnameSearchTextBox_OnTextChanged"
                 Style="{StaticResource TextBox}"
                 Width="200" />
-
 
             <TextBlock
                 Style="{StaticResource Header}"
