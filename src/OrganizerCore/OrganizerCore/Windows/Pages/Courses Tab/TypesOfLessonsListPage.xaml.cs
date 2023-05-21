@@ -19,7 +19,7 @@ public partial class TypesOfLessonsListPage
 
 	private void TypesOfLessonsListPage_OnLoaded(object sender, RoutedEventArgs e)
 	{
-		TypesOfLessonsDataGrid.ItemsSource = DataBaseConnection.Instance.Observable<TypeOfLesson>();
+		TypesOfLessonsDataGrid.ItemsSource = DataBaseConnection.Instance.Observe<TypeOfLesson>();
 
 		SetupTypesOfLessonsTable();
 	}
@@ -30,28 +30,27 @@ public partial class TypesOfLessonsListPage
 	{
 		TypesOfLessonsDataGrid.Columns.Clear();
 
-		TypesOfLessonsDataGrid.AddColumn("ID", nameof(TypeOfLesson.Id), Visibility.Collapsed);
-		TypesOfLessonsDataGrid.AddColumn("Название", nameof(TypeOfLesson.Title));
+		TypesOfLessonsDataGrid.AddTextColumn("ID", nameof(TypeOfLesson.Id), Visibility.Collapsed);
+		TypesOfLessonsDataGrid.AddTextColumn("Название", nameof(TypeOfLesson.Title));
 	}
 
 	private void AddButton_OnClick(object sender, RoutedEventArgs e)
 	{
 		var newType = new TypeOfLesson();
+		TypesOfLessons.Add(newType);
 
-		if (TypesOfLessonsDataGrid.ItemsSource is ObservableCollection<TypeOfLesson> typesOfLessons)
-		{
-			typesOfLessons.Add(newType);
-
-			TypesOfLessonsDataGrid.SelectedItem = newType;
-			TypesOfLessonsDataGrid.ScrollIntoView(newType);
-			TypesOfLessonsDataGrid.BeginEdit();
-		}
+		TypesOfLessonsDataGrid.FocusOn(newType);
 	}
 
 	private void RemoveButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		if (TypesOfLessonsDataGrid.SelectedItem is TypeOfLesson selectedType
-		    && MessageBoxUtils.ConfirmDeletion(of: selectedType))
+		if (TypesOfLessonsDataGrid.SelectedItem is not TypeOfLesson selectedType)
+		{
+			MessageBoxUtils.AtFirstSelect("вид");
+			return;
+		}
+
+		if (MessageBoxUtils.ConfirmDeletion(of: selectedType))
 		{
 			TypesOfLessons.Remove(selectedType);
 			Save();
@@ -60,12 +59,10 @@ public partial class TypesOfLessonsListPage
 
 	private void TypesOfLessonsDataGrid_OnCellEditEnding(object? sender, DataGridCellEditEndingEventArgs e)
 	{
-		if (e.EditingElement is TextBox editedCell
-		    && e.Row.DataContext is TypeOfLesson editedTypeOfLesson)
-		{
-			editedTypeOfLesson.Title = editedCell.Text;
-			Save();
-		}
+		var editedCell = (TextBox)e.EditingElement;
+		var editedTypeOfLesson = (TypeOfLesson)e.Row.DataContext;
+		editedTypeOfLesson.Title = editedCell.Text;
+		Save();
 	}
 
 	private static void Save() => Context.SaveChanges();

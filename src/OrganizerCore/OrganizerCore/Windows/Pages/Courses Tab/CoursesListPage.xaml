@@ -1,0 +1,94 @@
+﻿<Page x:Class="OrganizerCore.Windows.Pages.CoursesListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Title="CoursesListPage" Height="450" Width="800"
+      Loaded="Page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Style="{StaticResource Header}"
+                       Text="Поиск по названию:" />
+            <TextBox Grid.Column="1"
+                     x:Name="SearchByNameTextBox"
+                     TextChanged="SearchByTitleTextBox_OnTextChanged"
+                     Style="{StaticResource TextBox}" />
+        </Grid>
+
+        <TextBlock Grid.Row="1"
+                   Style="{StaticResource Header}"
+                   Margin="10,0"
+                   VerticalAlignment="Bottom"
+                   Text="Курсы:" />
+        <DataGrid Grid.Row="2"
+                  x:Name="CoursesDataGrid"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  LostFocus="CoursesDataGrid_OnLostFocus"
+                  SelectionChanged="CoursesDataGrid_SelectionChanged" />
+
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,25,0">
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="AddCourseButton_Click"
+                Content="Добавить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="EditSelectedCourseButton_Click"
+                Content="Редактировать" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="RemoveSelectedCourseButton_Click"
+                Content="Удалить" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="4"
+                   Style="{StaticResource Header}"
+                   Margin="10,0"
+                   VerticalAlignment="Bottom"
+                   Text="Темы курса:" />
+        <DataGrid Grid.Row="5"
+                  x:Name="TopicsOfCourseDataGrid"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False" />
+
+        <StackPanel Grid.Row="6"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,25,0">
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="AddTopicButton_Click"
+                Content="Добавить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="EditSelectedTopicButton_Click"
+                Content="Редактировать" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="RemoveSelectedTopicButton_OnClick"
+                Content="Удалить" />
+        </StackPanel>
+
+    </Grid>
+</Page>

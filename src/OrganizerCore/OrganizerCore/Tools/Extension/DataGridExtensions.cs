@@ -1,27 +1,14 @@
-﻿using System.Windows;
+﻿using System;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace OrganizerCore.Tools.Extensions;
 
 public static class DataGridExtensions
 {
-	public static void AddColumn
-	(
-		this DataGrid @this,
-		string header,
-		string binding,
-		Visibility visibility = Visibility.Visible
-	)
+	public static void FocusOn<T>(this DataGrid @this, T item)
 	{
-		@this.Columns.Add
-		(
-			new DataGridTextColumn
-			{
-				Header = header,
-				Binding = new Binding(binding),
-				Visibility = visibility,
-			}
-		);
+		@this.SelectedItem = item;
+		@this.ScrollIntoView(item ?? throw new ArgumentNullException(nameof(item)));
+		@this.BeginEdit();
 	}
 }
