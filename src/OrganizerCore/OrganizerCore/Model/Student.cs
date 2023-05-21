@@ -12,4 +12,16 @@ public class Student : Table
 	public       string   Email            { get; set; } = null!;
 	public       string   ProxyFullName    { get; set; } = null!;
 	public       string   ProxyPhoneNumber { get; set; } = null!;
+
+	public Student Copy()
+		=> new()
+		{
+			Id = Id,
+			FullName = FullName,
+			PhoneNumber = PhoneNumber,
+			Birthdate = Birthdate,
+			Email = Email,
+			ProxyFullName = ProxyFullName,
+			ProxyPhoneNumber = ProxyPhoneNumber,
+		};
 }
