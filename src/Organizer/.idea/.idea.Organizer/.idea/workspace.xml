@@ -8,12 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/DbWorking/Dependencies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/DbWorking/Dependencies.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Model/Course.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Model/Course.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Model/Table.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Model/Table.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Model/Topic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Model/Topic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/CoursesListPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/CoursesListPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/CoursesListPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/CoursesListPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +50,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="2-courses-list-management" />
-                    <option name="lastUsedInstant" value="1684515946" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="1-types-of-classes-list-management" />
-                    <option name="lastUsedInstant" value="1684515945" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1684662964" />
                   </RecentBranch>
                 </list>
               </option>
@@ -87,7 +78,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "2-courses-list-management",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Projects/Diploms/Organizer/src/Organizer/Organizer.sln",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
