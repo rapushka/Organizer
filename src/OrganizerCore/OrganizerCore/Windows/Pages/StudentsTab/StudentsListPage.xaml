@@ -132,7 +132,12 @@
             <ComboBox Grid.Column="1" Grid.Row="1"
                       x:Name="IndicatorSearchComboBox"
                       Margin="10"
-                      Width="125" />
+                      Width="125"
+                      SelectedIndex="0">
+                <ComboBoxItem Content="Неудивительно" />
+                <ComboBoxItem Content="Удовлетворительно" />
+                <ComboBoxItem Content="Хорошо" />
+            </ComboBox>
         </Grid>
     </Grid>
 </Page>
