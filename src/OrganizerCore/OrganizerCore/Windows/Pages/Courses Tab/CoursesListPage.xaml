@@ -58,6 +58,7 @@
                 Content="Редактировать" />
             <Button
                 Style="{StaticResource PurpleButton}"
+                Click="RemoveSelectedCourseButton_Click"
                 Content="Удалить" />
         </StackPanel>
 

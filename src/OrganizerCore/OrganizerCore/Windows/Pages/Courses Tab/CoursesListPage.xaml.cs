@@ -101,6 +101,16 @@ public partial class CoursesListPage
 		}
 	}
 
+	private void RemoveSelectedCourseButton_Click(object sender, RoutedEventArgs e)
+	{
+		if (EnsureCourseSelected(out var selectedCourse)
+		    && MessageBoxUtils.ConfirmDeletion(of: selectedCourse!))
+		{
+			Courses.Remove(selectedCourse!);
+			Context.SaveChanges();
+		}
+	}
+
 	private void EditCourse(Course? selectedCourse) => NavigationService!.Navigate(new EditCoursePage(selectedCourse!));
 
 	private void AddTopicButton_Click(object sender, RoutedEventArgs e)

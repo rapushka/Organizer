@@ -11,4 +11,6 @@ public class Topic : Table
 	public       Course Course { get; set; } = null!;
 
 	public int CountOfLessons => DataBaseConnection.Instance.CurrentContext.Lessons.Count((l) => l.Topic == this);
+
+	public override string ToString() => $"Тема {Title} курса {Course.Title}";
 }

@@ -8,24 +8,15 @@ public class Table
 	(
 		Func<TypeOfLesson, T> forTypeOfLesson,
 		Func<Lesson, T> forLesson,
-		Func<Topic, T> forTopic
+		Func<Topic, T> forTopic,
+		Func<Course, T> forCourse
 	)
-	{
-		if (this is TypeOfLesson typeOfLesson)
+		=> this switch
 		{
-			return forTypeOfLesson(typeOfLesson);
-		}
-
-		if (this is Lesson lesson)
-		{
-			return forLesson(lesson);
-		}
-
-		if (this is Topic topic)
-		{
-			return forTopic(topic);
-		}
-
-		throw new InvalidOperationException($"Unknown {nameof(Table)} type. Is {GetType().Name}");
-	}
+			TypeOfLesson typeOfLesson => forTypeOfLesson(typeOfLesson),
+			Lesson lesson => forLesson(lesson),
+			Topic topic => forTopic(topic),
+			Course course => forCourse(course),
+			_ => throw new InvalidOperationException($"Unknown {nameof(Table)} type. Is {GetType().Name}"),
+		};
 }

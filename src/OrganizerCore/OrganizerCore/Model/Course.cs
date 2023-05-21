@@ -2,7 +2,7 @@
 
 namespace OrganizerCore.Model;
 
-public class Course
+public class Course : Table
 {
 	[Key] public int     Id           { get; set; }
 	public       string  Title        { get; set; } = null!;
@@ -10,4 +10,6 @@ public class Course
 	public       float   Duration     { get; set; }
 	public       decimal Price        { get; set; }
 	public       int     LessonsCount { get; set; }
+
+	public override string ToString() => Title;
 }
