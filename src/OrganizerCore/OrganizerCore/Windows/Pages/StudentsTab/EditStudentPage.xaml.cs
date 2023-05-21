@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
 
 namespace OrganizerCore.Windows.Pages.StudentsTab;
 
-public partial class EditStudentPage : Page
+public partial class EditStudentPage
 {
 	private readonly Student _student;
 

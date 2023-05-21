@@ -7,7 +7,6 @@ using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
-using OrganizerCore.Windows.Pages.Courses_Tab;
 
 namespace OrganizerCore.Windows.Pages.StudentsTab;
 
@@ -168,6 +167,14 @@ public partial class StudentsListPage
 
 	private void CourseTitleSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateCoursesView();
 
+	private void EnrollStudentButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureStudentSelected(out var selectedStudent))
+		{
+			NavigationService!.Navigate(new EnrollStudentOnCoursePage(selectedStudent!));
+		}
+	}
+
 #endregion
 
 #region Students CRUD
@@ -210,7 +217,6 @@ public partial class StudentsListPage
 			Context.Students.Remove(selectedStudent!);
 			Context.SaveChanges();
 		}
-
 	}
 
 	private bool EnsureStudentSelected(out Student? selectedStudent)
