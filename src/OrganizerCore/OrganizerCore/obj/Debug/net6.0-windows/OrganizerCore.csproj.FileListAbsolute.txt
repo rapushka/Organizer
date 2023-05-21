@@ -142,3 +142,5 @@ C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-w
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\CoursesListPage.g.cs
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\TopicEditPage.g.cs
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\TypesOfLessonsListPage.g.cs
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\EditCoursePage.baml
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\EditCoursePage.g.cs
