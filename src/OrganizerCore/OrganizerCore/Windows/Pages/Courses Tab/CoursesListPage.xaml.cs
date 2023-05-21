@@ -87,7 +87,7 @@ public partial class CoursesListPage
 	{
 		if (CoursesDataGrid.SelectedItem is not Course selectedCourse)
 		{
-			MessageBoxUtils.ShowError("Сначала выберите курс!");
+			MessageBoxUtils.AtFirstSelect("курс");
 			return;
 		}
 
@@ -123,7 +123,7 @@ public partial class CoursesListPage
 		selectedTopic = TopicsOfCourseDataGrid.SelectedItem as Topic;
 		if (selectedTopic is null)
 		{
-			MessageBoxUtils.ShowError("Сначала выберите тему!");
+			MessageBoxUtils.AtFirstSelect("тему");
 		}
 
 		return selectedTopic is not null;

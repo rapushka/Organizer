@@ -27,6 +27,8 @@ public static class MessageBoxUtils
 		return ShowEnsure($"В базе данных остались связаные записи:\n{entries}\n\nПродолжить?");
 	}
 
+	public static void AtFirstSelect(string item) => ShowError($"Сначала выберите {item}!");
+
 	public static bool ShowEnsure(string message)
 	{
 		var result = MessageBox.Show

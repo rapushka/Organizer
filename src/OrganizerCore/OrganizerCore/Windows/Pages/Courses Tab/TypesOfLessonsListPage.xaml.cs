@@ -46,7 +46,7 @@ public partial class TypesOfLessonsListPage
 	{
 		if (TypesOfLessonsDataGrid.SelectedItem is not TypeOfLesson selectedType)
 		{
-			MessageBoxUtils.ShowError("Не выбран вид!");
+			MessageBoxUtils.AtFirstSelect("вид");
 			return;
 		}
 
