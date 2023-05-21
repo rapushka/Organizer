@@ -10,23 +10,37 @@ namespace OrganizerCore.Windows.Pages.Courses_Tab;
 public partial class EditCoursePage
 {
 	private readonly Course _selectedCourse;
+	private readonly bool _isAdding;
+
+	public event Action<Course, bool>? Applied; 
 
 	public EditCoursePage(Course selectedCourse)
 	{
-		_selectedCourse = selectedCourse;
+		_selectedCourse = selectedCourse.Copy();
+		_isAdding = false;
+		InitializeComponent();
+	}
+	public EditCoursePage()
+	{
+		_selectedCourse = new Course();
+		_isAdding = true;
 		InitializeComponent();
 	}
 
 	private void EditCoursePage_OnLoaded(object sender, RoutedEventArgs e) => Load();
 
-	private void OkButton_OnClick(object sender, RoutedEventArgs e)
+	private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
 	{
 		if (TrySave())
 		{
-			DataBaseConnection.Instance.CurrentContext.SaveChanges();
-			NavigationService!.GoBack();
+			Applied?.Invoke(_selectedCourse, _isAdding);
+			ExitPage();
 		}
 	}
+
+	private void CancelButton_OnClick(object sender, RoutedEventArgs e) => ExitPage();
+
+	private void ExitPage() => NavigationService!.GoBack();
 
 	private void Load()
 	{

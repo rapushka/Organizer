@@ -90,10 +90,10 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
-                    Click="OkButton_OnClick"
+                    Click="ApplyButton_OnClick"
                     Content="Применить" />
             <Button Style="{StaticResource PurpleButton}"
-                    Click="OkButton_OnClick"
+                    Click="ApplyButton_OnClick"
                     Content="Отмена" />
         </StackPanel>
     </Grid>

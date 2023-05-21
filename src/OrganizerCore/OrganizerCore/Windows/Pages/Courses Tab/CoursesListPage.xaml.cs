@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,6 +24,21 @@ public partial class CoursesListPage
 	private Course SelectedCourse => (Course)CoursesDataGrid.SelectedItem;
 
 	private void Page_Loaded(object sender, RoutedEventArgs e) => DataGridsSetup();
+
+	private static void OnCourseChangesApplied(Course course, bool isAdded)
+	{
+		if (isAdded)
+		{
+			Courses.Add(course);
+		}
+		else
+		{
+			var oldCourse = Context.Courses.Single((c) => c.Id == course.Id);
+			oldCourse.Copy(course);
+		}
+
+		DataBaseConnection.Instance.CurrentContext.SaveChanges();
+	}
 
 	private void DataGridsSetup()
 	{
@@ -88,16 +104,18 @@ public partial class CoursesListPage
 
 	private void AddCourseButton_Click(object sender, RoutedEventArgs e)
 	{
-		var newCourse = new Course();
-		Courses.Add(newCourse);
-		EditCourse(newCourse);
+		var page = new EditCoursePage();
+		page.Applied += OnCourseChangesApplied;
+		NavigationService!.Navigate(page);
 	}
 
 	private void EditSelectedCourseButton_Click(object sender, RoutedEventArgs e)
 	{
 		if (EnsureCourseSelected(out var selectedCourse))
 		{
-			EditCourse(selectedCourse);
+			var page = new EditCoursePage(selectedCourse!);
+			page.Applied += OnCourseChangesApplied;
+			NavigationService!.Navigate(page);
 		}
 	}
 
@@ -110,8 +128,6 @@ public partial class CoursesListPage
 			Context.SaveChanges();
 		}
 	}
-
-	private void EditCourse(Course? selectedCourse) => NavigationService!.Navigate(new EditCoursePage(selectedCourse!));
 
 	private void AddTopicButton_Click(object sender, RoutedEventArgs e)
 	{

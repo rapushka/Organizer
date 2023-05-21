@@ -70,11 +70,11 @@
                     Margin="25,0">
             <Button
                 Style="{StaticResource PurpleButton}"
-                Click="OkButton_OnClick"
+                Click="ApplyButton_OnClick"
                 Content="Применить" />
             <Button
                 Style="{StaticResource PurpleButton}"
-                Click="OkButton_OnClick"
+                Click="CancelButton_OnClick"
                 Content="Отмена" />
         </StackPanel>
     </Grid>
