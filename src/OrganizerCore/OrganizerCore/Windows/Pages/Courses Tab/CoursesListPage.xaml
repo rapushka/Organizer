@@ -79,6 +79,7 @@
                 Content="Редактировать" />
             <Button
                 Style="{StaticResource PurpleButton}"
+                Click="RemoveSelectedTopicButton_OnClick"
                 Content="Удалить" />
         </StackPanel>
 

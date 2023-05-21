@@ -60,7 +60,7 @@ public partial class TopicEditPage
 	{
 		if (LessonsDataGrid.SelectedItem is not Lesson selectedLesson)
 		{
-			MessageBoxUtils.ShowError("Не выбрано занятие!");
+			MessageBoxUtils.ShowError("Сначала выберите занятие!");
 			return;
 		}
 

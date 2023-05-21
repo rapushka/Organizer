@@ -16,7 +16,7 @@ public partial class CoursesListPage
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
-	private ObservableCollection<Topic> TopicsOfCourse => DataBaseConnection.Instance.Observe<Topic>();
+	private static ObservableCollection<Topic> Topics => DataBaseConnection.Instance.Observe<Topic>();
 
 	private Course SelectedCourse => (Course)CoursesDataGrid.SelectedItem;
 
@@ -55,12 +55,14 @@ public partial class CoursesListPage
 			Source = DataBaseConnection.Instance.Observe<Topic>(),
 		};
 
-		lessonsViewSource.Filter += LessonsViewSource_Filter;
+		lessonsViewSource.Filter += TopicsViewSource_Filter;
 		TopicsOfCourseDataGrid.ItemsSource = lessonsViewSource.View;
 	}
 
-	private void LessonsViewSource_Filter(object sender, FilterEventArgs e)
-		=> e.Accepted = (e.Item as Topic)?.Course == SelectedCourse;
+	private void TopicsViewSource_Filter(object sender, FilterEventArgs e)
+	{
+		e.Accepted = ((Topic)e.Item).Course == SelectedCourse;
+	}
 
 	private void SetupTopicsOfCourseColumns()
 	{
@@ -72,7 +74,9 @@ public partial class CoursesListPage
 	}
 
 	private void CoursesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		=> TopicsOfCourseDataGrid.ItemsSource = Context.Topics.Where((t) => t.Course == SelectedCourse).ToList();
+	{
+		SetupTopicsOfCoursesList();
+	}
 
 	private void AddCourseButton_Click(object sender, RoutedEventArgs e)
 	{
@@ -92,19 +96,29 @@ public partial class CoursesListPage
 			Course = selectedCourse,
 		};
 
-		TopicsOfCourse.Add(topic);
+		Topics.Add(topic);
 		EditTopic(topic);
 	}
 
 	private void EditSelectedTopicButton_Click(object sender, RoutedEventArgs e)
 	{
-		if (EnsureCourseSelected(out var selectedTopic))
+		if (EnsureTopicSelected(out var selectedTopic))
 		{
 			EditTopic(selectedTopic!);
 		}
 	}
 
-	private bool EnsureCourseSelected(out Topic? selectedTopic)
+	private void RemoveSelectedTopicButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureTopicSelected(out var selectedTopic)
+		    && MessageBoxUtils.ConfirmDeletion(of: selectedTopic!))
+		{
+			Topics.Remove(selectedTopic!);
+			Context.SaveChanges();
+		}
+	}
+
+	private bool EnsureTopicSelected(out Topic? selectedTopic)
 	{
 		selectedTopic = TopicsOfCourseDataGrid.SelectedItem as Topic;
 		if (selectedTopic is null)
@@ -112,7 +126,7 @@ public partial class CoursesListPage
 			MessageBoxUtils.ShowError("Сначала выберите тему!");
 		}
 
-		return selectedTopic is null;
+		return selectedTopic is not null;
 	}
 
 	private void EditTopic(Topic topic) => NavigationService!.Navigate(new TopicEditPage(topic));
