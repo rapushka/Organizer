@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
+using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
 
@@ -21,6 +22,7 @@ public partial class EditCoursePage
 	{
 		if (TrySave())
 		{
+			DataBaseConnection.Instance.CurrentContext.SaveChanges();
 			NavigationService!.GoBack();
 		}
 	}

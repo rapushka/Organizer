@@ -7,9 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/EditCoursePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/Courses Tab/EditCoursePage.xaml" afterDir="false" />
-    </list>
+    <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +131,7 @@
       <workItem from="1684501316476" duration="798000" />
       <workItem from="1684600405270" duration="29000" />
       <workItem from="1684600957954" duration="612000" />
-      <workItem from="1684654824910" duration="309000" />
+      <workItem from="1684654824910" duration="635000" />
     </task>
     <servers />
   </component>
