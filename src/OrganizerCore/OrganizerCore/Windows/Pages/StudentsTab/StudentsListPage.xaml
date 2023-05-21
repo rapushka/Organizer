@@ -75,16 +75,19 @@
                 Style="{StaticResource PurpleButton}"
                 FontSize="12"
                 Height="25"
+                Click="AddStudentButton_OnClick"
                 Content="Добавить" />
             <Button
                 Style="{StaticResource PurpleButton}"
                 FontSize="12"
                 Height="25"
+                Click="EditStudentButton_OnClick"
                 Content="Изменить" />
             <Button
                 Style="{StaticResource PurpleButton}"
                 FontSize="12"
                 Height="25"
+                Click="RemoveStudentButton_OnClick"
                 Content="Удалить" />
         </StackPanel>
 

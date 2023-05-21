@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
+using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
+using OrganizerCore.Windows.Pages.Courses_Tab;
 
 namespace OrganizerCore.Windows.Pages.StudentsTab;
 
@@ -22,6 +25,8 @@ public partial class StudentsListPage
 		SetupStudentsColumns();
 		IsIndividualShown = true;
 	}
+
+	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
 	private bool IsIndividualShown
 	{
@@ -162,6 +167,63 @@ public partial class StudentsListPage
 	private void OnIndicatorSelected(object sender, SelectionChangedEventArgs e) => UpdateCoursesView();
 
 	private void CourseTitleSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateCoursesView();
+
+#endregion
+
+#region Students CRUD
+
+	private void OnStudentAdded(Student student)
+	{
+		Context.Students.Add(student);
+		Context.SaveChanges();
+	}
+
+	private static void OnStudentEdited(Student student)
+	{
+		var oldStudent = Context.Students.Single((c) => c.Id == student.Id);
+		oldStudent.Copy(student);
+		Context.SaveChanges();
+	}
+
+	private void AddStudentButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		var page = new EditStudentPage();
+		page.Applied += OnStudentAdded;
+		NavigationService!.Navigate(page);
+	}
+
+	private void EditStudentButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureStudentSelected(out var selectedStudent))
+		{
+			var page = new EditStudentPage(selectedStudent!);
+			page.Applied += OnStudentEdited;
+			NavigationService!.Navigate(page);
+		}
+	}
+
+	private void RemoveStudentButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureStudentSelected(out var selectedStudent)
+		    && MessageBoxUtils.ConfirmDeletion(of: selectedStudent!))
+		{
+			Context.Students.Remove(selectedStudent!);
+			Context.SaveChanges();
+		}
+
+	}
+
+	private bool EnsureStudentSelected(out Student? selectedStudent)
+	{
+		selectedStudent = StudentsDataGrid.SelectedItem as Student;
+
+		if (selectedStudent is null)
+		{
+			MessageBoxUtils.AtFirstSelect("студента");
+		}
+
+		return selectedStudent is not null;
+	}
 
 #endregion
 }

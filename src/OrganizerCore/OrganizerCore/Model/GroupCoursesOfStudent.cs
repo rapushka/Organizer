@@ -9,4 +9,6 @@ public class GroupCoursesOfStudent : Table
 	public       Group   Group        { get; set; } = null!;
 	public       string  Indicator    { get; set; } = null!;
 	public       int     LessonsCount { get; set; }
+
+	public override string ToString() => $"Курс {Group.Course} студента {Student} из группы {Group}";
 }

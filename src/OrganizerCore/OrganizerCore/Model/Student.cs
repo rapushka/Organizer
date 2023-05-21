@@ -24,4 +24,16 @@ public class Student : Table
 			ProxyFullName = ProxyFullName,
 			ProxyPhoneNumber = ProxyPhoneNumber,
 		};
+
+	public void Copy(Student other)
+	{
+		FullName = other.FullName;
+		PhoneNumber = other.PhoneNumber;
+		Birthdate = other.Birthdate;
+		Email = other.Email;
+		ProxyFullName = other.ProxyFullName;
+		ProxyPhoneNumber = other.ProxyPhoneNumber;
+	}
+
+	public override string ToString() => $"{FullName} ({Birthdate.Age()} лет)";
 }
