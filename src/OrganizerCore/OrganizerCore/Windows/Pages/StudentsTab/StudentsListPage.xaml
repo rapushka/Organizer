@@ -118,6 +118,7 @@
                        HorizontalAlignment="Right"
                        Text="Наименование:" />
             <TextBox Grid.Column="1" Grid.Row="0"
+                     x:Name="CourseTitleSearchTextBox"
                      Style="{StaticResource TextBox}"
                      FontSize="14"
                      Width="125"
@@ -129,6 +130,7 @@
                        HorizontalAlignment="Right"
                        Text="Показатель:" />
             <ComboBox Grid.Column="1" Grid.Row="1"
+                      x:Name="IndicatorSearchComboBox"
                       Margin="10"
                       Width="125" />
         </Grid>

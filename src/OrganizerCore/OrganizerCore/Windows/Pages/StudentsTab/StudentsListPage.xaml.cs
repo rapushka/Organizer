@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
@@ -90,13 +91,21 @@ public partial class StudentsListPage
 	{
 		if (e.Item is IndividualCoursesOfStudent individualCourse)
 		{
-			e.Accepted = individualCourse.Student == SelectedStudent;
+			e.Accepted = individualCourse.Student == SelectedStudent
+				&& individualCourse.Course.Title.Contains(CourseTitleSearchTextBox.Text)
+				&& individualCourse.Indicator == IndicatorSearchComboBox.Text;
+			return;
 		}
 
 		if (e.Item is GroupCoursesOfStudent groupCourse)
 		{
-			e.Accepted = groupCourse.Student == SelectedStudent;
+			e.Accepted = groupCourse.Student == SelectedStudent
+			             && groupCourse.Group.Course.Title.Contains(CourseTitleSearchTextBox.Text)
+			             && groupCourse.Indicator == IndicatorSearchComboBox.Text;
+			return;
 		}
+
+		throw new Exception($"Item is {e.Item.GetType().Name}!");
 	}
 
 	private void SetupStudentGroupCoursesColumns()
