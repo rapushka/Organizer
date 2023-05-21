@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
@@ -31,18 +32,20 @@ public partial class EditCoursePage
 	{
 		TitleTextBox.Text = _selectedCourse.Title;
 		DescriptionTextBox.Text = _selectedCourse.Description;
+		DurationTextBox.Text = _selectedCourse.Duration.ToString(CultureInfo.InvariantCulture);
 		LessonsCountTextBox.Text = _selectedCourse.LessonsCount.ToString();
 		PriceTextBox.Text = _selectedCourse.Price.ToString(CultureInfo.InvariantCulture);
 	}
 
 	private bool TrySave()
 	{
-		var isValid = Validate(out var lessonsCount, out var price);
+		var isValid = Validate(out var duration, out var lessonsCount, out var price);
 
 		if (isValid)
 		{
 			_selectedCourse.Title = TitleTextBox.Text;
 			_selectedCourse.Description = DescriptionTextBox.Text;
+			_selectedCourse.Duration = duration;
 			_selectedCourse.LessonsCount = lessonsCount;
 			_selectedCourse.Price = price;
 		}
@@ -50,22 +53,24 @@ public partial class EditCoursePage
 		return isValid;
 	}
 
-	private bool Validate(out int lessonsCount, out decimal price)
+	private bool Validate(out float duration, out int lessonsCount, out decimal price)
 	{
+		var canParseDuration = float.TryParse(DurationTextBox.Text, out duration);
 		var canParseLessonsCount = int.TryParse(LessonsCountTextBox.Text, out lessonsCount);
 		var canParsePrice = decimal.TryParse(PriceTextBox.Text, out price);
-		var canBeParsed = canParseLessonsCount && canParsePrice;
+		var canBeParsed = canParseDuration && canParseLessonsCount && canParsePrice;
+
 		if (canBeParsed == false)
 		{
 			MessageBoxUtils.ShowError
 			(
-				canParseLessonsCount
-					? "Количество занятий должно быть целочисленным числом!"
-					: "Стоимость должна быть числом"
+				canParseLessonsCount ? "Количество занятий должно быть целочисленным числом!"
+				: canParsePrice      ? "Стоимость должна быть числом"
+				: canParseDuration   ? "Продолжительность должна быть числом"
+				                       : throw new InvalidOperationException("сообщение не найдено")
 			);
-			return false;
 		}
 
-		return true;
+		return canBeParsed;
 	}
 }
