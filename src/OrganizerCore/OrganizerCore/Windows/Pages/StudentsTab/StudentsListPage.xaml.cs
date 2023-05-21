@@ -4,21 +4,33 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
+using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages.StudentsTab;
 
 public partial class StudentsListPage
 {
+	private bool _isIndividualShown;
+
 	public StudentsListPage() => InitializeComponent();
 
-	public Student SelectedStudent => (Student)StudentsDataGrid.SelectedItem;
+	private Student SelectedStudent => (Student)StudentsDataGrid.SelectedItem;
 
 	private void StudentsListPage_OnLoaded(object sender, RoutedEventArgs e)
 	{
 		SetupStudentsDataGrid();
 		SetupStudentsColumns();
-		ShowIndividualCourses();
+		IsIndividualShown = true;
+	}
+
+	private bool IsIndividualShown
+	{
+		set
+		{
+			_isIndividualShown = value;
+			UpdateCoursesView();
+		}
 	}
 
 #region Students Table setup
@@ -61,19 +73,25 @@ public partial class StudentsListPage
 
 #endregion
 
-	private void ShowIndividualCourses()
-	{
-		SetupForCoursesTable<IndividualCoursesOfStudent>();
-		SetupStudentIndividualCoursesColumns();
-	}
-
-	private void ShowGroupCourses()
-	{
-		SetupForCoursesTable<GroupCoursesOfStudent>();
-		SetupStudentGroupCoursesColumns();
-	}
-
 #region Courses Table setup
+
+	private void ShowIndividualCourses() => IsIndividualShown = true;
+
+	private void ShowGroupCourses() => IsIndividualShown = false;
+
+	private void UpdateCoursesView()
+	{
+		if (_isIndividualShown)
+		{
+			SetupForCoursesTable<IndividualCoursesOfStudent>();
+			SetupStudentIndividualCoursesColumns();
+		}
+		else
+		{
+			SetupForCoursesTable<GroupCoursesOfStudent>();
+			SetupStudentGroupCoursesColumns();
+		}
+	}
 
 	private void SetupForCoursesTable<T>()
 		where T : class
@@ -92,8 +110,8 @@ public partial class StudentsListPage
 		if (e.Item is IndividualCoursesOfStudent individualCourse)
 		{
 			e.Accepted = individualCourse.Student == SelectedStudent
-				&& individualCourse.Course.Title.Contains(CourseTitleSearchTextBox.Text)
-				&& individualCourse.Indicator == IndicatorSearchComboBox.Text;
+			             && individualCourse.Course.Title.Contains(CourseTitleSearchTextBox.Text)
+			             && individualCourse.Indicator == IndicatorSearchComboBox.GetSelectedText();
 			return;
 		}
 
@@ -101,7 +119,7 @@ public partial class StudentsListPage
 		{
 			e.Accepted = groupCourse.Student == SelectedStudent
 			             && groupCourse.Group.Course.Title.Contains(CourseTitleSearchTextBox.Text)
-			             && groupCourse.Indicator == IndicatorSearchComboBox.Text;
+			             && groupCourse.Indicator == IndicatorSearchComboBox.GetSelectedText();
 			return;
 		}
 
@@ -132,6 +150,8 @@ public partial class StudentsListPage
 
 #endregion
 
+#region Events Handlers
+
 	private void ShowIndividualCoursesButton_Click(object sender, RoutedEventArgs e) => ShowIndividualCourses();
 
 	private void ShowGroupCoursesButton_Click(object sender, RoutedEventArgs e) => ShowGroupCourses();
@@ -139,4 +159,10 @@ public partial class StudentsListPage
 	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupStudentsDataGrid();
 
 	private void OnPickedBirthdateChanged(object? sender, SelectionChangedEventArgs e) => SetupStudentsDataGrid();
+
+	private void OnIndicatorSelected(object sender, SelectionChangedEventArgs e) => UpdateCoursesView();
+
+	private void CourseTitleSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateCoursesView();
+
+#endregion
 }

@@ -122,6 +122,7 @@
                      Style="{StaticResource TextBox}"
                      FontSize="14"
                      Width="125"
+                     TextChanged="CourseTitleSearchTextBox_OnTextChanged"
                      VerticalAlignment="Top" />
 
             <TextBlock Grid.Column="0" Grid.Row="1"
@@ -133,6 +134,7 @@
                       x:Name="IndicatorSearchComboBox"
                       Margin="10"
                       Width="125"
+                      SelectionChanged="OnIndicatorSelected"
                       SelectedIndex="0">
                 <ComboBoxItem Content="Неудивительно" />
                 <ComboBoxItem Content="Удовлетворительно" />
