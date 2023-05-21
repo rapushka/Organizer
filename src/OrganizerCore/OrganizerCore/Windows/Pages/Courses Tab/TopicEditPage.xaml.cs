@@ -31,7 +31,7 @@ public partial class TopicEditPage
 
 	private void Page_OnLoaded(object sender, RoutedEventArgs e)
 	{
-		CourseTitleTextBox.Text = _topic.Course.Title;
+		CourseTitleTextBlock.Text = _topic.Course.Title;
 		TitleTextBox.Text = _topic.Title;
 
 		SetupLessonsList();
@@ -60,7 +60,7 @@ public partial class TopicEditPage
 	{
 		if (LessonsDataGrid.SelectedItem is not Lesson selectedLesson)
 		{
-			MessageBoxUtils.ShowError("Не выбрано занятие!");
+			MessageBoxUtils.AtFirstSelect("занятие");
 			return;
 		}
 

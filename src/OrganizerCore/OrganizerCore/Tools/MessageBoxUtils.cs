@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
@@ -27,6 +26,8 @@ public static class MessageBoxUtils
 
 		return ShowEnsure($"В базе данных остались связаные записи:\n{entries}\n\nПродолжить?");
 	}
+
+	public static void AtFirstSelect(string item) => ShowError($"Сначала выберите {item}!");
 
 	public static bool ShowEnsure(string message)
 	{

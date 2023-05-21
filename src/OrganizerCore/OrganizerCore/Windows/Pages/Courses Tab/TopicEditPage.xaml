@@ -9,17 +9,17 @@
       Loaded="Page_OnLoaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="5*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0" Grid.Row="0"
@@ -32,24 +32,19 @@
 
         <TextBlock Grid.Column="0" Grid.Row="1"
                    TextAlignment="Right"
-                   FontSize="18"
-                   FontFamily="Segoe UI Light"
-                   Margin="10"
+                   Style="{StaticResource Header}"
+
                    Text="Курс:" />
-        <TextBox Grid.Column="1" Grid.Row="1"
-                 x:Name="CourseTitleTextBox"
-                 IsReadOnly="True"
-                 VerticalAlignment="Center"
-                 Margin="10"
-                 FontSize="16"
-                 FontFamily="Segoe UI Light"
-                 Text="[Название курса]" />
+        <TextBlock Grid.Column="1" Grid.Row="1"
+                   x:Name="CourseTitleTextBlock"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource Header}"
+                   FontSize="16"
+                   Text="[Название курса]" />
 
         <TextBlock Grid.Column="0" Grid.Row="2"
                    TextAlignment="Right"
-                   FontSize="18"
-                   FontFamily="Segoe UI Light"
-                   Margin="10"
+                   Style="{StaticResource Header}"
                    Text="Название:" />
         <TextBox Grid.Column="1" Grid.Row="2"
                  x:Name="TitleTextBox"
@@ -62,10 +57,8 @@
 
         <TextBlock Grid.Column="0" Grid.Row="3"
                    Grid.ColumnSpan="2"
-                   TextAlignment="Left"
+                   Style="{StaticResource Header}"
                    VerticalAlignment="Bottom"
-                   FontSize="18"
-                   FontFamily="Segoe UI Light"
                    Margin="10,10,10,0"
                    Text="Занятия:" />
         <DataGrid Grid.Column="0" Grid.Row="4"
@@ -82,15 +75,9 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
-                    Padding="5"
-                    Margin="10"
-                    Height="45"
                     Click="AddLessonButton_OnClick"
                     Content="Добавить занятие" />
             <Button Style="{StaticResource PurpleButton}"
-                    Padding="5"
-                    Margin="10"
-                    Height="45"
                     Click="RemoveLessonButton_OnClick"
                     Content="Удалить занятие" />
         </StackPanel>
@@ -99,15 +86,9 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
-                    Padding="5"
-                    Margin="10"
-                    Height="45"
                     Click="EditLessonsTypesListButton_OnClick"
                     Content="Редактировать Виды занятий" />
             <Button Style="{StaticResource PurpleButton}"
-                    Padding="5"
-                    Margin="10"
-                    Height="45"
                     Click="OkButton_OnClick"
                     Content="ОК" />
         </StackPanel>

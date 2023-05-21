@@ -14,8 +14,9 @@ public static class Dependencies
 		where T : Table
 		=> table.Visit
 		(
-			forTypeOfLesson: (t) => Lessons.Where((l) => l.Type.Id == t.Id).Select(Format).ToList(),
-			forLesson: (_) => new List<string>()
+			forTypeOfLesson: (tol) => Lessons.Where((l) => l.Type.Id == tol.Id).Select(Format).ToList(),
+			forLesson: (_) => new List<string>(),
+			forTopic: (t) => Lessons.Where((l) => l.Topic == t).Select(Format).ToList()
 		);
 
 	private static string FromTable(string item, string tableName) => $"{item} из таблицы {tableName}";

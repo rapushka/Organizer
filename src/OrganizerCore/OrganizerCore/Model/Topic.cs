@@ -4,7 +4,7 @@ using OrganizerCore.DbWorking;
 
 namespace OrganizerCore.Model;
 
-public class Topic
+public class Topic : Table
 {
 	[Key] public int    Id     { get; set; }
 	public       string Title  { get; set; } = null!;
