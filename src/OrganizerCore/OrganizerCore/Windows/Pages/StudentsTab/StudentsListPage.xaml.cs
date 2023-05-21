@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
-using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages.StudentsTab;
