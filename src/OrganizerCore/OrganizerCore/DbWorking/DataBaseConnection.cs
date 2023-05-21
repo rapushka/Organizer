@@ -30,5 +30,9 @@ public class DataBaseConnection
 		_currentContext.Topics.Load();
 		_currentContext.Lessons.Load();
 		_currentContext.Students.Load();
+		_currentContext.IndividualCourses.Load();
+		_currentContext.Groups.Load();
+		_currentContext.GroupCourses.Load();
+		_currentContext.Schedules.Load();
 	}
 }
