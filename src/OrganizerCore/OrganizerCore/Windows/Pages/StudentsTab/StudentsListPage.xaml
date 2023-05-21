@@ -26,6 +26,7 @@
                 Text="Фамилия:" />
             <TextBox
                 x:Name="FullnameSearchTextBox"
+                TextChanged="FullnameSearchTextBox_OnTextChanged"
                 Style="{StaticResource TextBox}"
                 Width="200" />
 
@@ -35,12 +36,14 @@
                 Text="Дата рождения от:" />
             <DatePicker
                 x:Name="FromBirthdateDatePicker"
+                SelectedDateChanged="OnPickedBirthdateChanged"
                 Height="25" />
             <TextBlock
                 Style="{StaticResource Header}"
                 Text="до:" />
             <DatePicker
                 x:Name="ToBirthdateDatePicker"
+                SelectedDateChanged="OnPickedBirthdateChanged"
                 Height="25" />
         </StackPanel>
 

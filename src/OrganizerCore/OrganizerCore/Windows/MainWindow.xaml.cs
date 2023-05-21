@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Windows.Pages;
+using OrganizerCore.Windows.Pages.StudentsTab;
 
 namespace OrganizerCore
 {
@@ -22,10 +23,7 @@ namespace OrganizerCore
 			// OpenPage<Schedule>();
 		}
 
-		private void StudentsButton_Click(object sender, RoutedEventArgs e)
-		{
-			// OpenPage<Student>();
-		}
+		private void StudentsButton_Click(object sender, RoutedEventArgs e) => OpenPage<StudentsListPage>();
 
 		private void GroupsButton_Click(object sender, RoutedEventArgs e)
 		{
