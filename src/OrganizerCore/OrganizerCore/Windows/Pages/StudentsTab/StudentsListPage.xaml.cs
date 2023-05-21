@@ -10,9 +10,9 @@ public partial class StudentsListPage
 {
 	public StudentsListPage() => InitializeComponent();
 
-	private void IndividualCoursesButton_Click(object sender, RoutedEventArgs e) { }
+	private void ShowIndividualCoursesButton_Click(object sender, RoutedEventArgs e) { }
 
-	private void GroupCoursesButton_Click(object sender, RoutedEventArgs e) { }
+	private void ShowGroupCoursesButton_Click(object sender, RoutedEventArgs e) { }
 
 	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupStudentsDataGrid();
 
@@ -27,10 +27,19 @@ public partial class StudentsListPage
 			Source = DataBaseConnection.Instance.Observe<Student>(),
 		};
 
-		studentsViewSource.Filter += FilterStudentsByFullnameSearch;
+		studentsViewSource.Filter += FilterStudents;
 		StudentsDataGrid.ItemsSource = studentsViewSource.View;
 	}
 
-	private void FilterStudentsByFullnameSearch(object sender, FilterEventArgs e)
-		=> e.Accepted = ((Student)e.Item).FullName.Contains(FullnameSearchTextBox.Text);
+	private void FilterStudents(object sender, FilterEventArgs e)
+	{
+		var from = FromBirthdateDatePicker.SelectedDate;
+		var to = ToBirthdateDatePicker.SelectedDate;
+		var student = (Student)e.Item;
+
+		var fitsByBirthdate = (from is null || student.Birthdate >= from) && (to is null || student.Birthdate <= to);
+		var fitsByName = student.FullName.Contains(FullnameSearchTextBox.Text);
+
+		e.Accepted = fitsByName && fitsByBirthdate;
+	}
 }

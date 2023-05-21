@@ -59,12 +59,12 @@
             <Button
                 Style="{StaticResource PurpleButton}"
                 Margin="50,5"
-                Click="IndividualCoursesButton_Click"
+                Click="ShowIndividualCoursesButton_Click"
                 Content="Индивидуальные курсы" />
             <Button
                 Style="{StaticResource PurpleButton}"
                 Margin="50,5"
-                Click="GroupCoursesButton_Click"
+                Click="ShowGroupCoursesButton_Click"
                 Content="Груповые курсы" />
         </StackPanel>
 
