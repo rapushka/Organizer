@@ -18,6 +18,8 @@ public partial class CoursesListPage
 
 	private static ObservableCollection<Topic> Topics => DataBaseConnection.Instance.Observe<Topic>();
 
+	private static ObservableCollection<Course> Courses => DataBaseConnection.Instance.Observe<Course>();
+
 	private Course SelectedCourse => (Course)CoursesDataGrid.SelectedItem;
 
 	private void Page_Loaded(object sender, RoutedEventArgs e) => DataGridsSetup();
@@ -86,7 +88,9 @@ public partial class CoursesListPage
 
 	private void AddCourseButton_Click(object sender, RoutedEventArgs e)
 	{
-		// NavigationService.Navigate(new AddCourse());
+		var newCourse = new Course();
+		Courses.Add(newCourse);
+		EditCourse(newCourse);
 	}
 
 	private void EditSelectedCourseButton_Click(object sender, RoutedEventArgs e)
