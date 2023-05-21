@@ -76,21 +76,25 @@
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
                     Click="AddLessonButton_OnClick"
-                    Content="Добавить занятие" />
+                    Content="Добавить" />
             <Button Style="{StaticResource PurpleButton}"
                     Click="RemoveLessonButton_OnClick"
-                    Content="Удалить занятие" />
+                    Content="Удалить" />
+            <Button Style="{StaticResource PurpleButton}"
+                    Click="EditLessonsTypesListButton_OnClick"
+                    Content="Редактировать Виды занятий" />
+
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="6"
                     Grid.ColumnSpan="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
-                    Click="EditLessonsTypesListButton_OnClick"
-                    Content="Редактировать Виды занятий" />
+                    Click="ApplyButton_OnClick"
+                    Content="Применить" />
             <Button Style="{StaticResource PurpleButton}"
-                    Click="OkButton_OnClick"
-                    Content="ОК" />
+                    Click="ApplyButton_OnClick"
+                    Content="Отмена" />
         </StackPanel>
     </Grid>
 </Page>
