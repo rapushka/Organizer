@@ -6,6 +6,7 @@ using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
+using OrganizerCore.Windows.Pages.Courses_Tab;
 
 namespace OrganizerCore.Windows.Pages;
 
@@ -88,21 +89,42 @@ public partial class CoursesListPage
 		// NavigationService.Navigate(new AddCourse());
 	}
 
+	private void EditSelectedCourseButton_Click(object sender, RoutedEventArgs e)
+	{
+		if (EnsureCourseSelected(out var selectedCourse))
+		{
+			EditCourse(selectedCourse);
+		}
+	}
+
+	private void EditCourse(Course? selectedCourse) => NavigationService!.Navigate(new EditCoursePage(selectedCourse!));
+
 	private void AddTopicButton_Click(object sender, RoutedEventArgs e)
 	{
-		if (CoursesDataGrid.SelectedItem is not Course selectedCourse)
+		if (EnsureCourseSelected(out var selectedCourse) == false)
 		{
-			MessageBoxUtils.AtFirstSelect("курс");
 			return;
 		}
 
 		var topic = new Topic
 		{
-			Course = selectedCourse,
+			Course = selectedCourse!,
 		};
 
 		Topics.Add(topic);
 		EditTopic(topic);
+	}
+
+	private bool EnsureCourseSelected(out Course? selectedCourse)
+	{
+		selectedCourse = CoursesDataGrid.SelectedItem as Course;
+
+		if (selectedCourse is null)
+		{
+			MessageBoxUtils.AtFirstSelect("курс");
+		}
+
+		return selectedCourse is not null;
 	}
 
 	private void EditSelectedTopicButton_Click(object sender, RoutedEventArgs e)
