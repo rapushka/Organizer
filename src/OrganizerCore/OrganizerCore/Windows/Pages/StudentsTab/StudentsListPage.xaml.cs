@@ -3,12 +3,19 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
+using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages.StudentsTab;
 
 public partial class StudentsListPage
 {
 	public StudentsListPage() => InitializeComponent();
+
+	private void StudentsListPage_OnLoaded(object sender, RoutedEventArgs e)
+	{
+		SetupStudentsDataGrid();
+		SetupCoursesColumns();
+	}
 
 	private void ShowIndividualCoursesButton_Click(object sender, RoutedEventArgs e) { }
 
@@ -17,8 +24,6 @@ public partial class StudentsListPage
 	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupStudentsDataGrid();
 
 	private void OnPickedBirthdateChanged(object? sender, SelectionChangedEventArgs e) => SetupStudentsDataGrid();
-
-	private void StudentsListPage_OnLoaded(object sender, RoutedEventArgs e) => SetupStudentsDataGrid();
 
 	private void SetupStudentsDataGrid()
 	{
@@ -29,6 +34,19 @@ public partial class StudentsListPage
 
 		studentsViewSource.Filter += FilterStudents;
 		StudentsDataGrid.ItemsSource = studentsViewSource.View;
+	}
+
+	private void SetupCoursesColumns()
+	{
+		StudentsDataGrid.Columns.Clear();
+
+		StudentsDataGrid.AddTextColumn("ID", nameof(Student.Id), Visibility.Collapsed);
+		StudentsDataGrid.AddTextColumn("ФИО", nameof(Student.FullName));
+		StudentsDataGrid.AddTextColumn("Номер телефона", nameof(Student.PhoneNumber));
+		StudentsDataGrid.AddTextColumn("Дата рождения", nameof(Student.Birthdate));
+		StudentsDataGrid.AddTextColumn("Электронная почта", nameof(Student.Email));
+		StudentsDataGrid.AddTextColumn("ФИО доверенного лица", nameof(Student.ProxyFullName));
+		StudentsDataGrid.AddTextColumn("Номер телефона доверенного лица", nameof(Student.ProxyPhoneNumber));
 	}
 
 	private void FilterStudents(object sender, FilterEventArgs e)
