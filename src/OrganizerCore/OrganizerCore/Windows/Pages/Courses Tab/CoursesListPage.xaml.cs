@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,21 +19,29 @@ public partial class CoursesListPage
 
 	private Course SelectedCourse => (Course)CoursesDataGrid.SelectedItem;
 
-	private void Page_Loaded(object sender, RoutedEventArgs e)
-	{
-		var courses = Context.Courses.ToList();
-
-		CoursesDataGrid.ItemsSource = courses;
-
-		DataGridsSetup();
-	}
+	private void Page_Loaded(object sender, RoutedEventArgs e) => DataGridsSetup();
 
 	private void DataGridsSetup()
 	{
+		SetupCoursesList();
 		SetupCoursesColumns();
 		SetupTopicsOfCoursesList();
 		SetupTopicsOfCourseColumns();
 	}
+
+	private void SetupCoursesList()
+	{
+		var coursesViewSource = new CollectionViewSource
+		{
+			Source = DataBaseConnection.Instance.Observe<Course>(),
+		};
+
+		coursesViewSource.Filter += FilterCoursesByTitleSearch;
+		CoursesDataGrid.ItemsSource = coursesViewSource.View;
+	}
+
+	private void FilterCoursesByTitleSearch(object sender, FilterEventArgs e)
+		=> e.Accepted = ((Course)e.Item).Title.Contains(SearchByNameTextBox.Text);
 
 	private void SetupCoursesColumns()
 	{
@@ -55,14 +62,12 @@ public partial class CoursesListPage
 			Source = DataBaseConnection.Instance.Observe<Topic>(),
 		};
 
-		lessonsViewSource.Filter += TopicsViewSource_Filter;
+		lessonsViewSource.Filter += FilterTopicsBySelectedCourse;
 		TopicsOfCourseDataGrid.ItemsSource = lessonsViewSource.View;
 	}
 
-	private void TopicsViewSource_Filter(object sender, FilterEventArgs e)
-	{
-		e.Accepted = ((Topic)e.Item).Course == SelectedCourse;
-	}
+	private void FilterTopicsBySelectedCourse(object sender, FilterEventArgs e)
+		=> e.Accepted = ((Topic)e.Item).Course == SelectedCourse;
 
 	private void SetupTopicsOfCourseColumns()
 	{
@@ -73,10 +78,10 @@ public partial class CoursesListPage
 		TopicsOfCourseDataGrid.AddTextColumn("Количество занятий", nameof(Topic.CountOfLessons));
 	}
 
+	private void SearchByTitleTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupCoursesList();
+
 	private void CoursesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-	{
-		SetupTopicsOfCoursesList();
-	}
+		=> SetupTopicsOfCoursesList();
 
 	private void AddCourseButton_Click(object sender, RoutedEventArgs e)
 	{
