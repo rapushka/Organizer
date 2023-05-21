@@ -60,8 +60,6 @@ public partial class StudentsListPage
 
 #endregion
 
-#region Courses Table setup
-
 	private void ShowIndividualCourses()
 	{
 		SetupForCoursesTable<IndividualCoursesOfStudent>();
@@ -73,6 +71,8 @@ public partial class StudentsListPage
 		SetupForCoursesTable<GroupCoursesOfStudent>();
 		SetupStudentGroupCoursesColumns();
 	}
+
+#region Courses Table setup
 
 	private void SetupForCoursesTable<T>()
 		where T : class
@@ -123,9 +123,9 @@ public partial class StudentsListPage
 
 #endregion
 
-	private void ShowIndividualCoursesButton_Click(object sender, RoutedEventArgs e) { }
+	private void ShowIndividualCoursesButton_Click(object sender, RoutedEventArgs e) => ShowIndividualCourses();
 
-	private void ShowGroupCoursesButton_Click(object sender, RoutedEventArgs e) { }
+	private void ShowGroupCoursesButton_Click(object sender, RoutedEventArgs e) => ShowGroupCourses();
 
 	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupStudentsDataGrid();
 
