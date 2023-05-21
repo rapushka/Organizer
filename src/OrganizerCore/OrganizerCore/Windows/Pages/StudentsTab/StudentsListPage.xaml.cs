@@ -14,11 +14,13 @@ public partial class StudentsListPage
 
 	private void GroupCoursesButton_Click(object sender, RoutedEventArgs e) { }
 
-	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) { }
+	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupStudentsDataGrid();
 
-	private void OnPickedBirthdateChanged(object? sender, SelectionChangedEventArgs e) { }
+	private void OnPickedBirthdateChanged(object? sender, SelectionChangedEventArgs e) => SetupStudentsDataGrid();
 
-	private void StudentsListPage_OnLoaded(object sender, RoutedEventArgs e)
+	private void StudentsListPage_OnLoaded(object sender, RoutedEventArgs e) => SetupStudentsDataGrid();
+
+	private void SetupStudentsDataGrid()
 	{
 		var studentsViewSource = new CollectionViewSource
 		{
@@ -29,5 +31,6 @@ public partial class StudentsListPage
 		StudentsDataGrid.ItemsSource = studentsViewSource.View;
 	}
 
-	private void FilterStudentsByFullnameSearch(object sender, FilterEventArgs e) { }
+	private void FilterStudentsByFullnameSearch(object sender, FilterEventArgs e)
+		=> e.Accepted = ((Student)e.Item).FullName.Contains(FullnameSearchTextBox.Text);
 }
