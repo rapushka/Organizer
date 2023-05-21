@@ -25,18 +25,16 @@ public partial class CoursesListPage
 
 	private void Page_Loaded(object sender, RoutedEventArgs e) => DataGridsSetup();
 
-	private static void OnCourseChangesApplied(Course course, bool isAdded)
+	private static void OnCourseEdited(Course course)
 	{
-		if (isAdded)
-		{
-			Courses.Add(course);
-		}
-		else
-		{
-			var oldCourse = Context.Courses.Single((c) => c.Id == course.Id);
-			oldCourse.Copy(course);
-		}
+		var oldCourse = Context.Courses.Single((c) => c.Id == course.Id);
+		oldCourse.Copy(course);
+		DataBaseConnection.Instance.CurrentContext.SaveChanges();
+	}
 
+	private static void OnCourseAdded(Course course)
+	{
+		Courses.Add(course);
 		DataBaseConnection.Instance.CurrentContext.SaveChanges();
 	}
 
@@ -105,7 +103,7 @@ public partial class CoursesListPage
 	private void AddCourseButton_Click(object sender, RoutedEventArgs e)
 	{
 		var page = new EditCoursePage();
-		page.Applied += OnCourseChangesApplied;
+		page.Applied += OnCourseAdded;
 		NavigationService!.Navigate(page);
 	}
 
@@ -114,7 +112,7 @@ public partial class CoursesListPage
 		if (EnsureCourseSelected(out var selectedCourse))
 		{
 			var page = new EditCoursePage(selectedCourse!);
-			page.Applied += OnCourseChangesApplied;
+			page.Applied += OnCourseEdited;
 			NavigationService!.Navigate(page);
 		}
 	}

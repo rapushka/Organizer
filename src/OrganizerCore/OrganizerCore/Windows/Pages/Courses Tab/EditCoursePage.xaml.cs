@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
-using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
 
@@ -10,20 +9,18 @@ namespace OrganizerCore.Windows.Pages.Courses_Tab;
 public partial class EditCoursePage
 {
 	private readonly Course _selectedCourse;
-	private readonly bool _isAdding;
 
-	public event Action<Course, bool>? Applied; 
+	public event Action<Course>? Applied;
 
 	public EditCoursePage(Course selectedCourse)
 	{
 		_selectedCourse = selectedCourse.Copy();
-		_isAdding = false;
 		InitializeComponent();
 	}
+
 	public EditCoursePage()
 	{
 		_selectedCourse = new Course();
-		_isAdding = true;
 		InitializeComponent();
 	}
 
@@ -33,7 +30,7 @@ public partial class EditCoursePage
 	{
 		if (TrySave())
 		{
-			Applied?.Invoke(_selectedCourse, _isAdding);
+			Applied?.Invoke(_selectedCourse);
 			ExitPage();
 		}
 	}
