@@ -169,6 +169,9 @@ public partial class StudentsListPage
 
 	private void CourseTitleSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateCoursesView();
 
+	private void StudentsDataGrid_OnSelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+		=> UpdateCoursesView();
+
 	private void EnrollStudentButton_OnClick(object sender, RoutedEventArgs e)
 	{
 		if (EnsureStudentSelected(out var selectedStudent))
