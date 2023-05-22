@@ -37,9 +37,6 @@ public partial class EnrollStudentOnCoursePage
 
 	private static string GroupDotCourseName => $"{nameof(GroupCoursesOfStudent.Group)}.{nameof(Group.Course)}";
 
-	private static string IndividualLessonsCountName => nameof(IndividualCoursesOfStudent.LessonsCount);
-	private static string GroupLessonsCountName      => nameof(GroupCoursesOfStudent.LessonsCount);
-
 	private void OnPageLoad(object sender, RoutedEventArgs e)
 	{
 		StudentViewTextBlock.Text = _student.ToString();
@@ -98,7 +95,6 @@ public partial class EnrollStudentOnCoursePage
 			binding: nameof(IndividualCoursesOfStudent.Indicator),
 			itemsSource: _indicators
 		);
-		IndividualCoursesDataGrid.AddTextColumn("Количество занятий", IndividualLessonsCountName, isReadonly: true);
 	}
 
 #endregion
@@ -147,7 +143,6 @@ public partial class EnrollStudentOnCoursePage
 			binding: nameof(GroupCoursesOfStudent.Indicator),
 			itemsSource: _indicators
 		);
-		GroupCoursesDataGrid.AddTextColumn("Количество занятий", GroupLessonsCountName, isReadonly: true);
 	}
 
 #endregion
