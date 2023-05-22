@@ -7,6 +7,87 @@
       mc:Ignorable="d"
       Title="EnrollStudentOnCoursePage" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0"
+                   Style="{StaticResource Header}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="Индивидуальные курсы" />
+        <TextBlock Grid.Column="1" Grid.Row="0"
+                   Style="{StaticResource Header}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="Груповые курсы" />
+
+        <DockPanel Grid.Column="0" Grid.Row="1"
+                   Height="45">
+            <TextBlock
+                Style="{StaticResource Header}"
+                Text="Наименование курса" />
+            <TextBox
+                x:Name="CourseTitleSearchTextBox"
+                Style="{StaticResource TextBox}" />
+        </DockPanel>
+        <DockPanel Grid.Column="1" Grid.Row="1"
+                   Height="45">
+            <TextBlock
+                x:Name="GroupTitleSearchTextBox"
+                Style="{StaticResource Header}"
+                Text="Название группы" />
+            <TextBox
+                Style="{StaticResource TextBox}" />
+        </DockPanel>
+
+        <DataGrid Grid.Column="0" Grid.Row="2"
+                  x:Name="IndividualCoursesDataGrid"
+                  Margin="10"
+                  IsReadOnly="False"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False" />
+
+        <DataGrid Grid.Column="1" Grid.Row="2"
+                  x:Name="GroupCoursesDataGrid"
+                  Margin="10"
+                  IsReadOnly="False"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False" />
+
+        <DockPanel Grid.Column="0" Grid.Row="3"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center">
+            <TextBlock
+                Style="{StaticResource Header}"
+                Text="В промежутке от:" />
+            <DatePicker
+                x:Name="FromDatePicker"
+                Width="100"
+                Height="25" />
+
+            <TextBlock
+                Style="{StaticResource Header}"
+                Text="и до:" />
+            <DatePicker
+                x:Name="ToDatePicker"
+                Width="100"
+                Height="25" />
+        </DockPanel>
+
+        <Button Grid.Column="1" Grid.Row="3"
+                Style="{StaticResource PurpleButton}"
+                HorizontalAlignment="Right"
+                Height="35"
+                Margin="25,5"
+                Click="ButtonBase_OnClick"
+                Content="ОК"/>
     </Grid>
 </Page>
