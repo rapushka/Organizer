@@ -24,8 +24,13 @@ public partial class EnrollStudentOnCoursePage
 
 	private static IEnumerable<Course> Courses => DataBaseConnection.Instance.Observe<Course>();
 
+	private static IEnumerable<Group> Groups => DataBaseConnection.Instance.Observe<Group>();
+
 	private static ObservableCollection<IndividualCoursesOfStudent> IndividualCourses
 		=> DataBaseConnection.Instance.Observe<IndividualCoursesOfStudent>();
+
+	private static ObservableCollection<GroupCoursesOfStudent> GroupCourses
+		=> DataBaseConnection.Instance.Observe<GroupCoursesOfStudent>();
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
@@ -33,13 +38,15 @@ public partial class EnrollStudentOnCoursePage
 	{
 		StudentViewTextBlock.Text = _student.ToString();
 
+		SetupIndividualDataGrid();
 		SetupIndividualCoursesColumns();
-		SetupStudentsDataGrid();
+		SetupGroupDataGrid();
+		SetupGroupCoursesColumns();
 	}
 
 #region Individual courses table setup
 
-	private void SetupStudentsDataGrid()
+	private void SetupIndividualDataGrid()
 	{
 		var studentsViewSource = new CollectionViewSource
 		{
@@ -81,6 +88,52 @@ public partial class EnrollStudentOnCoursePage
 			itemsSource: _indicators
 		);
 		IndividualCoursesDataGrid.AddTextColumn("Количество занятий", nameof(IndividualCoursesOfStudent.LessonsCount));
+	}
+
+#endregion
+
+#region Group courses table setup
+
+	private void SetupGroupDataGrid()
+	{
+		var studentsViewSource = new CollectionViewSource
+		{
+			Source = DataBaseConnection.Instance.Observe<GroupCoursesOfStudent>(),
+		};
+
+		studentsViewSource.Filter += FilterGroupCourses;
+		GroupCoursesDataGrid.ItemsSource = studentsViewSource.View;
+	}
+
+	private void FilterGroupCourses(object sender, FilterEventArgs e)
+	{
+		var groupCourses = (GroupCoursesOfStudent)e.Item;
+
+		var fitsByName = groupCourses.Group.Course.Title.Contains(CourseTitleSearchTextBox.Text);
+
+		e.Accepted = groupCourses.Student == _student && fitsByName;
+	}
+
+	private void SetupGroupCoursesColumns()
+	{
+		GroupCoursesDataGrid.Columns.Clear();
+
+		GroupCoursesDataGrid.AddTextColumn("ID", nameof(GroupCoursesOfStudent.Id), Visibility.Collapsed);
+		GroupCoursesDataGrid.AddComboBoxColumn
+		(
+			header: "Группа",
+			binding: nameof(GroupCoursesOfStudent.Group),
+			itemsSource: Groups,
+			displayMemberPath: nameof(Group.Title),
+			selectedValuePath: nameof(Group.Id)
+		);
+		GroupCoursesDataGrid.AddComboBoxColumn
+		(
+			header: "Показатель",
+			binding: nameof(GroupCoursesOfStudent.Indicator),
+			itemsSource: _indicators
+		);
+		GroupCoursesDataGrid.AddTextColumn("Количество занятий", nameof(GroupCoursesOfStudent.LessonsCount));
 	}
 
 #endregion
