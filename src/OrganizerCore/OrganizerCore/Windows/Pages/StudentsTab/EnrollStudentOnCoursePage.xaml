@@ -15,22 +15,30 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="5*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0" Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   x:Name="StudentViewTextBlock"
+                   Style="{StaticResource Header}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="[Ученик]" />
+        <TextBlock Grid.Column="0" Grid.Row="1"
                    Style="{StaticResource Header}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Text="Индивидуальные курсы" />
-        <TextBlock Grid.Column="1" Grid.Row="0"
+        <TextBlock Grid.Column="1" Grid.Row="1"
                    Style="{StaticResource Header}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Text="Груповые курсы" />
 
-        <DockPanel Grid.Column="0" Grid.Row="1"
+        <DockPanel Grid.Column="0" Grid.Row="2"
                    Height="45">
             <TextBlock
                 Style="{StaticResource Header}"
@@ -39,7 +47,7 @@
                 x:Name="CourseTitleSearchTextBox"
                 Style="{StaticResource TextBox}" />
         </DockPanel>
-        <DockPanel Grid.Column="1" Grid.Row="1"
+        <DockPanel Grid.Column="1" Grid.Row="2"
                    Height="45">
             <TextBlock
                 x:Name="GroupTitleSearchTextBox"
@@ -49,21 +57,21 @@
                 Style="{StaticResource TextBox}" />
         </DockPanel>
 
-        <DataGrid Grid.Column="0" Grid.Row="2"
+        <DataGrid Grid.Column="0" Grid.Row="3"
                   x:Name="IndividualCoursesDataGrid"
                   Margin="10"
                   IsReadOnly="False"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False" />
 
-        <DataGrid Grid.Column="1" Grid.Row="2"
+        <DataGrid Grid.Column="1" Grid.Row="3"
                   x:Name="GroupCoursesDataGrid"
                   Margin="10"
                   IsReadOnly="False"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False" />
 
-        <DockPanel Grid.Column="0" Grid.Row="3"
+        <DockPanel Grid.Column="0" Grid.Row="4"
                    Grid.ColumnSpan="2"
                    HorizontalAlignment="Center">
             <TextBlock
@@ -83,7 +91,7 @@
                 Height="25" />
         </DockPanel>
 
-        <Button Grid.Column="1" Grid.Row="3"
+        <Button Grid.Column="1" Grid.Row="4"
                 Style="{StaticResource PurpleButton}"
                 HorizontalAlignment="Right"
                 Height="35"

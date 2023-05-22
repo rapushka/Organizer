@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
@@ -25,6 +24,8 @@ public partial class EnrollStudentOnCoursePage
 
 	private void OnPageLoad(object sender, RoutedEventArgs e)
 	{
+		StudentViewTextBlock.Text = _student.ToString();
+		
 		SetupIndividualCoursesColumns();
 		SetupStudentsDataGrid();
 	}
