@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 
 namespace OrganizerCore.Tools.Extensions;
 
 public static class DataGridColumnsExtensions
 {
+	private const string Empty = "";
+
 	public static void AddTextColumn
 	(
 		this DataGrid @this,
@@ -31,8 +32,8 @@ public static class DataGridColumnsExtensions
 		string header,
 		string binding,
 		IEnumerable<TProperty> itemsSource,
-		string displayMemberPath,
-		string selectedValuePath,
+		string displayMemberPath = Empty,
+		string selectedValuePath = Empty,
 		Visibility visibility = Visibility.Visible
 	)
 		=> @this.Columns.Add
@@ -47,34 +48,4 @@ public static class DataGridColumnsExtensions
 				Visibility = visibility,
 			}
 		);
-
-	public static void AddComboBoxEnumColumn
-	(
-		this DataGrid @this,
-		string header,
-		string binding,
-		string[] itemsSource,
-		Visibility visibility = Visibility.Visible
-	)
-	{
-		var comboBoxColumn = new DataGridTemplateColumn
-		{
-			Header = header,
-			Visibility = visibility,
-		};
-
-		var dataTemplate = new DataTemplate(typeof(ComboBox));
-		var comboBoxFactory = new FrameworkElementFactory(typeof(ComboBox));
-		comboBoxFactory.SetValue(ItemsControl.ItemsSourceProperty, itemsSource);
-
-		comboBoxFactory.SetValue(Selector.SelectedItemProperty, new Binding(binding));
-		comboBoxFactory.SetValue(ItemsControl.DisplayMemberPathProperty, "");
-
-		dataTemplate.VisualTree = comboBoxFactory;
-
-		comboBoxColumn.CellEditingTemplate = dataTemplate;
-		comboBoxColumn.CellTemplate = dataTemplate;
-
-		@this.Columns.Add(comboBoxColumn);
-	}
 }
