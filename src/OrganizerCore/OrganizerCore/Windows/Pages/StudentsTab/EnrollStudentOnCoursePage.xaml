@@ -106,17 +106,15 @@
                     HorizontalAlignment="Center">
             <Button
                 Style="{StaticResource PurpleButton}"
+                Margin="10,5"
+                Click="ApplyButton_OnClick"
+                Content="Применить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
                 Height="35"
                 Margin="10,5"
                 Click="CancelButton_OnClick"
                 Content="Отмена" />
-            <Button
-                Style="{StaticResource PurpleButton}"
-                Margin="10,5"
-                Click="ApplyButton_OnClick"
-                Content="Применить">
-                <Button.Height>35</Button.Height>
-            </Button>
         </StackPanel>
     </Grid>
 </Page>

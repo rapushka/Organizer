@@ -35,7 +35,10 @@ public partial class EnrollStudentOnCoursePage
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
-	private static string GroupDotCourse => $"{nameof(GroupCoursesOfStudent.Group)}.{nameof(Group.Course)}";
+	private static string GroupDotCourseName => $"{nameof(GroupCoursesOfStudent.Group)}.{nameof(Group.Course)}";
+
+	private static string IndividualLessonsCountName => nameof(IndividualCoursesOfStudent.LessonsCount);
+	private static string GroupLessonsCountName      => nameof(GroupCoursesOfStudent.LessonsCount);
 
 	private void OnPageLoad(object sender, RoutedEventArgs e)
 	{
@@ -95,7 +98,7 @@ public partial class EnrollStudentOnCoursePage
 			binding: nameof(IndividualCoursesOfStudent.Indicator),
 			itemsSource: _indicators
 		);
-		IndividualCoursesDataGrid.AddTextColumn("Количество занятий", nameof(IndividualCoursesOfStudent.LessonsCount));
+		IndividualCoursesDataGrid.AddTextColumn("Количество занятий", IndividualLessonsCountName, isReadonly: true);
 	}
 
 #endregion
@@ -136,14 +139,14 @@ public partial class EnrollStudentOnCoursePage
 			displayMemberPath: nameof(Group.Title),
 			selectedValuePath: nameof(Group.Id)
 		);
-		GroupCoursesDataGrid.AddTextColumn("Курс", GroupDotCourse, isReadonly: true);
+		GroupCoursesDataGrid.AddTextColumn("Курс", GroupDotCourseName, isReadonly: true);
 		GroupCoursesDataGrid.AddComboBoxColumn
 		(
 			header: "Показатель",
 			binding: nameof(GroupCoursesOfStudent.Indicator),
 			itemsSource: _indicators
 		);
-		GroupCoursesDataGrid.AddTextColumn("Количество занятий", nameof(GroupCoursesOfStudent.LessonsCount));
+		GroupCoursesDataGrid.AddTextColumn("Количество занятий", GroupLessonsCountName, isReadonly: true);
 	}
 
 #endregion
