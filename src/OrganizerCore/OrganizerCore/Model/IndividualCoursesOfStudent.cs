@@ -11,7 +11,8 @@ public class IndividualCoursesOfStudent : Table
 	public       DateTime BeginningDate { get; set; }
 	public       DateTime EndingDate    { get; set; }
 	public       string   Indicator     { get; set; } = null!;
-	public       int      LessonsCount  { get; set; }
+
+	public int LessonsCount => throw new NotImplementedException();
 
 	public override string ToString() => $"Курс {Course} студента {Student}";
 }

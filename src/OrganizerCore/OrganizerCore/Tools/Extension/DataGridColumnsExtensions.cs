@@ -14,7 +14,8 @@ public static class DataGridColumnsExtensions
 		this DataGrid @this,
 		string header,
 		string binding,
-		Visibility visibility = Visibility.Visible
+		Visibility visibility = Visibility.Visible,
+		bool isReadonly = false
 	)
 		=> @this.Columns.Add
 		(
@@ -23,6 +24,7 @@ public static class DataGridColumnsExtensions
 				Header = header,
 				Binding = new Binding(binding),
 				Visibility = visibility,
+				IsReadOnly = isReadonly,
 			}
 		);
 

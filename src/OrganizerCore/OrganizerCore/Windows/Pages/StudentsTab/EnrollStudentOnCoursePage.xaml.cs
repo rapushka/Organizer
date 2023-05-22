@@ -35,6 +35,8 @@ public partial class EnrollStudentOnCoursePage
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
+	private static string GroupDotCourse => $"{nameof(GroupCoursesOfStudent.Group)}.{nameof(Group.Course)}";
+
 	private void OnPageLoad(object sender, RoutedEventArgs e)
 	{
 		StudentViewTextBlock.Text = _student.ToString();
@@ -115,9 +117,10 @@ public partial class EnrollStudentOnCoursePage
 	{
 		var groupCourses = (GroupCoursesOfStudent)e.Item;
 
+		var isForSelectedStudent = groupCourses.Student == _student;
 		var fitsByName = groupCourses.Group.Course.Title.Contains(CourseTitleSearchTextBox.Text);
 
-		e.Accepted = groupCourses.Student == _student && fitsByName;
+		e.Accepted = isForSelectedStudent && fitsByName;
 	}
 
 	private void SetupGroupCoursesColumns()
@@ -133,6 +136,7 @@ public partial class EnrollStudentOnCoursePage
 			displayMemberPath: nameof(Group.Title),
 			selectedValuePath: nameof(Group.Id)
 		);
+		GroupCoursesDataGrid.AddTextColumn("Курс", GroupDotCourse, isReadonly: true);
 		GroupCoursesDataGrid.AddComboBoxColumn
 		(
 			header: "Показатель",
