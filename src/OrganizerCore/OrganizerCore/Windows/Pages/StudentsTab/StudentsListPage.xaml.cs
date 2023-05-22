@@ -114,7 +114,8 @@ public partial class StudentsListPage
 		{
 			e.Accepted = individualCourse.Student == SelectedStudent
 			             && individualCourse.Course.Title.Contains(CourseTitleSearchTextBox.Text)
-			             && individualCourse.Indicator == IndicatorSearchComboBox.GetSelectedText();
+			             && (individualCourse.Indicator == IndicatorSearchComboBox.GetSelectedText()
+			                 || IndicatorSearchComboBox.GetSelectedText() == "Все");
 			return;
 		}
 
@@ -122,7 +123,8 @@ public partial class StudentsListPage
 		{
 			e.Accepted = groupCourse.Student == SelectedStudent
 			             && groupCourse.Group.Course.Title.Contains(CourseTitleSearchTextBox.Text)
-			             && groupCourse.Indicator == IndicatorSearchComboBox.GetSelectedText();
+			             && (groupCourse.Indicator == IndicatorSearchComboBox.GetSelectedText()
+			                 || IndicatorSearchComboBox.GetSelectedText() == "Все");
 			return;
 		}
 
