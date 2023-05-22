@@ -1,0 +1,151 @@
+﻿<Page x:Class="OrganizerCore.Windows.Pages.StudentsTab.StudentsListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Title="StudentsListPage" Height="450" Width="800"
+      Loaded="StudentsListPage_OnLoaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <TextBlock
+                Style="{StaticResource Header}"
+                Text="Фамилия:" />
+            <TextBox
+                x:Name="FullnameSearchTextBox"
+                TextChanged="FullnameSearchTextBox_OnTextChanged"
+                Style="{StaticResource TextBox}"
+                Width="200" />
+
+            <TextBlock
+                Style="{StaticResource Header}"
+                Text="Дата рождения от:" />
+            <DatePicker
+                x:Name="FromBirthdateDatePicker"
+                SelectedDateChanged="OnPickedBirthdateChanged"
+                Height="25" />
+            <TextBlock
+                Style="{StaticResource Header}"
+                Text="до:" />
+            <DatePicker
+                x:Name="ToBirthdateDatePicker"
+                SelectedDateChanged="OnPickedBirthdateChanged"
+                Height="25" />
+        </StackPanel>
+
+        <DataGrid Grid.Column="0" Grid.Row="1"
+                  Grid.ColumnSpan="2"
+                  x:Name="StudentsDataGrid"
+                  CanUserAddRows="False"
+                  IsReadOnly="True" 
+                  SelectedCellsChanged="StudentsDataGrid_OnSelectedCellsChanged"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Margin="50,5"
+                Click="ShowIndividualCoursesButton_Click"
+                Content="Индивидуальные курсы" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Margin="50,5"
+                Click="ShowGroupCoursesButton_Click"
+                Content="Груповые курсы" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button
+                Style="{StaticResource PurpleButton}"
+                FontSize="12"
+                Height="25"
+                Click="AddStudentButton_OnClick"
+                Content="Добавить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                FontSize="12"
+                Height="25"
+                Click="EditStudentButton_OnClick"
+                Content="Изменить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                FontSize="12"
+                Height="25"
+                Click="RemoveStudentButton_OnClick"
+                Content="Удалить" />
+        </StackPanel>
+
+        <Button Grid.Column="1" Grid.Row="3"
+                Style="{StaticResource PurpleButton}"
+                FontSize="12"
+                Height="25"
+                VerticalAlignment="Top"
+                Click="EnrollStudentButton_OnClick"
+                Content="Записать на курс" />
+
+        <DataGrid Grid.Column="0" Grid.Row="3"
+                  x:Name="CoursesOfStudentDataGrid"
+                  CanUserAddRows="False"
+                  IsReadOnly="True" />
+
+        <Grid Grid.Column="1" Grid.Row="3"
+              VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0"
+                       Style="{StaticResource Header}"
+                       FontSize="14"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Right"
+                       Text="Наименование:" />
+            <TextBox Grid.Column="1" Grid.Row="0"
+                     x:Name="CourseTitleSearchTextBox"
+                     Style="{StaticResource TextBox}"
+                     FontSize="14"
+                     Width="125"
+                     TextChanged="CourseTitleSearchTextBox_OnTextChanged"
+                     VerticalAlignment="Top" />
+
+            <TextBlock Grid.Column="0" Grid.Row="1"
+                       Style="{StaticResource Header}"
+                       FontSize="14"
+                       HorizontalAlignment="Right"
+                       Text="Показатель:" />
+            <ComboBox Grid.Column="1" Grid.Row="1"
+                      x:Name="IndicatorSearchComboBox"
+                      Margin="10"
+                      Width="125"
+                      SelectionChanged="OnIndicatorSelected"
+                      SelectedIndex="0">
+                <ComboBoxItem Content="Все" />
+                <ComboBoxItem Content="Неудовлетворительно" />
+                <ComboBoxItem Content="Удовлетворительно" />
+                <ComboBoxItem Content="Хорошо" />
+            </ComboBox>
+        </Grid>
+    </Grid>
+</Page>

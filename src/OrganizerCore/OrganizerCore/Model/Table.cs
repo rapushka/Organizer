@@ -9,7 +9,11 @@ public class Table
 		Func<TypeOfLesson, T> forTypeOfLesson,
 		Func<Lesson, T> forLesson,
 		Func<Topic, T> forTopic,
-		Func<Course, T> forCourse
+		Func<Course, T> forCourse,
+		Func<Student, T> forStudent,
+		Func<IndividualCoursesOfStudent, T> forIndividualCourse,
+		Func<GroupCoursesOfStudent, T> forGroupCourse,
+		Func<Schedule, T> forSchedule
 	)
 		=> this switch
 		{
@@ -17,6 +21,10 @@ public class Table
 			Lesson lesson => forLesson(lesson),
 			Topic topic => forTopic(topic),
 			Course course => forCourse(course),
+			Student student => forStudent(student),
+			IndividualCoursesOfStudent individualCourse => forIndividualCourse(individualCourse),
+			GroupCoursesOfStudent groupCourse => forGroupCourse(groupCourse),
+			Schedule schedule => forSchedule(schedule),
 			_ => throw new InvalidOperationException($"Unknown {nameof(Table)} type. Is {GetType().Name}"),
 		};
 }

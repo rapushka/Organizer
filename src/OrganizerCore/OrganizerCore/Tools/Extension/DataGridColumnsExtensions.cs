@@ -7,12 +7,15 @@ namespace OrganizerCore.Tools.Extensions;
 
 public static class DataGridColumnsExtensions
 {
+	private const string Empty = "";
+
 	public static void AddTextColumn
 	(
 		this DataGrid @this,
 		string header,
 		string binding,
-		Visibility visibility = Visibility.Visible
+		Visibility visibility = Visibility.Visible,
+		bool isReadonly = false
 	)
 		=> @this.Columns.Add
 		(
@@ -21,6 +24,7 @@ public static class DataGridColumnsExtensions
 				Header = header,
 				Binding = new Binding(binding),
 				Visibility = visibility,
+				IsReadOnly = isReadonly,
 			}
 		);
 
@@ -30,8 +34,8 @@ public static class DataGridColumnsExtensions
 		string header,
 		string binding,
 		IEnumerable<TProperty> itemsSource,
-		string displayMemberPath,
-		string selectedValuePath,
+		string displayMemberPath = Empty,
+		string selectedValuePath = Empty,
 		Visibility visibility = Visibility.Visible
 	)
 		=> @this.Columns.Add

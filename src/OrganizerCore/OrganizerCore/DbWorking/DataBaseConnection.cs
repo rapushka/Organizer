@@ -19,6 +19,8 @@ public class DataBaseConnection
 		where T : class
 		=> CurrentContext.GetTable<T>().Local.ToObservableCollection();
 
+	public void ResetAll() => OpenDataBase();
+
 	public void OpenDataBase()
 	{
 		_currentContext = new ApplicationContext();
@@ -29,5 +31,10 @@ public class DataBaseConnection
 		_currentContext.Courses.Load();
 		_currentContext.Topics.Load();
 		_currentContext.Lessons.Load();
+		_currentContext.Students.Load();
+		_currentContext.IndividualCourses.Load();
+		_currentContext.Groups.Load();
+		_currentContext.GroupCourses.Load();
+		_currentContext.Schedules.Load();
 	}
 }

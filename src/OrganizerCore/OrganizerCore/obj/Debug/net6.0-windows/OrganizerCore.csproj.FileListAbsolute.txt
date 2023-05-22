@@ -144,3 +144,9 @@ C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-w
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\TypesOfLessonsListPage.g.cs
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\EditCoursePage.baml
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\EditCoursePage.g.cs
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\StudentsListPage.baml
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\StudentsListPage.g.cs
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\EditStudentPage.g.cs
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\EditStudentPage.baml
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\EnrollStudentOnCoursePage.g.cs
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\EnrollStudentOnCoursePage.baml

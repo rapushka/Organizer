@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
-using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
 
@@ -11,22 +10,34 @@ public partial class EditCoursePage
 {
 	private readonly Course _selectedCourse;
 
+	public event Action<Course>? Applied;
+
 	public EditCoursePage(Course selectedCourse)
 	{
-		_selectedCourse = selectedCourse;
+		_selectedCourse = selectedCourse.Copy();
+		InitializeComponent();
+	}
+
+	public EditCoursePage()
+	{
+		_selectedCourse = new Course();
 		InitializeComponent();
 	}
 
 	private void EditCoursePage_OnLoaded(object sender, RoutedEventArgs e) => Load();
 
-	private void OkButton_OnClick(object sender, RoutedEventArgs e)
+	private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
 	{
 		if (TrySave())
 		{
-			DataBaseConnection.Instance.CurrentContext.SaveChanges();
-			NavigationService!.GoBack();
+			Applied?.Invoke(_selectedCourse);
+			ExitPage();
 		}
 	}
+
+	private void CancelButton_OnClick(object sender, RoutedEventArgs e) => ExitPage();
+
+	private void ExitPage() => NavigationService!.GoBack();
 
 	private void Load()
 	{
