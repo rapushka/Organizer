@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:OrganizerCore.Windows.Pages.StudentsTab"
       mc:Ignorable="d"
-      Title="EnrollStudentOnCoursePage" Height="450" Width="800">
+      Title="EnrollStudentOnCoursePage" Height="450" Width="800"
+      Loaded="OnPageLoad">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
