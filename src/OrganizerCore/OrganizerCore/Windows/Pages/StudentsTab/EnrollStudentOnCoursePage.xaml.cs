@@ -163,13 +163,23 @@ public partial class EnrollStudentOnCoursePage
 
 	private void RemoveIndividualButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		if (IndividualCoursesDataGrid.SelectedItem is not IndividualCoursesOfStudent course)
+		if (EnsureSelectedIndividualCourse(out var course)
+		    && MessageBoxUtils.ConfirmDeletion(course!))
+		{
+			IndividualCourses.Remove(course!);
+		}
+	}
+
+	private bool EnsureSelectedIndividualCourse(out IndividualCoursesOfStudent? course)
+	{
+		course = IndividualCoursesDataGrid.SelectedItem as IndividualCoursesOfStudent;
+
+		if (course is null)
 		{
 			MessageBoxUtils.AtFirstSelect("индивидуальный курс ученика");
-			return;
 		}
 
-		IndividualCourses.Remove(course);
+		return course is not null;
 	}
 
 #endregion
