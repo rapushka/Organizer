@@ -99,7 +99,6 @@ public partial class EnrollStudentOnCoursePage
 		NavigationService!.GoBack();
 	}
 
-	private void Save(object sender, RoutedEventArgs e) { }
 
 	private void AddIndividualButton_OnClick(object sender, RoutedEventArgs e)
 	{
