@@ -121,9 +121,10 @@ public partial class EnrollStudentOnCoursePage
 		var groupCourses = (GroupCoursesOfStudent)e.Item;
 
 		var isForSelectedStudent = groupCourses.Student == _student;
-		var fitsByName = groupCourses.Group.Course.Title.Contains(CourseTitleSearchTextBox.Text);
+		var fitsByCourseName = groupCourses.Group.Course.Title.Contains(CourseTitleSearchTextBox.Text);
+		var fitsByGroupTitle = groupCourses.Group.Title.Contains(GroupTitleSearchTextBox.Text);
 
-		e.Accepted = isForSelectedStudent && fitsByName;
+		e.Accepted = isForSelectedStudent && fitsByCourseName && fitsByGroupTitle;
 	}
 
 	private void SetupGroupCoursesColumns()
