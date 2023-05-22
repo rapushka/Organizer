@@ -9,7 +9,7 @@ namespace OrganizerCore.Windows.Pages.StudentsTab;
 
 public partial class EnrollStudentOnCoursePage
 {
-	private Student _student;
+	private readonly Student _student;
 
 	public EnrollStudentOnCoursePage(Student student)
 	{
@@ -25,7 +25,7 @@ public partial class EnrollStudentOnCoursePage
 	private void OnPageLoad(object sender, RoutedEventArgs e)
 	{
 		StudentViewTextBlock.Text = _student.ToString();
-		
+
 		SetupIndividualCoursesColumns();
 		SetupStudentsDataGrid();
 	}
@@ -77,5 +77,14 @@ public partial class EnrollStudentOnCoursePage
 
 #endregion
 
-	private void ButtonBase_OnClick(object sender, RoutedEventArgs e) => NavigationService!.GoBack();
+	private void GoBackButton_OnClick(object sender, RoutedEventArgs e) => NavigationService!.GoBack();
+
+	private void Save(object sender, RoutedEventArgs e) => Context.SaveChanges();
+
+	private void AddIndividualButton_OnClick(object sender, RoutedEventArgs e) { }
+
+	private void RemoveIndividualButton_OnClick(object sender, RoutedEventArgs e) { }
+
+	private void AddGroupButton_OnClick(object sender, RoutedEventArgs e)    { }
+	private void RemoveGroupButton_OnClick(object sender, RoutedEventArgs e) { }
 }

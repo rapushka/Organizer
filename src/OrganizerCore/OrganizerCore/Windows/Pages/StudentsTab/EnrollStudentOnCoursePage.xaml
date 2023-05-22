@@ -16,6 +16,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="5*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -57,21 +58,7 @@
                 Style="{StaticResource TextBox}" />
         </DockPanel>
 
-        <DataGrid Grid.Column="0" Grid.Row="3"
-                  x:Name="IndividualCoursesDataGrid"
-                  Margin="10"
-                  IsReadOnly="False"
-                  AutoGenerateColumns="False"
-                  CanUserAddRows="False" />
-
-        <DataGrid Grid.Column="1" Grid.Row="3"
-                  x:Name="GroupCoursesDataGrid"
-                  Margin="10"
-                  IsReadOnly="False"
-                  AutoGenerateColumns="False"
-                  CanUserAddRows="False" />
-
-        <DockPanel Grid.Column="0" Grid.Row="4"
+        <DockPanel Grid.Column="0" Grid.Row="3"
                    Grid.ColumnSpan="2"
                    HorizontalAlignment="Center">
             <TextBlock
@@ -91,12 +78,54 @@
                 Height="25" />
         </DockPanel>
 
-        <Button Grid.Column="1" Grid.Row="4"
+        <DataGrid Grid.Column="0" Grid.Row="4"
+                  x:Name="IndividualCoursesDataGrid"
+                  Margin="10"
+                  IsReadOnly="False"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  LostFocus="Save" />
+
+        <DataGrid Grid.Column="1" Grid.Row="4"
+                  x:Name="GroupCoursesDataGrid"
+                  Margin="10"
+                  IsReadOnly="False"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  LostFocus="Save" />
+
+        <StackPanel Grid.Column="0" Grid.Row="5"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="AddIndividualButton_OnClick"
+                Content="Добавить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="RemoveIndividualButton_OnClick"
+                Content="Удалить" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="5"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="AddGroupButton_OnClick"
+                Content="Добавить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Click="RemoveGroupButton_OnClick"
+                Content="Удалить" />
+        </StackPanel>
+
+        <!-- Button back -->
+        <Button Grid.Column="1" Grid.Row="0"
                 Style="{StaticResource PurpleButton}"
                 HorizontalAlignment="Right"
                 Height="35"
-                Margin="25,5"
-                Click="ButtonBase_OnClick"
-                Content="ОК"/>
+                Margin="10,5"
+                Click="GoBackButton_OnClick"
+                Content="Назад" />
     </Grid>
 </Page>
