@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -86,19 +85,7 @@ public partial class EnrollStudentOnCoursePage
 
 #endregion
 
-#region Event Handlers
-
-	private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
-	{
-		Context.SaveChanges();
-		NavigationService!.GoBack();
-	}
-
-	private void CancelButton_OnClick(object sender, RoutedEventArgs e)
-	{
-		DataBaseConnection.Instance.ResetAll();
-		NavigationService!.GoBack();
-	}
+#region Individual courses CRUD
 
 	private void AddIndividualButton_OnClick(object sender, RoutedEventArgs e)
 	{
@@ -123,9 +110,29 @@ public partial class EnrollStudentOnCoursePage
 		IndividualCourses.Remove(course);
 	}
 
+#endregion
+
+#region Group courses CRUD
+
 	private void AddGroupButton_OnClick(object sender, RoutedEventArgs e) { }
 
 	private void RemoveGroupButton_OnClick(object sender, RoutedEventArgs e) { }
+
+#endregion
+
+#region Event Handlers
+
+	private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		Context.SaveChanges();
+		NavigationService!.GoBack();
+	}
+
+	private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		DataBaseConnection.Instance.ResetAll();
+		NavigationService!.GoBack();
+	}
 
 #endregion
 }
