@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using OrganizerCore.DbWorking;
 
 namespace OrganizerCore.Model;
 
@@ -12,7 +14,11 @@ public class IndividualCoursesOfStudent : Table
 	public       DateTime EndingDate    { get; set; }
 	public       string   Indicator     { get; set; } = null!;
 
-	public int LessonsCount => throw new NotImplementedException();
+	public int LessonsCount => Course.LessonsCount - CountOfHeldLessons;
+
+	private int CountOfHeldLessons
+		=> DataBaseConnection.Instance.CurrentContext.Schedules
+		                     .Count((s) => s.IndividualCourse == this && s.IsHeld);
 
 	public override string ToString() => $"Курс {Course} студента {Student}";
 }
