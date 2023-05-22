@@ -15,8 +15,8 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -59,41 +59,22 @@
                 Style="{StaticResource TextBox}" />
         </DockPanel>
 
-        <DockPanel Grid.Column="0" Grid.Row="3"
-                   Grid.ColumnSpan="2"
-                   HorizontalAlignment="Center">
-            <TextBlock
-                Style="{StaticResource Header}"
-                Text="В промежутке от:" />
-            <DatePicker
-                x:Name="FromDatePicker"
-                Width="100"
-                Height="25" />
 
-            <TextBlock
-                Style="{StaticResource Header}"
-                Text="и до:" />
-            <DatePicker
-                x:Name="ToDatePicker"
-                Width="100"
-                Height="25" />
-        </DockPanel>
-
-        <DataGrid Grid.Column="0" Grid.Row="4"
+        <DataGrid Grid.Column="0" Grid.Row="3"
                   x:Name="IndividualCoursesDataGrid"
                   Margin="10"
                   IsReadOnly="False"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False" />
 
-        <DataGrid Grid.Column="1" Grid.Row="4"
+        <DataGrid Grid.Column="1" Grid.Row="3"
                   x:Name="GroupCoursesDataGrid"
                   Margin="10"
                   IsReadOnly="False"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False" />
 
-        <StackPanel Grid.Column="0" Grid.Row="5"
+        <StackPanel Grid.Column="0" Grid.Row="4"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
             <Button
@@ -105,7 +86,7 @@
                 Click="RemoveIndividualButton_OnClick"
                 Content="Удалить" />
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="5"
+        <StackPanel Grid.Column="1" Grid.Row="4"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
             <Button
@@ -119,9 +100,10 @@
         </StackPanel>
 
         <!-- Button back -->
-        <StackPanel Grid.Column="1" Grid.Row="0"
+        <StackPanel Grid.Column="0" Grid.Row="5"
+                    Grid.ColumnSpan="2"
                     Orientation="Horizontal"
-                    HorizontalAlignment="Right">
+                    HorizontalAlignment="Center">
             <Button
                 Style="{StaticResource PurpleButton}"
                 Height="35"
