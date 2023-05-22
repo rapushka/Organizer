@@ -85,7 +85,7 @@ public partial class EnrollStudentOnCoursePage
 
 #endregion
 
-#region Event Handler
+#region Event Handlers
 
 	private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
 	{
@@ -99,7 +99,6 @@ public partial class EnrollStudentOnCoursePage
 		NavigationService!.GoBack();
 	}
 
-
 	private void AddIndividualButton_OnClick(object sender, RoutedEventArgs e)
 	{
 		var newCourse = new IndividualCoursesOfStudent
@@ -112,7 +111,16 @@ public partial class EnrollStudentOnCoursePage
 		IndividualCoursesDataGrid.FocusOn(newCourse);
 	}
 
-	private void RemoveIndividualButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void RemoveIndividualButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (IndividualCoursesDataGrid.SelectedItem is not IndividualCoursesOfStudent course)
+		{
+			MessageBoxUtils.AtFirstSelect("индивидуальный курс ученика");
+			return;
+		}
+
+		IndividualCourses.Remove(course);
+	}
 
 	private void AddGroupButton_OnClick(object sender, RoutedEventArgs e) { }
 
