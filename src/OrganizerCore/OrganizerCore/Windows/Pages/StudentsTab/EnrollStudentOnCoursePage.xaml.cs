@@ -167,7 +167,17 @@ public partial class EnrollStudentOnCoursePage
 
 #region Group courses CRUD
 
-	private void AddGroupButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void AddGroupButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		var newCourse = new GroupCoursesOfStudent
+		{
+			Group = Groups.First(),
+			Student = _student,
+			Indicator = _indicators.First(),
+		};
+		GroupCourses.Add(newCourse);
+		GroupCoursesDataGrid.FocusOn(newCourse);
+	}
 
 	private void RemoveGroupButton_OnClick(object sender, RoutedEventArgs e) { }
 
