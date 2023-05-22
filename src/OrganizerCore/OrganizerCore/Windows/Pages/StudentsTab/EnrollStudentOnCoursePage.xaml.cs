@@ -1,14 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
+using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages.StudentsTab;
 
 public partial class EnrollStudentOnCoursePage
 {
+	private readonly string[] _indicators = { "Неудовлетворительно", "Удовлетворительно", "Хорошо" };
 	private readonly Student _student;
 
 	public EnrollStudentOnCoursePage(Student student)
@@ -20,6 +24,9 @@ public partial class EnrollStudentOnCoursePage
 
 	private static IEnumerable<Course> Courses => DataBaseConnection.Instance.Observe<Course>();
 
+	private static ObservableCollection<IndividualCoursesOfStudent> IndividualCourses
+		=> DataBaseConnection.Instance.Observe<IndividualCoursesOfStudent>();
+
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
 	private void OnPageLoad(object sender, RoutedEventArgs e)
@@ -30,7 +37,7 @@ public partial class EnrollStudentOnCoursePage
 		SetupStudentsDataGrid();
 	}
 
-#region Individual courses
+#region Individual courses table setup
 
 	private void SetupStudentsDataGrid()
 	{
@@ -71,20 +78,48 @@ public partial class EnrollStudentOnCoursePage
 		(
 			header: "Показатель",
 			binding: nameof(IndividualCoursesOfStudent.Indicator),
-			itemsSource: new[] { "Неудовлетворительно", "Удовлетворительно", "Хорошо" }
+			itemsSource: _indicators
 		);
+		IndividualCoursesDataGrid.AddTextColumn("Количество занятий", nameof(IndividualCoursesOfStudent.LessonsCount));
 	}
 
 #endregion
 
-	private void GoBackButton_OnClick(object sender, RoutedEventArgs e) => NavigationService!.GoBack();
+#region Event Handler
 
-	private void Save(object sender, RoutedEventArgs e) => Context.SaveChanges();
+	private void GoBackButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (MessageBoxUtils.ShowEnsure("Сохранить?"))
+		{
+			Context.SaveChanges();
+		}
+		else
+		{
+			DataBaseConnection.Instance.ResetAll();
+		}
 
-	private void AddIndividualButton_OnClick(object sender, RoutedEventArgs e) { }
+		NavigationService!.GoBack();
+	}
+
+	private void Save(object sender, RoutedEventArgs e) { }
+
+	private void AddIndividualButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		var newCourse = new IndividualCoursesOfStudent
+		{
+			Course = Courses.First(),
+			Student = _student,
+			Indicator = _indicators.First(),
+		};
+		IndividualCourses.Add(newCourse);
+		IndividualCoursesDataGrid.FocusOn(newCourse);
+	}
 
 	private void RemoveIndividualButton_OnClick(object sender, RoutedEventArgs e) { }
 
-	private void AddGroupButton_OnClick(object sender, RoutedEventArgs e)    { }
+	private void AddGroupButton_OnClick(object sender, RoutedEventArgs e) { }
+
 	private void RemoveGroupButton_OnClick(object sender, RoutedEventArgs e) { }
+
+#endregion
 }

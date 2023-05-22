@@ -19,6 +19,8 @@ public class DataBaseConnection
 		where T : class
 		=> CurrentContext.GetTable<T>().Local.ToObservableCollection();
 
+	public void ResetAll() => OpenDataBase();
+
 	public void OpenDataBase()
 	{
 		_currentContext = new ApplicationContext();
