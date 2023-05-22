@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
@@ -38,6 +39,11 @@ public partial class EnrollStudentOnCoursePage
 	{
 		StudentViewTextBlock.Text = _student.ToString();
 
+		UpdateTablesView();
+	}
+
+	private void UpdateTablesView()
+	{
 		SetupIndividualDataGrid();
 		SetupIndividualCoursesColumns();
 		SetupGroupDataGrid();
@@ -205,6 +211,8 @@ public partial class EnrollStudentOnCoursePage
 		DataBaseConnection.Instance.ResetAll();
 		NavigationService!.GoBack();
 	}
+
+	private void OnFiltersTextChanged(object sender, TextChangedEventArgs e) => UpdateTablesView();
 
 #endregion
 }

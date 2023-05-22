@@ -45,15 +45,17 @@
                 Text="Наименование курса" />
             <TextBox
                 x:Name="CourseTitleSearchTextBox"
+                TextChanged="OnFiltersTextChanged"
                 Style="{StaticResource TextBox}" />
         </DockPanel>
         <DockPanel Grid.Column="1" Grid.Row="2"
                    Height="45">
             <TextBlock
-                x:Name="GroupTitleSearchTextBox"
                 Style="{StaticResource Header}"
                 Text="Название группы" />
             <TextBox
+                x:Name="GroupTitleSearchTextBox"
+                TextChanged="OnFiltersTextChanged"
                 Style="{StaticResource TextBox}" />
         </DockPanel>
 
