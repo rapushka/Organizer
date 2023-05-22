@@ -87,17 +87,15 @@ public partial class EnrollStudentOnCoursePage
 
 #region Event Handler
 
-	private void GoBackButton_OnClick(object sender, RoutedEventArgs e)
+	private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		if (MessageBoxUtils.ShowEnsure("Сохранить?"))
-		{
-			Context.SaveChanges();
-		}
-		else
-		{
-			DataBaseConnection.Instance.ResetAll();
-		}
+		Context.SaveChanges();
+		NavigationService!.GoBack();
+	}
 
+	private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		DataBaseConnection.Instance.ResetAll();
 		NavigationService!.GoBack();
 	}
 

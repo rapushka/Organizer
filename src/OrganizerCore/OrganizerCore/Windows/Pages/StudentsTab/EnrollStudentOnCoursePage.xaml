@@ -120,12 +120,21 @@
         </StackPanel>
 
         <!-- Button back -->
-        <Button Grid.Column="1" Grid.Row="0"
+        <StackPanel Grid.Column="1" Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button
                 Style="{StaticResource PurpleButton}"
-                HorizontalAlignment="Right"
                 Height="35"
                 Margin="10,5"
-                Click="GoBackButton_OnClick"
-                Content="Назад" />
+                Click="CancelButton_OnClick"
+                Content="Отмена" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Height="35"
+                Margin="10,5"
+                Click="ApplyButton_OnClick"
+                Content="Применить" />
+        </StackPanel>
     </Grid>
 </Page>
