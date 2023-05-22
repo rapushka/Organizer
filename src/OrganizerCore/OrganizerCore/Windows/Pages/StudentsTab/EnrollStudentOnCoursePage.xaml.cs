@@ -179,7 +179,16 @@ public partial class EnrollStudentOnCoursePage
 		GroupCoursesDataGrid.FocusOn(newCourse);
 	}
 
-	private void RemoveGroupButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void RemoveGroupButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (GroupCoursesDataGrid.SelectedItem is not GroupCoursesOfStudent course)
+		{
+			MessageBoxUtils.AtFirstSelect("груповой курс ученика");
+			return;
+		}
+
+		GroupCourses.Remove(course);
+	}
 
 #endregion
 
