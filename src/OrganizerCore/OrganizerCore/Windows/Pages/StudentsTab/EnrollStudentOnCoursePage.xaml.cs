@@ -235,19 +235,24 @@ public partial class EnrollStudentOnCoursePage
 
 #region Saving group courses
 
+	private IEnumerable<GroupCoursesOfStudent> GroupCoursesTable
+		=> GroupCoursesDataGrid.ItemsSource.Cast<GroupCoursesOfStudent>();
+
 	private bool TrySaveGroupCourses()
 	{
 		var errorGroups = new StringBuilder();
 
-		foreach (var group in GroupCoursesDataGrid.ItemsSource.Cast<GroupCoursesOfStudent>().Select((gc) => gc.Group))
+		foreach (var group in GroupCoursesTable.Select((gc) => gc.Group))
 		{
-			var isValid = IsValid(group, out var becauseOfAge);
-			if (isValid)
+			var cant = $"Невозможно добавить ученика в группу {group.Title}";
+			if (FitsByAge(group) == false)
 			{
-				var explanation = becauseOfAge
-					? "из-за возраста учащегося"
-					: "так как в группе уже максимальное число учащихся";
-				errorGroups.AppendLine($"Невозможно добавить ученика в группу {group.Title} {explanation}");
+				errorGroups.AppendLine($"{cant} из-за возраста учащегося");
+			}
+
+			if (FitsByCount(group) == false)
+			{
+				errorGroups.AppendLine($"{cant} так как в группе уже максимальное число учащихся");
 			}
 		}
 
@@ -260,17 +265,14 @@ public partial class EnrollStudentOnCoursePage
 		return anyError == false;
 	}
 
-	private bool IsValid(Group group, out bool becauseOfAge)
+	private bool FitsByCount(Group group)
 	{
-		var max = group.MaxStudentsInGroupCount;
-		var actual = Context.GroupCourses.Count((gc) => gc.Group == group);
-
-		var fitsByCount = actual >= max;
-		var fitsByAge = group.MinAge >= _student.Age && _student.Age <= group.MaxAge;
-
-		becauseOfAge = fitsByAge;
-		return fitsByCount && fitsByAge;
+		var actual = Context.GroupCourses.Count((gc) => gc.Group == group && gc.Student != _student);
+		actual += GroupCoursesTable.Count((gc) => gc.Group == group);
+		return actual <= group.MaxStudentsInGroupCount;
 	}
+
+	private bool FitsByAge(Group group) => group.MinAge <= _student.Age && _student.Age <= group.MaxAge;
 
 #endregion
 }

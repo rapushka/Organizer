@@ -72,12 +72,7 @@ public partial class EditStudentPage
 
 		if (canParseDuration == false)
 		{
-			MessageBoxUtils.ShowError
-			(
-				canParseDuration
-					? "Дата рождения введена некорректно!"
-					: throw new InvalidOperationException("сообщение не найдено")
-			);
+			MessageBoxUtils.ShowError("Дата рождения введена некорректно!");
 		}
 
 		return canParseDuration;
