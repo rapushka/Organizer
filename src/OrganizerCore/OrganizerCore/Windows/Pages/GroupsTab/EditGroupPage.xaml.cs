@@ -35,7 +35,10 @@ public partial class EditGroupPage
 
 	private void SetupCourseComboBox()
 	{
-		CourseComboBox.Text = _group.Course.Title;
+		CourseComboBox.ItemsSource = Context.Courses.Observe();
+		CourseComboBox.SelectedItem = _group.Course;
+		CourseComboBox.SelectedValuePath = nameof(Course.Id);
+		CourseComboBox.DisplayMemberPath = nameof(Course.Title);
 	}
 
 	private void AcceptButton_OnClick(object sender, RoutedEventArgs e)
