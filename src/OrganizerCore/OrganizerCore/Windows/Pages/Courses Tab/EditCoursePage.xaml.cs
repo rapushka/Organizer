@@ -44,7 +44,7 @@ public partial class EditCoursePage
 		TitleTextBox.Text = _selectedCourse.Title;
 		DescriptionTextBox.Text = _selectedCourse.Description;
 		DurationTextBox.Text = _selectedCourse.Duration.ToString(CultureInfo.InvariantCulture);
-		LessonsCountTextBox.Text = _selectedCourse.LessonsCount.ToString();
+		LessonsCountTextBox.Text = _selectedCourse.LessonsCount.ToString(CultureInfo.InvariantCulture);
 		PriceTextBox.Text = _selectedCourse.Price.ToString(CultureInfo.InvariantCulture);
 	}
 

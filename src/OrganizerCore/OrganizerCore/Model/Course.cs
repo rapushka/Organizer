@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using OrganizerCore.DbWorking;
 
 namespace OrganizerCore.Model;
 
@@ -11,7 +13,10 @@ public class Course : Table
 	public       float   Duration    { get; set; }
 	public       decimal Price       { get; set; }
 
-	public int LessonsCount => throw new NotImplementedException();
+	public float LessonsCount => DataBaseConnection.Instance.CurrentContext
+	                                               .Topics.AsEnumerable()
+	                                               .Where((t) => t.Course == this)
+	                                               .Sum((t) => t.CountOfLessons);
 
 	public Course Copy()
 		=> new()
