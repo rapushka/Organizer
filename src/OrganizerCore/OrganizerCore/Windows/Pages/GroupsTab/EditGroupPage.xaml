@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:OrganizerCore.Windows.Pages.GroupsTab"
       mc:Ignorable="d"
-      Title="EditGroupPage" Height="450" Width="800">
+      Title="EditGroupPage" Height="450" Width="800"
+      Loaded="EditGroupPage_OnLoaded">
     <Page.Resources>
         <Style x:Key="Label" BasedOn="{StaticResource Header}" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Right" />
@@ -43,9 +44,10 @@
         <TextBlock Grid.Column="0" Grid.Row="1"
                    Style="{StaticResource Label}"
                    Text="Курс:" />
-        <TextBox Grid.Column="1" Grid.Row="1"
-                 x:Name="CourseTextBox"
-                 Style="{StaticResource Field}" />
+        <ComboBox Grid.Column="1" Grid.Row="1"
+                  x:Name="CourseComboBox"
+                  Margin="10"
+                  Height="25" />
 
         <!-- dates -->
         <DockPanel Grid.Column="0" Grid.Row="2"

@@ -77,7 +77,11 @@ public partial class GroupsListPage
 #region Group CRUD
 
 	private void AddButton_OnClick(object sender, RoutedEventArgs e)
-		=> NavigationService!.Navigate(new EditGroupPage(new Group()));
+	{
+		var group = new Group();
+		DataBaseConnection.Instance.CurrentContext.Groups.Add(group);
+		NavigationService!.Navigate(new EditGroupPage(group));
+	}
 
 	private void RemoveButton_OnClick(object sender, RoutedEventArgs e)
 	{

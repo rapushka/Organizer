@@ -20,15 +20,37 @@ public partial class EditGroupPage
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
+	private void EditGroupPage_OnLoaded(object sender, RoutedEventArgs e) => Load();
+
 	private void Load()
 	{
 		TitleTextBox.Text = _group.Title;
-		CourseTextBox.Text = _group.Course.Title;
+		SetupCourseComboBox();
 		BeginDatePiker.Text = _group.BeginningDate.ToString(InvariantCulture);
 		EndDatePiker.Text = _group.EndingDate.ToString(InvariantCulture);
 		MinAgeTextBox.Text = _group.MinAge.ToString();
 		MaxAgeTextBox.Text = _group.MaxAge.ToString();
 		PlacesCountTextBox.Text = _group.MaxStudentsInGroupCount.ToString();
+	}
+
+	private void SetupCourseComboBox()
+	{
+		CourseComboBox.Text = _group.Course.Title;
+	}
+
+	private void AcceptButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (TrySave())
+		{
+			Context.SaveChanges();
+			NavigationService!.GoBack();
+		}
+	}
+
+	private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		DataBaseConnection.Instance.ResetAll();
+		NavigationService!.GoBack();
 	}
 
 	private bool TrySave()
@@ -44,7 +66,7 @@ public partial class EditGroupPage
 		if (valid)
 		{
 			_group.Title = TitleTextBox.Text;
-			_group.Course.Title = CourseTextBox.Text;
+			_group.Course.Title = CourseComboBox.Text;
 			_group.BeginningDate = beginDate;
 			_group.EndingDate = endDate;
 			_group.MinAge = minAge;
@@ -55,17 +77,5 @@ public partial class EditGroupPage
 
 		MessageBoxUtils.ShowError("Данные введены некорректно!");
 		return false;
-	}
-
-	private void AcceptButton_OnClick(object sender, RoutedEventArgs e)
-	{
-		Context.SaveChanges();
-		NavigationService!.GoBack();
-	}
-
-	private void CancelButton_OnClick(object sender, RoutedEventArgs e)
-	{
-		DataBaseConnection.Instance.ResetAll();
-		NavigationService!.GoBack();
 	}
 }
