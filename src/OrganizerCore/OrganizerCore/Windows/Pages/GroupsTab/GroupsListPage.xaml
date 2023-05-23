@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
-      Title="GroupsListPage" Height="450" Width="800">
+      Title="GroupsListPage" Height="450" Width="800"
+      Loaded="GroupsListPage_OnLoaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
