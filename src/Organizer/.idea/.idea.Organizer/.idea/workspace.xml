@@ -8,15 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_ohha4rz5_wpftmp.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_ohha4rz5_wpftmp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_ohha4rz5_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_ohha4rz5_wpftmp.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Model/Schedule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Model/Schedule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/ScheduleTab/FullSchedulePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/ScheduleTab/FullSchedulePage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/ScheduleTab/FullSchedulePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/ScheduleTab/FullSchedulePage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/GroupsTab/EditGroupPage.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/ScheduleTab/FullSchedulePage.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/ScheduleTab/FullSchedulePage.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/ScheduleTab/FullSchedulePage.g.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

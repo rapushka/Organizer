@@ -23,33 +23,18 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="62" />
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Grid.ColumnSpan="2">
+        <Border Grid.Row="0" Grid.ColumnSpan="3">
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Margin="5,15,5,0">
-                <Label Content="Фамилия ученика:"
+                <Label Content="Занятие:"
                        FontSize="18" FontFamily="Segoe UI Light" Width="153" />
                 <TextBox
                     x:Name="SearchStudentTextBox"
                     Height="30"
                     Text=""
                     Width="227"
-                    FontSize="18" FontFamily="Segoe UI Light"
-                    Margin="5,0,0,0" />
-            </StackPanel>
-        </Border>
-        <Border Grid.Row="0" Grid.Column="2">
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        Margin="5,15,5,0">
-                <Label Content="Группа:"
-                       FontSize="18" FontFamily="Segoe UI Light" />
-                <TextBox
-                    x:Name="SearchGroupTextBox"
-                    Height="30"
-                    Width="225"
                     FontSize="18" FontFamily="Segoe UI Light"
                     Margin="5,0,0,0" />
             </StackPanel>

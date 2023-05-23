@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
@@ -35,7 +36,22 @@ public partial class FullSchedulePage
 		ScheduleViewDataGrid.ItemsSource = studentsViewSource.View;
 	}
 
-	private void FilterTable(object sender, FilterEventArgs e) { }
+	private void FilterTable(object sender, FilterEventArgs e)
+	{
+		var schedule = (Schedule)e.Item;
+		var from = SearchFromDateTPicker.SelectedDate;
+		var to = SearchToDatePicker.SelectedDate;
+		var applyDatesFilter = ApplyDatesFilterCheckBox.IsChecked ?? false;
+		var showOnlyForToday = IsTodayCheckBox.IsChecked ?? false;
+
+		var fitsByLessonType = schedule.View.LessonType.Contains(SearchStudentTextBox.Text);
+		var fitsByDates = applyDatesFilter == false
+		                  || (showOnlyForToday && schedule.ScheduledTime.IsToday())
+		                  || schedule.ScheduledTime.IsBetween(from, to);
+		var fitsByHeld = (_showHeld && schedule.IsHeld) || (_showNotHeld && !schedule.IsHeld);
+
+		e.Accepted = fitsByLessonType && fitsByDates && fitsByHeld;
+	}
 
 	private void SetupColumns()
 	{
@@ -69,4 +85,12 @@ public partial class FullSchedulePage
 		_showHeld = all || onlyHeld;
 		_showNotHeld = all || onlyNotHeld;
 	}
+}
+
+public static class DateTimeExtensions
+{
+	public static bool IsBetween(this DateTime @this, DateTime? min, DateTime? max)
+		=> @this >= (min ?? DateTime.Now) && @this <= (max ?? DateTime.Now);
+
+	public static bool IsToday(this DateTime @this) => @this.Date == DateTime.Today;
 }
