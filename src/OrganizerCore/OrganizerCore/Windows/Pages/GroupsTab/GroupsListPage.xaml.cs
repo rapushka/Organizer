@@ -72,4 +72,10 @@ public partial class GroupsListPage
 #endregion
 
 	private void Search_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateViewTable();
+
+	private void AddButton_OnClick(object sender, RoutedEventArgs e) { }
+
+	private void EditButton_OnClick(object sender, RoutedEventArgs e) { }
+
+	private void RemoveButton_OnClick(object sender, RoutedEventArgs e) { }
 }

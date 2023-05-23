@@ -58,12 +58,15 @@
                     VerticalAlignment="Center">
             <Button
                 Style="{StaticResource PurpleButton}"
+                Click="AddButton_OnClick"
                 Content="Добавить" />
             <Button
                 Style="{StaticResource PurpleButton}"
+                Click="EditButton_OnClick"
                 Content="Изменить" />
             <Button
                 Style="{StaticResource PurpleButton}"
+                Click="RemoveButton_OnClick"
                 Content="Удалить" />
         </StackPanel>
     </Grid>
