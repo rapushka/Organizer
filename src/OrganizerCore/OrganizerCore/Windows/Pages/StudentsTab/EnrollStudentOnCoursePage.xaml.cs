@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -215,8 +216,11 @@ public partial class EnrollStudentOnCoursePage
 
 	private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		Context.SaveChanges();
-		NavigationService!.GoBack();
+		if (TrySaveGroupCourses())
+		{
+			Context.SaveChanges();
+			NavigationService!.GoBack();
+		}
 	}
 
 	private void CancelButton_OnClick(object sender, RoutedEventArgs e)
@@ -226,6 +230,47 @@ public partial class EnrollStudentOnCoursePage
 	}
 
 	private void OnFiltersTextChanged(object sender, TextChangedEventArgs e) => UpdateTablesView();
+
+#endregion
+
+#region Saving group courses
+
+	private bool TrySaveGroupCourses()
+	{
+		var errorGroups = new StringBuilder();
+
+		foreach (var group in GroupCoursesDataGrid.ItemsSource.Cast<GroupCoursesOfStudent>().Select((gc) => gc.Group))
+		{
+			var isValid = IsValid(group, out var becauseOfAge);
+			if (isValid)
+			{
+				var explanation = becauseOfAge
+					? "из-за возраста учащегося"
+					: "так как в группе уже максимальное число учащихся";
+				errorGroups.AppendLine($"Невозможно добавить ученика в группу {group.Title} {explanation}");
+			}
+		}
+
+		var anyError = errorGroups.Length > 0;
+		if (anyError)
+		{
+			MessageBoxUtils.ShowError(errorGroups.ToString());
+		}
+
+		return anyError == false;
+	}
+
+	private bool IsValid(Group group, out bool becauseOfAge)
+	{
+		var max = group.MaxStudentsInGroupCount;
+		var actual = Context.GroupCourses.Count((gc) => gc.Group == group);
+
+		var fitsByCount = actual >= max;
+		var fitsByAge = group.MinAge >= _student.Age && _student.Age <= group.MaxAge;
+
+		becauseOfAge = fitsByAge;
+		return fitsByCount && fitsByAge;
+	}
 
 #endregion
 }
