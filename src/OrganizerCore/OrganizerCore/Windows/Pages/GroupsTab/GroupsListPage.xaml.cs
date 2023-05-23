@@ -74,8 +74,19 @@ public partial class GroupsListPage
 
 	private void Search_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateViewTable();
 
+#region Group CRUD
+
 	private void AddButton_OnClick(object sender, RoutedEventArgs e)
 		=> NavigationService!.Navigate(new EditGroupPage(new Group()));
+
+	private void RemoveButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureSelectedGroup(out var group)
+		    && MessageBoxUtils.ConfirmDeletion(group!))
+		{
+			DataBaseConnection.Instance.Observe<Group>().Remove(group!);
+		}
+	}
 
 	private void EditButton_OnClick(object sender, RoutedEventArgs e)
 	{
@@ -96,5 +107,5 @@ public partial class GroupsListPage
 		return group is not null;
 	}
 
-	private void RemoveButton_OnClick(object sender, RoutedEventArgs e) { }
+#endregion
 }

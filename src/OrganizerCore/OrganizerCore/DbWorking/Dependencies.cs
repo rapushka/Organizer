@@ -27,7 +27,8 @@ public static class Dependencies
 			forStudent: ForStudent,
 			forIndividualCourse: (ic) => Schedules.Where((s) => s.IndividualCourse == ic).Select(Format).ToList(),
 			forGroupCourse: Nothing,
-			forSchedule: Nothing
+			forSchedule: Nothing,
+			forGroup: ForGroups
 		);
 
 	private static List<string> ForCourse(Course course)
@@ -47,6 +48,14 @@ public static class Dependencies
 		var schedules = ourIndividualCourses.SelectMany(For);
 
 		return individualCourses.Concat(groupCourses).Concat(schedules).ToList();
+	}
+
+	private static List<string> ForGroups(Group group)
+	{
+		var groupCourses = GroupCourses.Where((gc) => gc.Group == group).Select(Format).ToList();
+		var schedules = Schedules.Where((s) => s.GroupCourse?.Group == group).Select(Format).ToList();
+
+		return groupCourses.Concat(schedules).ToList();
 	}
 
 	private static List<string> Nothing(Table _) => new();
