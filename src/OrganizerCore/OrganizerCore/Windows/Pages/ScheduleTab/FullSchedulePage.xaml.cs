@@ -2,6 +2,7 @@
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
+using OrganizerCore.Model.Views;
 using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages.ScheduleTab;
@@ -40,7 +41,15 @@ public partial class FullSchedulePage
 	{
 		ScheduleViewDataGrid.Columns.Clear();
 
+		const string view = $"{nameof(Schedule.View)}.";
+
+		// | Дата-Время | Курс | Занятие | Примечание | Проведено |
 		ScheduleViewDataGrid.AddTextColumn("ID", nameof(Schedule.Id), Visibility.Collapsed);
+		ScheduleViewDataGrid.AddTextColumn("Дата-Время", view + nameof(ScheduleView.ScheduledTime));
+		ScheduleViewDataGrid.AddTextColumn("Курс", view + nameof(ScheduleView.CourseTitle));
+		ScheduleViewDataGrid.AddTextColumn("Занятие", view + nameof(ScheduleView.LessonType));
+		ScheduleViewDataGrid.AddTextColumn("Примечание", view + nameof(ScheduleView.Note));
+		ScheduleViewDataGrid.AddTextColumn("Проведено", view + nameof(ScheduleView.IsHeld));
 	}
 
 #endregion
