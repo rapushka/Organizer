@@ -120,7 +120,8 @@
                         Margin="5">
                 <DataGrid
                     AutoGenerateColumns="False"
-                    IsReadOnly="False"
+                    IsReadOnly="True"
+                    CanUserAddRows="False"
                     x:Name="ScheduleViewDataGrid"
                     Width="1283" />
             </StackPanel>
