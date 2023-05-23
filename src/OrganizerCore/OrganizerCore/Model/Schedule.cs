@@ -7,6 +7,8 @@ namespace OrganizerCore.Model;
 
 public class Schedule : Table
 {
+	private ScheduleView? _view;
+
 	[Key] public int                         Id               { get; set; }
 	public       IndividualCoursesOfStudent? IndividualCourse { get; set; }
 	public       Group?                      Group            { get; set; }
@@ -14,11 +16,10 @@ public class Schedule : Table
 	public       string                      Note             { get; set; } = null!;
 	public       bool                        IsHeld           { get; set; }
 
-	public ScheduleView View { get; }
-
-	public Schedule() => View = IndividualCourse is not null
-		? new ScheduleView(IndividualCourse, this)
-		: new ScheduleView(Group!, this);
+	public ScheduleView View => _view ??=
+		IndividualCourse is not null ? new ScheduleView(IndividualCourse, this)
+		: Group is not null          ? new ScheduleView(Group!, this)
+		                               : throw new NullReferenceException();
 
 	public override string ToString()
 	{

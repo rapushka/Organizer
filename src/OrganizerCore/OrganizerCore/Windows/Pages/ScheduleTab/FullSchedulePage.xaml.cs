@@ -62,9 +62,9 @@ public partial class FullSchedulePage
 
 	private void RadioButton_Checked(object sender, RoutedEventArgs e)
 	{
-		var all = ShowAllRadioButton.IsChecked!.Value;
-		var onlyHeld = OnlyHeldRadioButton.IsChecked ?? false;
-		var onlyNotHeld = OnlyNotHeldRadioButton.IsChecked ?? false;
+		var all = ShowAllRadioButton?.IsChecked ?? false;
+		var onlyHeld = OnlyHeldRadioButton?.IsChecked ?? false;
+		var onlyNotHeld = OnlyNotHeldRadioButton?.IsChecked ?? false;
 
 		_showHeld = all || onlyHeld;
 		_showNotHeld = all || onlyNotHeld;
