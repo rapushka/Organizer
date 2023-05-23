@@ -15,7 +15,7 @@ public class GroupCoursesOfStudent : Table
 
 	private int CountOfHeldLessons
 		=> DataBaseConnection.Instance.CurrentContext.Schedules
-		                     .Count((s) => s.GroupCourse == this && s.IsHeld);
+		                     .Count((s) => s.Group == Group && s.IsHeld);
 
 	public override string ToString() => $"Курс {Group.Course} студента {Student} из группы {Group}";
 }
