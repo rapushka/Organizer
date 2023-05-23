@@ -100,9 +100,11 @@
                     HorizontalAlignment="Right">
             <Button
                 Style="{StaticResource PurpleButton}"
+                Click="AcceptButton_OnClick"
                 Content="Применить" />
             <Button
                 Style="{StaticResource PurpleButton}"
+                Click="CancelButton_OnClick"
                 Content="Отменить" />
         </StackPanel>
     </Grid>

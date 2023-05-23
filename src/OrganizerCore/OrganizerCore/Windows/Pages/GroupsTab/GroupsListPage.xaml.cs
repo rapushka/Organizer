@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
+using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages.GroupsTab;
@@ -73,9 +74,27 @@ public partial class GroupsListPage
 
 	private void Search_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateViewTable();
 
-	private void AddButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void AddButton_OnClick(object sender, RoutedEventArgs e)
+		=> NavigationService!.Navigate(new EditGroupPage(new Group()));
 
-	private void EditButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void EditButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureSelectedGroup(out var group))
+		{
+			NavigationService!.Navigate(new EditGroupPage(group!));
+		}
+	}
+
+	private bool EnsureSelectedGroup(out Group? group)
+	{
+		group = GroupsDataGrid.SelectedItem as Group;
+		if (group is null)
+		{
+			MessageBoxUtils.AtFirstSelect("группу");
+		}
+
+		return group is not null;
+	}
 
 	private void RemoveButton_OnClick(object sender, RoutedEventArgs e) { }
 }
