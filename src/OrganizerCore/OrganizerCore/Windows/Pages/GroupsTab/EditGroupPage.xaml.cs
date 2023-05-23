@@ -36,9 +36,9 @@ public partial class EditGroupPage
 	private void SetupCourseComboBox()
 	{
 		CourseComboBox.ItemsSource = Context.Courses.Observe();
-		CourseComboBox.SelectedItem = _group.Course;
 		CourseComboBox.SelectedValuePath = nameof(Course.Id);
 		CourseComboBox.DisplayMemberPath = nameof(Course.Title);
+		CourseComboBox.SelectedValue = _group.Course.Id;
 	}
 
 	private void AcceptButton_OnClick(object sender, RoutedEventArgs e)
@@ -69,7 +69,7 @@ public partial class EditGroupPage
 		if (valid)
 		{
 			_group.Title = TitleTextBox.Text;
-			_group.Course.Title = CourseComboBox.Text;
+			_group.Course = (Course)CourseComboBox.SelectedItem;
 			_group.BeginningDate = beginDate;
 			_group.EndingDate = endDate;
 			_group.MinAge = minAge;
