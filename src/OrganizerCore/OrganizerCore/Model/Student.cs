@@ -13,6 +13,8 @@ public class Student : Table
 	public       string   ProxyFullName    { get; set; } = null!;
 	public       string   ProxyPhoneNumber { get; set; } = null!;
 
+	public int Age => Birthdate.Age();
+	
 	public Student Copy()
 		=> new()
 		{
@@ -35,5 +37,5 @@ public class Student : Table
 		ProxyPhoneNumber = other.ProxyPhoneNumber;
 	}
 
-	public override string ToString() => $"{FullName} ({Birthdate.Age()} лет)";
+	public override string ToString() => $"{FullName} ({Age} лет)";
 }

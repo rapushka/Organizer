@@ -1,15 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using OrganizerCore.DbWorking;
 
 namespace OrganizerCore.Model;
 
 public class Course : Table
 {
-	[Key] public int     Id           { get; set; }
-	public       string  Title        { get; set; } = null!;
-	public       string  Description  { get; set; } = null!;
-	public       float   Duration     { get; set; }
-	public       decimal Price        { get; set; }
-	public       int     LessonsCount { get; set; }
+	[Key] public int     Id          { get; set; }
+	public       string  Title       { get; set; } = null!;
+	public       string  Description { get; set; } = null!;
+	public       float   Duration    { get; set; }
+	public       decimal Price       { get; set; }
+
+	public float LessonsCount => DataBaseConnection.Instance.CurrentContext
+	                                               .Topics.AsEnumerable()
+	                                               .Where((t) => t.Course == this)
+	                                               .Sum((t) => t.CountOfLessons);
 
 	public Course Copy()
 		=> new()
@@ -19,7 +26,6 @@ public class Course : Table
 			Description = Description,
 			Duration = Duration,
 			Price = Price,
-			LessonsCount = LessonsCount,
 		};
 
 	public void Copy(Course other)
@@ -28,7 +34,6 @@ public class Course : Table
 		Description = other.Description;
 		Duration = other.Duration;
 		Price = other.Price;
-		LessonsCount = other.LessonsCount;
 	}
 
 	public override string ToString() => Title;

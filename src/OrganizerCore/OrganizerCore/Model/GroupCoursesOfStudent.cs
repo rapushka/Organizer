@@ -11,7 +11,7 @@ public class GroupCoursesOfStudent : Table
 	public       Group   Group     { get; set; } = null!;
 	public       string  Indicator { get; set; } = null!;
 
-	public int LessonsCount => Group.Course.LessonsCount - CountOfHeldLessons;
+	public float LessonsCount => Group.Course.LessonsCount - CountOfHeldLessons;
 
 	private int CountOfHeldLessons
 		=> DataBaseConnection.Instance.CurrentContext.Schedules

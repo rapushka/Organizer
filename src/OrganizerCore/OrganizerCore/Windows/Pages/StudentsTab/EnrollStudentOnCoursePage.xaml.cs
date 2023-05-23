@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -163,13 +164,23 @@ public partial class EnrollStudentOnCoursePage
 
 	private void RemoveIndividualButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		if (IndividualCoursesDataGrid.SelectedItem is not IndividualCoursesOfStudent course)
+		if (EnsureSelectedIndividualCourse(out var course)
+		    && MessageBoxUtils.ConfirmDeletion(course!))
+		{
+			IndividualCourses.Remove(course!);
+		}
+	}
+
+	private bool EnsureSelectedIndividualCourse(out IndividualCoursesOfStudent? course)
+	{
+		course = IndividualCoursesDataGrid.SelectedItem as IndividualCoursesOfStudent;
+
+		if (course is null)
 		{
 			MessageBoxUtils.AtFirstSelect("индивидуальный курс ученика");
-			return;
 		}
 
-		IndividualCourses.Remove(course);
+		return course is not null;
 	}
 
 #endregion
@@ -205,8 +216,11 @@ public partial class EnrollStudentOnCoursePage
 
 	private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		Context.SaveChanges();
-		NavigationService!.GoBack();
+		if (TrySaveGroupCourses())
+		{
+			Context.SaveChanges();
+			NavigationService!.GoBack();
+		}
 	}
 
 	private void CancelButton_OnClick(object sender, RoutedEventArgs e)
@@ -216,6 +230,49 @@ public partial class EnrollStudentOnCoursePage
 	}
 
 	private void OnFiltersTextChanged(object sender, TextChangedEventArgs e) => UpdateTablesView();
+
+#endregion
+
+#region Saving group courses
+
+	private IEnumerable<GroupCoursesOfStudent> GroupCoursesTable
+		=> GroupCoursesDataGrid.ItemsSource.Cast<GroupCoursesOfStudent>();
+
+	private bool TrySaveGroupCourses()
+	{
+		var errorGroups = new StringBuilder();
+
+		foreach (var group in GroupCoursesTable.Select((gc) => gc.Group))
+		{
+			var cant = $"Невозможно добавить ученика в группу {group.Title}";
+			if (FitsByAge(group) == false)
+			{
+				errorGroups.AppendLine($"{cant} из-за возраста учащегося");
+			}
+
+			if (FitsByCount(group) == false)
+			{
+				errorGroups.AppendLine($"{cant} так как в группе уже максимальное число учащихся");
+			}
+		}
+
+		var anyError = errorGroups.Length > 0;
+		if (anyError)
+		{
+			MessageBoxUtils.ShowError(errorGroups.ToString());
+		}
+
+		return anyError == false;
+	}
+
+	private bool FitsByCount(Group group)
+	{
+		var actual = Context.GroupCourses.Count((gc) => gc.Group == group && gc.Student != _student);
+		actual += GroupCoursesTable.Count((gc) => gc.Group == group);
+		return actual <= group.MaxStudentsInGroupCount;
+	}
+
+	private bool FitsByAge(Group group) => group.MinAge <= _student.Age && _student.Age <= group.MaxAge;
 
 #endregion
 }

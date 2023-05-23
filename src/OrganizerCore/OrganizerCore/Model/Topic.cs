@@ -10,7 +10,9 @@ public class Topic : Table
 	public       string Title  { get; set; } = null!;
 	public       Course Course { get; set; } = null!;
 
-	public int CountOfLessons => DataBaseConnection.Instance.CurrentContext.Lessons.Count((l) => l.Topic == this);
+	public float CountOfLessons => DataBaseConnection.Instance.CurrentContext.Lessons
+	                                                 .Where((l) => l.Topic == this)
+	                                                 .Sum((l) => l.HoursAmount);
 
 	public override string ToString() => $"Тема {Title} курса {Course.Title}";
 }

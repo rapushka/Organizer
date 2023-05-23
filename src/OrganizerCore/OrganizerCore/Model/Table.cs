@@ -13,7 +13,8 @@ public class Table
 		Func<Student, T> forStudent,
 		Func<IndividualCoursesOfStudent, T> forIndividualCourse,
 		Func<GroupCoursesOfStudent, T> forGroupCourse,
-		Func<Schedule, T> forSchedule
+		Func<Schedule, T> forSchedule,
+		Func<Group, T> forGroup
 	)
 		=> this switch
 		{
@@ -25,6 +26,7 @@ public class Table
 			IndividualCoursesOfStudent individualCourse => forIndividualCourse(individualCourse),
 			GroupCoursesOfStudent groupCourse => forGroupCourse(groupCourse),
 			Schedule schedule => forSchedule(schedule),
+			Group group => forGroup(group),
 			_ => throw new InvalidOperationException($"Unknown {nameof(Table)} type. Is {GetType().Name}"),
 		};
 }

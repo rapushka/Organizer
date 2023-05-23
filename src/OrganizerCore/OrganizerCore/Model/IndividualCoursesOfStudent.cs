@@ -14,7 +14,7 @@ public class IndividualCoursesOfStudent : Table
 	public       DateTime EndingDate    { get; set; }
 	public       string   Indicator     { get; set; } = null!;
 
-	public int LessonsCount => Course.LessonsCount - CountOfHeldLessons;
+	public float LessonsCount => Course.LessonsCount - CountOfHeldLessons;
 
 	private int CountOfHeldLessons
 		=> DataBaseConnection.Instance.CurrentContext.Schedules

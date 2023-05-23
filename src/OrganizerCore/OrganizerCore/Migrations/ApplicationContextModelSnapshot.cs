@@ -30,9 +30,6 @@ namespace OrganizerCore.Migrations
                     b.Property<float>("Duration")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("LessonsCount")
-                        .HasColumnType("INTEGER");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
