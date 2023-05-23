@@ -31,20 +31,20 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- course -->
+        <!-- title -->
         <TextBlock Grid.Column="0" Grid.Row="0"
                    Style="{StaticResource Label}"
-                   Text="Курс:" />
+                   Text="Наименование:" />
         <TextBox Grid.Column="1" Grid.Row="0"
-                 x:Name="CourseTextBox"
+                 x:Name="TitleTextBox"
                  Style="{StaticResource Field}" />
 
-        <!-- title -->
+        <!-- course -->
         <TextBlock Grid.Column="0" Grid.Row="1"
                    Style="{StaticResource Label}"
-                   Text="Наименование:" />
+                   Text="Курс:" />
         <TextBox Grid.Column="1" Grid.Row="1"
-                 x:Name="TitleTextBox"
+                 x:Name="CourseTextBox"
                  Style="{StaticResource Field}" />
 
         <!-- dates -->
