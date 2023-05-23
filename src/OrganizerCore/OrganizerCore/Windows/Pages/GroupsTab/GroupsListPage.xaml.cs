@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
@@ -10,14 +10,16 @@ namespace OrganizerCore.Windows.Pages.GroupsTab;
 
 public partial class GroupsListPage
 {
-	public GroupsListPage()
-	{
-		InitializeComponent();
-	}
+	public GroupsListPage() => InitializeComponent();
 
 	private static IEnumerable<Course> Courses => DataBaseConnection.Instance.Observe<Course>();
 
 	private void GroupsListPage_OnLoaded(object sender, RoutedEventArgs e)
+	{
+		UpdateViewTable();
+	}
+
+	private void UpdateViewTable()
 	{
 		SetupStudentsDataGrid();
 		SetupStudentsColumns();
@@ -68,4 +70,6 @@ public partial class GroupsListPage
 	}
 
 #endregion
+
+	private void Search_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateViewTable();
 }

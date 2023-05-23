@@ -27,6 +27,7 @@
                 x:Name="GroupTitleTextBox"
                 Style="{StaticResource TextBox}"
                 Margin="1,5,10,5"
+                TextChanged="Search_OnTextChanged"
                 Width="150" />
             <TextBlock
                 Style="{StaticResource Header}"
@@ -35,8 +36,9 @@
                 Text="Название курса:" />
             <TextBox
                 x:Name="CourseTitleTextBox"
-                Margin="1,5,10,5"
                 Style="{StaticResource TextBox}"
+                Margin="1,5,10,5"
+                TextChanged="Search_OnTextChanged"
                 Width="150" />
         </StackPanel>
 
@@ -47,7 +49,6 @@
 
         <DataGrid Grid.Row="2"
                   x:Name="GroupsDataGrid"
-                  IsReadOnly="True"
                   CanUserAddRows="False"
                   AutoGenerateColumns="False" />
 
