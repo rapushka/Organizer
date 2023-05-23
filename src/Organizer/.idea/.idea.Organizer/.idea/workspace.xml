@@ -7,16 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/GroupsTab/EditGroupPage.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/GroupsTab/EditGroupPage.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.lref" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/GroupsTab/EditGroupPage.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/GroupsTab/GroupsListPage.baml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/GroupsTab/GroupsListPage.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/GroupsTab/GroupsListPage.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/Windows/Pages/GroupsTab/GroupsListPage.g.cs" afterDir="false" />
-    </list>
+    <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

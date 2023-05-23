@@ -29,7 +29,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!-- course -->
@@ -95,7 +94,7 @@
                  Style="{StaticResource Field}" />
 
         <!-- buttons -->
-        <StackPanel Grid.Column="0" Grid.Row="6"
+        <StackPanel Grid.Column="0" Grid.Row="5"
                     Grid.ColumnSpan="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
