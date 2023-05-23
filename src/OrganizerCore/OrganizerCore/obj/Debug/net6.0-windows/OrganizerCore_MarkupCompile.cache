@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\App.xaml
-9-1402842686
+10-275745296
 
-53-722792902
+54910352221
 2121731991194
-Windows\MainWindow.xaml;Windows\Pages\Courses Tab\CoursesListPage.xaml;Windows\Pages\Courses Tab\EditCoursePage.xaml;Windows\Pages\Courses Tab\TopicEditPage.xaml;Windows\Pages\Courses Tab\TypesOfLessonsListPage.xaml;Windows\Pages\GroupsTab\GroupsListPage.xaml;Windows\Pages\StudentsTab\EditStudentPage.xaml;Windows\Pages\StudentsTab\EnrollStudentOnCoursePage.xaml;Windows\Pages\StudentsTab\StudentsListPage.xaml;
+Windows\MainWindow.xaml;Windows\Pages\Courses Tab\CoursesListPage.xaml;Windows\Pages\Courses Tab\EditCoursePage.xaml;Windows\Pages\Courses Tab\TopicEditPage.xaml;Windows\Pages\Courses Tab\TypesOfLessonsListPage.xaml;Windows\Pages\GroupsTab\EditGroupPage.xaml;Windows\Pages\GroupsTab\GroupsListPage.xaml;Windows\Pages\StudentsTab\EditStudentPage.xaml;Windows\Pages\StudentsTab\EnrollStudentOnCoursePage.xaml;Windows\Pages\StudentsTab\StudentsListPage.xaml;
 
-False
+True
 
