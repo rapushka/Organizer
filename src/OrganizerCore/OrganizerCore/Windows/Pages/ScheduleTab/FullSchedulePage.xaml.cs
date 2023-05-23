@@ -10,10 +10,13 @@ namespace OrganizerCore.Windows.Pages.ScheduleTab;
 
 public partial class FullSchedulePage
 {
-	private bool _showHeld;
-	private bool _showNotHeld;
-
 	public FullSchedulePage() => InitializeComponent();
+
+	private bool ShowOnlyNotHeld => ShowAll || (OnlyNotHeldRadioButton?.IsChecked ?? false);
+
+	private bool ShowOnlyHeld => ShowAll || (OnlyHeldRadioButton?.IsChecked ?? false);
+
+	private bool ShowAll => ShowAllRadioButton?.IsChecked ?? false;
 
 	private void FullSchedulePage_OnLoaded(object sender, RoutedEventArgs e) => UpdateViewTable();
 
@@ -48,7 +51,7 @@ public partial class FullSchedulePage
 		var fitsByDates = applyDatesFilter == false
 		                  || (showOnlyForToday && schedule.ScheduledTime.IsToday())
 		                  || schedule.ScheduledTime.IsBetween(from, to);
-		var fitsByHeld = (_showHeld && schedule.IsHeld) || (_showNotHeld && !schedule.IsHeld);
+		var fitsByHeld = (ShowOnlyHeld && schedule.IsHeld) || (ShowOnlyNotHeld && !schedule.IsHeld);
 
 		e.Accepted = fitsByLessonType && fitsByDates && fitsByHeld;
 	}
@@ -78,16 +81,7 @@ public partial class FullSchedulePage
 
 #region Update filters
 
-	private void RadioButton_Click(object sender, RoutedEventArgs e)
-	{
-		var all = ShowAllRadioButton?.IsChecked ?? false;
-		var onlyHeld = OnlyHeldRadioButton?.IsChecked ?? false;
-		var onlyNotHeld = OnlyNotHeldRadioButton?.IsChecked ?? false;
-
-		_showHeld = all || onlyHeld;
-		_showNotHeld = all || onlyNotHeld;
-		UpdateViewTable();
-	}
+	private void RadioButton_Click(object sender, RoutedEventArgs e) => UpdateViewTable();
 
 	private void UpdateFrom_TextBox(object sender, TextChangedEventArgs e) => UpdateViewTable();
 
