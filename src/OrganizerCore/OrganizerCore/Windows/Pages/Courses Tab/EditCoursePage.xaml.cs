@@ -57,7 +57,6 @@ public partial class EditCoursePage
 			_selectedCourse.Title = TitleTextBox.Text;
 			_selectedCourse.Description = DescriptionTextBox.Text;
 			_selectedCourse.Duration = duration;
-			_selectedCourse.LessonsCount = lessonsCount;
 			_selectedCourse.Price = price;
 		}
 
