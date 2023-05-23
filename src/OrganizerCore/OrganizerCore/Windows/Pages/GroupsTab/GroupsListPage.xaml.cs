@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -78,7 +80,11 @@ public partial class GroupsListPage
 
 	private void AddButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		var group = new Group();
+		var group = new Group
+		{
+			Title = string.Empty,
+			Course = Courses.First(),
+		};
 		DataBaseConnection.Instance.CurrentContext.Groups.Add(group);
 		NavigationService!.Navigate(new EditGroupPage(group));
 	}
