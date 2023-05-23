@@ -1,0 +1,68 @@
+﻿<Page x:Class="OrganizerCore.Windows.Pages.GroupsTab.GroupsListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Title="GroupsListPage" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBlock
+                Style="{StaticResource Header}"
+                HorizontalAlignment="Right"
+                Margin="10,5,1,5"
+                Text="Название группы:" />
+            <TextBox
+                x:Name="GroupTitleTextBox"
+                Style="{StaticResource TextBox}"
+                Margin="1,5,10,5"
+                Width="150" />
+            <TextBlock
+                Style="{StaticResource Header}"
+                HorizontalAlignment="Right"
+                Margin="10,5,1,5"
+                Text="Название курса:" />
+            <TextBox
+                x:Name="CourseTitleTextBox"
+                Margin="1,5,10,5"
+                Style="{StaticResource TextBox}"
+                Width="150" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="1"
+                   Style="{StaticResource Header}"
+                   VerticalAlignment="Bottom"
+                   Text="Группы" />
+
+        <DataGrid Grid.Row="2"
+                  x:Name="GroupsDataGrid"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False" />
+
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Content="Добавить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Content="Изменить" />
+            <Button
+                Style="{StaticResource PurpleButton}"
+                Content="Удалить" />
+        </StackPanel>
+    </Grid>
+</Page>
