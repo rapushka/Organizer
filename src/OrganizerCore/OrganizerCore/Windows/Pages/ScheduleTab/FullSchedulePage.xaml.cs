@@ -1,5 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
@@ -27,22 +27,22 @@ public partial class FullSchedulePage
 
 	private void SetupTable()
 	{
-		var studentsViewSource = new CollectionViewSource
+		var scheduleViewSource = new CollectionViewSource
 		{
 			Source = DataBaseConnection.Instance.Observe<Schedule>(),
 		};
 
-		studentsViewSource.Filter += FilterTable;
-		ScheduleViewDataGrid.ItemsSource = studentsViewSource.View;
+		scheduleViewSource.Filter += FilterTable;
+		ScheduleViewDataGrid.ItemsSource = scheduleViewSource.View;
 	}
 
 	private void FilterTable(object sender, FilterEventArgs e)
 	{
 		var schedule = (Schedule)e.Item;
-		var from = SearchFromDateTPicker.SelectedDate;
-		var to = SearchToDatePicker.SelectedDate;
-		var applyDatesFilter = ApplyDatesFilterCheckBox.IsChecked ?? false;
-		var showOnlyForToday = IsTodayCheckBox.IsChecked ?? false;
+		var from = SearchFromDateTPicker?.SelectedDate;
+		var to = SearchToDatePicker?.SelectedDate;
+		var applyDatesFilter = ApplyDatesFilterCheckBox?.IsChecked ?? false;
+		var showOnlyForToday = IsTodayCheckBox?.IsChecked ?? false;
 
 		var fitsByLessonType = schedule.View.LessonType.Contains(SearchStudentTextBox.Text);
 		var fitsByDates = applyDatesFilter == false
@@ -76,7 +76,9 @@ public partial class FullSchedulePage
 
 	private void ScheduleLessonButton_OnClick(object sender, RoutedEventArgs e) { }
 
-	private void RadioButton_Checked(object sender, RoutedEventArgs e)
+#region Update filters
+
+	private void RadioButton_Click(object sender, RoutedEventArgs e)
 	{
 		var all = ShowAllRadioButton?.IsChecked ?? false;
 		var onlyHeld = OnlyHeldRadioButton?.IsChecked ?? false;
@@ -84,13 +86,14 @@ public partial class FullSchedulePage
 
 		_showHeld = all || onlyHeld;
 		_showNotHeld = all || onlyNotHeld;
+		UpdateViewTable();
 	}
-}
 
-public static class DateTimeExtensions
-{
-	public static bool IsBetween(this DateTime @this, DateTime? min, DateTime? max)
-		=> @this >= (min ?? DateTime.Now) && @this <= (max ?? DateTime.Now);
+	private void UpdateFrom_TextBox(object sender, TextChangedEventArgs e) => UpdateViewTable();
 
-	public static bool IsToday(this DateTime @this) => @this.Date == DateTime.Today;
+	private void UpdateFrom_CheckBox(object sender, RoutedEventArgs e) => UpdateViewTable();
+
+	private void UpdateFrom_DatePicker(object? sender, SelectionChangedEventArgs e) => UpdateViewTable();
+
+#endregion
 }

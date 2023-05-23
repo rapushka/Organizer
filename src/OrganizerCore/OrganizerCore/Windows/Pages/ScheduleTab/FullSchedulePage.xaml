@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:OrganizerCore.Windows.Pages.ScheduleTab"
       mc:Ignorable="d"
-      d:DesignWidth="1293" d:DesignHeight="560"
+      Width="1293" Height="560"
       Title="FullSchedulePage"
       Loaded="FullSchedulePage_OnLoaded">
     <Grid>
@@ -36,6 +36,7 @@
                     Text=""
                     Width="227"
                     FontSize="18" FontFamily="Segoe UI Light"
+                    TextChanged="UpdateFrom_TextBox"
                     Margin="5,0,0,0" />
             </StackPanel>
         </Border>
@@ -49,6 +50,7 @@
                 <DatePicker
                     x:Name="SearchFromDateTPicker"
                     FontSize="18" FontFamily="Segoe UI Light"
+                    SelectedDateChanged="UpdateFrom_DatePicker"
                     Width="195" Margin="13,0,0,0" />
             </StackPanel>
         </Border>
@@ -63,19 +65,19 @@
                              Width="200" Height="22"
                              Content="Все"
                              GroupName="HeldStatus" IsChecked="True"
-                             Checked="RadioButton_Checked" />
+                             Click="RadioButton_Click" />
                 <RadioButton x:Name="OnlyHeldRadioButton"
                              FontSize="18" FontFamily="Segoe UI Light"
                              Width="200" Height="22"
                              Content="Только проведённые"
                              GroupName="HeldStatus"
-                             Checked="RadioButton_Checked" />
+                             Click="RadioButton_Click" />
                 <RadioButton x:Name="OnlyNotHeldRadioButton"
                              FontSize="18" FontFamily="Segoe UI Light"
                              Width="200" Height="22"
                              Content="Только не проведённые"
                              GroupName="HeldStatus"
-                             Checked="RadioButton_Checked" />
+                             Click="RadioButton_Click" />
             </StackPanel>
         </Border>
         <Border Grid.Column="3" Grid.Row="1">
@@ -101,11 +103,13 @@
                     x:Name="IsTodayCheckBox"
                     Content="Сегодня"
                     FontSize="18" FontFamily="Segoe UI Light"
+                    Click="UpdateFrom_CheckBox"
                     Width="123" Height="26" />
                 <CheckBox
                     x:Name="ApplyDatesFilterCheckBox"
                     Content="Применить"
                     FontSize="18" FontFamily="Segoe UI Light"
+                    Click="UpdateFrom_CheckBox"
                     Width="123" Height="26" />
             </StackPanel>
         </Border>
