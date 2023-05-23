@@ -8,9 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f968b18d-cbb5-44f9-b476-3360425a86d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Model/Views/ScheduleView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Organizer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/ScheduleTab/FullSchedulePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/ScheduleTab/FullSchedulePage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/ScheduleTab/FullSchedulePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/Windows/Pages/ScheduleTab/FullSchedulePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrganizerCore/OrganizerCore/obj/Debug/net6.0-windows/OrganizerCore_MarkupCompile.lref" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +139,7 @@
       <workItem from="1684600405270" duration="29000" />
       <workItem from="1684600957954" duration="612000" />
       <workItem from="1684654824910" duration="4854000" />
-      <workItem from="1684760879855" duration="6854000" />
+      <workItem from="1684760879855" duration="7489000" />
     </task>
     <servers />
   </component>

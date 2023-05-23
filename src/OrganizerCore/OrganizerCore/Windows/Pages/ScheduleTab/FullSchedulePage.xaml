@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       d:DesignWidth="1293" d:DesignHeight="560"
       Title="FullSchedulePage"
-Loaded="FullSchedulePage_OnLoaded">
+      Loaded="FullSchedulePage_OnLoaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="83*" />
@@ -67,21 +67,30 @@ Loaded="FullSchedulePage_OnLoaded">
                     Width="195" Margin="13,0,0,0" />
             </StackPanel>
         </Border>
-        <Border Grid.Row="0" Grid.Column="4">
+        <Border Grid.Row="0" Grid.Column="4"
+                Grid.RowSpan="2">
             <StackPanel Orientation="Vertical"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Margin="5,10,5,0">
-                <CheckBox 
-                    x:Name="ShowHeldCheckBox"
-                    Content="Проведено"
-                          FontSize="18" FontFamily="Segoe UI Light"
-                          Width="123" Height="22" />
-                <CheckBox 
-                    x:Name="ShowNotHeldCheckBox"
-                    Content="Не проведено"
-                          FontSize="18" FontFamily="Segoe UI Light"
-                          Width="153" Height="26" />
+                <RadioButton x:Name="ShowAllRadioButton"
+                             FontSize="18" FontFamily="Segoe UI Light"
+                             Width="200" Height="22"
+                             Content="Все"
+                             GroupName="HeldStatus" IsChecked="True"
+                             Checked="RadioButton_Checked" />
+                <RadioButton x:Name="OnlyHeldRadioButton"
+                             FontSize="18" FontFamily="Segoe UI Light"
+                             Width="200" Height="22"
+                             Content="Только проведённые"
+                             GroupName="HeldStatus"
+                             Checked="RadioButton_Checked" />
+                <RadioButton x:Name="OnlyNotHeldRadioButton"
+                             FontSize="18" FontFamily="Segoe UI Light"
+                             Width="200" Height="22"
+                             Content="Только не проведённые"
+                             GroupName="HeldStatus"
+                             Checked="RadioButton_Checked" />
             </StackPanel>
         </Border>
         <Border Grid.Column="3" Grid.Row="1">
@@ -95,7 +104,7 @@ Loaded="FullSchedulePage_OnLoaded">
                 <DatePicker
                     x:Name="SearchToDatePicker"
                     FontSize="18" FontFamily="Segoe UI Light"
-                            Width="190" Height="34" />
+                    Width="190" Height="34" />
             </StackPanel>
         </Border>
         <Border Grid.Row="2" Grid.Column="3">
@@ -103,16 +112,16 @@ Loaded="FullSchedulePage_OnLoaded">
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Margin="5,5,5,0">
-                <CheckBox 
+                <CheckBox
                     x:Name="IsTodayCheckBox"
                     Content="Сегодня"
-                          FontSize="18" FontFamily="Segoe UI Light"
-                          Width="123" Height="26" />
-                <CheckBox 
+                    FontSize="18" FontFamily="Segoe UI Light"
+                    Width="123" Height="26" />
+                <CheckBox
                     x:Name="ApplyDatesFilterCheckBox"
                     Content="Применить"
-                          FontSize="18" FontFamily="Segoe UI Light"
-                          Width="123" Height="26" />
+                    FontSize="18" FontFamily="Segoe UI Light"
+                    Width="123" Height="26" />
             </StackPanel>
         </Border>
         <Border Grid.Row="3" Grid.ColumnSpan="5">
@@ -120,7 +129,9 @@ Loaded="FullSchedulePage_OnLoaded">
                         VerticalAlignment="Stretch"
                         Orientation="Horizontal"
                         Margin="5">
-                <DataGrid 
+                <DataGrid
+                    AutoGenerateColumns="False"
+                    IsReadOnly="False"
                     x:Name="ScheduleViewDataGrid"
                     Width="1283" />
             </StackPanel>
@@ -141,7 +152,7 @@ Loaded="FullSchedulePage_OnLoaded">
                 <Button Content="Проведено"
                         Width="250" Height="31"
                         Style="{DynamicResource PurpleButton}"
-                        Click="HeldButton_OnClick"/>
+                        Click="HeldButton_OnClick" />
 
             </StackPanel>
         </Border>
@@ -151,7 +162,7 @@ Loaded="FullSchedulePage_OnLoaded">
                 <Button Content="Добавить занятие"
                         Width="250" Height="31"
                         Style="{DynamicResource PurpleButton}"
-                        Click="ScheduleLessonButton_OnClick"/>
+                        Click="ScheduleLessonButton_OnClick" />
             </StackPanel>
         </Border>
     </Grid>
