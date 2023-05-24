@@ -57,7 +57,8 @@
                     <ComboBox
                         Name="CourseComboBox"
                         Height="25"
-                        Width="250" />
+                        Width="250"
+                        SelectionChanged="CourseComboBox_OnSelectionChanged"/>
                 </StackPanel>
                 <StackPanel
                     HorizontalAlignment="Right"
@@ -105,10 +106,12 @@
                     HorizontalAlignment="Center">
             <Button
                 Style="{DynamicResource PurpleButton}" 
-                Content="Применить"/>
+                Content="Применить"
+                Click="ApplyButton_OnClick"/>
             <Button
                 Style="{DynamicResource PurpleButton}" 
-                Content="Отменить"/>
+                Content="Отменить"
+                Click="CancelButton_OnClick"/>
         </StackPanel>
     </Grid>
 </Page>
