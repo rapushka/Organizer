@@ -3,9 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:OrganizerCore.Windows.Pages.ScheduleTab"
       mc:Ignorable="d"
-      Width="1293" Height="560"
+      Width="1200" Height="560"
       Title="FullSchedulePage"
       Loaded="FullSchedulePage_OnLoaded">
     <Grid>
@@ -59,22 +58,22 @@
             <StackPanel Orientation="Vertical"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        Margin="5,10,5,0">
+                        Margin="5,20,0,0">
                 <RadioButton x:Name="ShowAllRadioButton"
                              FontSize="18" FontFamily="Segoe UI Light"
-                             Width="200" Height="22"
+                             Width="225" Height="22"
                              Content="Все"
                              GroupName="HeldStatus" IsChecked="True"
                              Click="RadioButton_Click" />
                 <RadioButton x:Name="OnlyHeldRadioButton"
                              FontSize="18" FontFamily="Segoe UI Light"
-                             Width="200" Height="22"
+                             Width="225" Height="22"
                              Content="Только проведённые"
                              GroupName="HeldStatus"
                              Click="RadioButton_Click" />
                 <RadioButton x:Name="OnlyNotHeldRadioButton"
                              FontSize="18" FontFamily="Segoe UI Light"
-                             Width="200" Height="22"
+                             Width="225" Height="22"
                              Content="Только не проведённые"
                              GroupName="HeldStatus"
                              Click="RadioButton_Click" />
