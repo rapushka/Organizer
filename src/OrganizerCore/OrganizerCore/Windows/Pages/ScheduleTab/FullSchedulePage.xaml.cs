@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using OrganizerCore.DbWorking;
@@ -11,6 +13,8 @@ namespace OrganizerCore.Windows.Pages.ScheduleTab;
 public partial class FullSchedulePage
 {
 	public FullSchedulePage() => InitializeComponent();
+
+	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
 #region Filters
 
@@ -91,7 +95,18 @@ public partial class FullSchedulePage
 
 #region CRUD
 
-	private void AddButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void AddButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		var schedule = new Schedule
+		{
+			IndividualCourse = Context.IndividualCourses.First(),
+			ScheduledTime = DateTime.Now,
+			IsHeld = false,
+			Note = string.Empty,
+		};
+		Context.Schedules.Add(schedule);
+		NavigationService!.Navigate(new EditSchedulePage(schedule));
+	}
 
 	private void EditButton_OnClick(object sender, RoutedEventArgs e) { }
 
