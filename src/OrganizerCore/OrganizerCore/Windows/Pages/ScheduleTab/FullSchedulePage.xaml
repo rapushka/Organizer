@@ -135,24 +135,32 @@
                 </Button>
             </StackPanel>
         </Border>
-        <Border Grid.Row="4" Grid.Column="3">
-            <StackPanel HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-                <Button Content="Проведено"
-                        Width="250" Height="31"
-                        Style="{DynamicResource PurpleButton}"
-                        Click="HeldButton_OnClick" />
 
-            </StackPanel>
-        </Border>
-        <Border Grid.Row="4" Grid.Column="4">
-            <StackPanel HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-                <Button Content="Добавить занятие"
-                        Width="250" Height="31"
-                        Style="{DynamicResource PurpleButton}"
-                        Click="ScheduleLessonButton_OnClick" />
-            </StackPanel>
-        </Border>
+        <StackPanel Grid.Row="4" Grid.Column="1"
+                    Grid.ColumnSpan="4"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    Margin="25,0">
+            <Button
+                Style="{DynamicResource PurpleButton}"
+                Height="35"
+                Click="HeldButton_OnClick"
+                Content="Провести" />
+            <Button
+                Style="{DynamicResource PurpleButton}"
+                Height="35"
+                Click="ScheduleLessonButton_OnClick" 
+                Content="Добавить" />
+            <Button
+                Style="{DynamicResource PurpleButton}"
+                Height="35"
+                Click="ScheduleLessonButton_OnClick" 
+                Content="Изменить" />
+            <Button
+                Style="{DynamicResource PurpleButton}"
+                Height="35"
+                Click="ScheduleLessonButton_OnClick" 
+                Content="Удалить" />
+        </StackPanel>
     </Grid>
 </Page>
