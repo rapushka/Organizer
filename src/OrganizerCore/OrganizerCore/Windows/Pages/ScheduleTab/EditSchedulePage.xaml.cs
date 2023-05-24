@@ -12,6 +12,10 @@ public partial class EditSchedulePage : Page
 
 	private void CancelButton_Click(object sender, RoutedEventArgs e)
 	{
+	}
+
+	private void RadioButton_Click(object sender, RoutedEventArgs e)
+	{
 		
 	}
 }
