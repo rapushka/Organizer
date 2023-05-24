@@ -12,11 +12,15 @@ public partial class FullSchedulePage
 {
 	public FullSchedulePage() => InitializeComponent();
 
+#region Filters
+
 	private bool ShowOnlyNotHeld => ShowAll || (OnlyNotHeldRadioButton?.IsChecked ?? false);
 
 	private bool ShowOnlyHeld => ShowAll || (OnlyHeldRadioButton?.IsChecked ?? false);
 
 	private bool ShowAll => ShowAllRadioButton?.IsChecked ?? false;
+
+#endregion
 
 	private void FullSchedulePage_OnLoaded(object sender, RoutedEventArgs e) => UpdateViewTable();
 
@@ -73,11 +77,27 @@ public partial class FullSchedulePage
 
 #endregion
 
+#region Upload
+
 	private void UploadButton_OnClick(object sender, RoutedEventArgs e) { }
+
+#endregion
+
+#region Held
 
 	private void HeldButton_OnClick(object sender, RoutedEventArgs e) { }
 
-	private void ScheduleLessonButton_OnClick(object sender, RoutedEventArgs e) { }
+#endregion
+
+#region CRUD
+
+	private void AddButton_OnClick(object sender, RoutedEventArgs e) { }
+
+	private void EditButton_OnClick(object sender, RoutedEventArgs e) { }
+
+	private void RemoveButton_OnClick(object sender, RoutedEventArgs e) { }
+
+#endregion
 
 #region Update filters
 
