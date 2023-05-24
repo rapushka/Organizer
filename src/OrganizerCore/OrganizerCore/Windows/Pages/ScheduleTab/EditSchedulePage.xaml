@@ -56,6 +56,7 @@
                         Text="Курс:" />
                     <ComboBox
                         Name="CourseComboBox"
+                        IsEditable="True" 
                         Height="25"
                         Width="250"
                         SelectionChanged="CourseComboBox_OnSelectionChanged"/>
@@ -68,6 +69,7 @@
                         Text="Занятие:" />
                     <ComboBox
                         Name="LessonComboBox"
+                        IsEditable="True" 
                         Height="25"
                         Width="250" />
                 </StackPanel>
