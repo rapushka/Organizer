@@ -6,6 +6,7 @@ using System.Windows.Data;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Model.Views;
+using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
 
 namespace OrganizerCore.Windows.Pages.ScheduleTab;
@@ -108,9 +109,26 @@ public partial class FullSchedulePage
 		NavigationService!.Navigate(new EditSchedulePage(schedule));
 	}
 
-	private void EditButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void EditButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureSelected(out var schedule))
+		{
+			NavigationService!.Navigate(new EditSchedulePage(schedule!));
+		}
+	}
 
 	private void RemoveButton_OnClick(object sender, RoutedEventArgs e) { }
+
+	private bool EnsureSelected(out Schedule? schedule)
+	{
+		schedule = ScheduleViewDataGrid.SelectedItem as Schedule;
+		if (schedule is null)
+		{
+			MessageBoxUtils.AtFirstSelect("рассписание");
+		}
+
+		return schedule is not null;
+	}
 
 #endregion
 

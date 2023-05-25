@@ -89,20 +89,20 @@ public partial class GroupsListPage
 		NavigationService!.Navigate(new EditGroupPage(group));
 	}
 
+	private void EditButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureSelectedGroup(out var group))
+		{
+			NavigationService!.Navigate(new EditGroupPage(group!));
+		}
+	}
+
 	private void RemoveButton_OnClick(object sender, RoutedEventArgs e)
 	{
 		if (EnsureSelectedGroup(out var group)
 		    && MessageBoxUtils.ConfirmDeletion(group!))
 		{
 			DataBaseConnection.Instance.Observe<Group>().Remove(group!);
-		}
-	}
-
-	private void EditButton_OnClick(object sender, RoutedEventArgs e)
-	{
-		if (EnsureSelectedGroup(out var group))
-		{
-			NavigationService!.Navigate(new EditGroupPage(group!));
 		}
 	}
 
