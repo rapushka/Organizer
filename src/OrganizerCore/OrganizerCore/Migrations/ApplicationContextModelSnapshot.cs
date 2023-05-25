@@ -166,7 +166,7 @@ namespace OrganizerCore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("GroupCourseId")
+                    b.Property<int?>("GroupId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("IndividualCourseId")
@@ -184,7 +184,7 @@ namespace OrganizerCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GroupCourseId");
+                    b.HasIndex("GroupId");
 
                     b.HasIndex("IndividualCourseId");
 
@@ -330,15 +330,15 @@ namespace OrganizerCore.Migrations
 
             modelBuilder.Entity("OrganizerCore.Model.Schedule", b =>
                 {
-                    b.HasOne("OrganizerCore.Model.GroupCoursesOfStudent", "GroupCourse")
+                    b.HasOne("OrganizerCore.Model.Group", "Group")
                         .WithMany()
-                        .HasForeignKey("GroupCourseId");
+                        .HasForeignKey("GroupId");
 
                     b.HasOne("OrganizerCore.Model.IndividualCoursesOfStudent", "IndividualCourse")
                         .WithMany()
                         .HasForeignKey("IndividualCourseId");
 
-                    b.Navigation("GroupCourse");
+                    b.Navigation("Group");
 
                     b.Navigation("IndividualCourse");
                 });

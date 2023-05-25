@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "A9kF7T6q6nLP3GDoa9r2AVvFq327UaKIJJmKrzPpw4Z7LYu0auc+7EavqXMuGeCCvzXTcz9+gQickMlhxfbBJg==",
+  "dgSpecHash": "B5Px2uWzH9QRv3StpiYNJEzhglr6HDgE2azcsYGNUaK3KW80e+0HOQThOWYEn2P+UdpclwvFvcuZxwNjvKOnVQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\Diploms\\Organizer\\src\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Rapuska\\.nuget\\packages\\dotnetprojects.extended.wpf.toolkit\\4.5.71\\dotnetprojects.extended.wpf.toolkit.4.5.71.nupkg.sha512",
     "C:\\Users\\Rapuska\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Rapuska\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.5\\microsoft.data.sqlite.core.7.0.5.nupkg.sha512",
     "C:\\Users\\Rapuska\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
@@ -25,6 +26,9 @@
     "C:\\Users\\Rapuska\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\Rapuska\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\Rapuska\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Rapuska\\.nuget\\packages\\propertytools\\3.0.0\\propertytools.3.0.0.nupkg.sha512",
+    "C:\\Users\\Rapuska\\.nuget\\packages\\propertytools.wpf\\3.0.0\\propertytools.wpf.3.0.0.nupkg.sha512",
+    "C:\\Users\\Rapuska\\.nuget\\packages\\propertytools.wpf.extended.toolkit\\3.0.0\\propertytools.wpf.extended.toolkit.3.0.0.nupkg.sha512",
     "C:\\Users\\Rapuska\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.4\\sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
     "C:\\Users\\Rapuska\\.nuget\\packages\\sqlitepclraw.core\\2.1.4\\sqlitepclraw.core.2.1.4.nupkg.sha512",
     "C:\\Users\\Rapuska\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.4\\sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",
@@ -35,5 +39,26 @@
     "C:\\Users\\Rapuska\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\Rapuska\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'PropertyTools.Wpf 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PropertyTools.Wpf",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'PropertyTools.Wpf.Extended.Toolkit 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PropertyTools.Wpf.Extended.Toolkit",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

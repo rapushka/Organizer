@@ -49,4 +49,13 @@ public static class MessageBoxUtils
 			button: OK,
 			icon: Error
 		);
+
+	public static void ShowInfo(string message)
+		=> MessageBox.Show
+		(
+			messageBoxText: message,
+			caption: "Успех",
+			button: OK,
+			icon: Information
+		);
 }

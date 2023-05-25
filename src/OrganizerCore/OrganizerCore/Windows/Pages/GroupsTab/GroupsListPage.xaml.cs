@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -89,20 +88,21 @@ public partial class GroupsListPage
 		NavigationService!.Navigate(new EditGroupPage(group));
 	}
 
+	private void EditButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureSelectedGroup(out var group))
+		{
+			NavigationService!.Navigate(new EditGroupPage(group!));
+		}
+	}
+
 	private void RemoveButton_OnClick(object sender, RoutedEventArgs e)
 	{
 		if (EnsureSelectedGroup(out var group)
 		    && MessageBoxUtils.ConfirmDeletion(group!))
 		{
 			DataBaseConnection.Instance.Observe<Group>().Remove(group!);
-		}
-	}
-
-	private void EditButton_OnClick(object sender, RoutedEventArgs e)
-	{
-		if (EnsureSelectedGroup(out var group))
-		{
-			NavigationService!.Navigate(new EditGroupPage(group!));
+			DataBaseConnection.Instance.CurrentContext.SaveChanges();
 		}
 	}
 

@@ -53,7 +53,7 @@ public static class Dependencies
 	private static List<string> ForGroups(Group group)
 	{
 		var groupCourses = GroupCourses.Where((gc) => gc.Group == group).Select(Format).ToList();
-		var schedules = Schedules.Where((s) => s.GroupCourse?.Group == group).Select(Format).ToList();
+		var schedules = Schedules.Where((s) => s.Group == group).Select(Format).ToList();
 
 		return groupCourses.Concat(schedules).ToList();
 	}

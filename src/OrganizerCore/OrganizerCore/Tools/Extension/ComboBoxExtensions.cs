@@ -4,5 +4,6 @@ namespace OrganizerCore.Windows.Pages.StudentsTab;
 
 public static class ComboBoxExtensions
 {
-	public static string GetSelectedText(this ComboBox @this) => ((ComboBoxItem)@this.SelectedItem).Content.ToString()!;
+	public static string GetSelectedText(this ComboBox @this)
+		=> (@this.SelectedItem as ComboBoxItem)?.Content.ToString() ?? string.Empty;
 }

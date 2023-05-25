@@ -50,7 +50,7 @@ public partial class EditCoursePage
 
 	private bool TrySave()
 	{
-		var isValid = Validate(out var duration, out var lessonsCount, out var price);
+		var isValid = Validate(out var duration, out var price);
 
 		if (isValid)
 		{
@@ -63,21 +63,19 @@ public partial class EditCoursePage
 		return isValid;
 	}
 
-	private bool Validate(out float duration, out int lessonsCount, out decimal price)
+	private bool Validate(out float duration, out decimal price)
 	{
 		var canParseDuration = float.TryParse(DurationTextBox.Text, out duration);
-		var canParseLessonsCount = int.TryParse(LessonsCountTextBox.Text, out lessonsCount);
 		var canParsePrice = decimal.TryParse(PriceTextBox.Text, out price);
-		var canBeParsed = canParseDuration && canParseLessonsCount && canParsePrice;
+		var canBeParsed = canParseDuration && canParsePrice;
 
 		if (canBeParsed == false)
 		{
 			MessageBoxUtils.ShowError
 			(
-				canParseLessonsCount ? "Количество занятий должно быть целочисленным числом!"
-				: canParsePrice      ? "Стоимость должна быть числом"
-				: canParseDuration   ? "Продолжительность должна быть числом"
-				                       : throw new InvalidOperationException("сообщение не найдено")
+				canParsePrice      ? "Стоимость должна быть числом"
+				: canParseDuration ? "Продолжительность должна быть числом"
+				                     : throw new InvalidOperationException("сообщение не найдено")
 			);
 		}
 

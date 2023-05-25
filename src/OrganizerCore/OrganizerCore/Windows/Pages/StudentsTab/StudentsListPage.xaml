@@ -51,8 +51,8 @@
                   Grid.ColumnSpan="2"
                   x:Name="StudentsDataGrid"
                   CanUserAddRows="False"
-                  IsReadOnly="True" 
-                  SelectedCellsChanged="StudentsDataGrid_OnSelectedCellsChanged"/>
+                  IsReadOnly="True"
+                  SelectedCellsChanged="StudentsDataGrid_OnSelectedCellsChanged" />
 
         <StackPanel Grid.Column="0" Grid.Row="2"
                     Orientation="Horizontal"

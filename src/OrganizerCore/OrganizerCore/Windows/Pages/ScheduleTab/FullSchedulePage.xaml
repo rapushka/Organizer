@@ -1,0 +1,166 @@
+﻿<Page x:Class="OrganizerCore.Windows.Pages.ScheduleTab.FullSchedulePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Width="1200" Height="560"
+      Title="FullSchedulePage"
+      Loaded="FullSchedulePage_OnLoaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="83*" />
+            <ColumnDefinition Width="313*" />
+            <ColumnDefinition Width="314*" />
+            <ColumnDefinition Width="292*" />
+            <ColumnDefinition Width="291*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55.2" />
+            <RowDefinition Height="43.2" />
+            <RowDefinition Height="31.2" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="62" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.ColumnSpan="3">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="5,15,5,0">
+                <Label Content="Занятие:"
+                       FontSize="18" FontFamily="Segoe UI Light" Width="153" />
+                <TextBox
+                    x:Name="SearchStudentTextBox"
+                    Height="30"
+                    Text=""
+                    Width="227"
+                    FontSize="18" FontFamily="Segoe UI Light"
+                    TextChanged="UpdateFrom_TextBox"
+                    Margin="5,0,0,0" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="3">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="5,15,5,0">
+                <Label Content="Дата с:"
+                       FontSize="18" FontFamily="Segoe UI Light" />
+                <DatePicker
+                    x:Name="SearchFromDateTPicker"
+                    FontSize="18" FontFamily="Segoe UI Light"
+                    SelectedDateChanged="UpdateFrom_DatePicker"
+                    Width="195" Margin="13,0,0,0" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="4"
+                Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="5,20,0,0">
+                <RadioButton x:Name="ShowAllRadioButton"
+                             FontSize="18" FontFamily="Segoe UI Light"
+                             Width="225" Height="22"
+                             Content="Все"
+                             GroupName="HeldStatus" IsChecked="True"
+                             Click="RadioButton_Click" />
+                <RadioButton x:Name="OnlyHeldRadioButton"
+                             FontSize="18" FontFamily="Segoe UI Light"
+                             Width="225" Height="22"
+                             Content="Только проведённые"
+                             GroupName="HeldStatus"
+                             Click="RadioButton_Click" />
+                <RadioButton x:Name="OnlyNotHeldRadioButton"
+                             FontSize="18" FontFamily="Segoe UI Light"
+                             Width="225" Height="22"
+                             Content="Только не проведённые"
+                             GroupName="HeldStatus"
+                             Click="RadioButton_Click" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="1">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="5,0,0,0">
+                <Label Content="Дата по:"
+                       FontSize="18" FontFamily="Segoe UI Light"
+                       Height="37" Width="82" />
+                <DatePicker
+                    x:Name="SearchToDatePicker"
+                    FontSize="18" FontFamily="Segoe UI Light"
+                    Width="190" Height="34" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="3">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="5,5,5,0">
+                <CheckBox
+                    x:Name="IsTodayCheckBox"
+                    Content="Сегодня"
+                    FontSize="18" FontFamily="Segoe UI Light"
+                    Click="UpdateFrom_CheckBox"
+                    Width="123" Height="26" />
+                <CheckBox
+                    x:Name="ApplyDatesFilterCheckBox"
+                    Content="Применить"
+                    FontSize="18" FontFamily="Segoe UI Light"
+                    Click="UpdateFrom_CheckBox"
+                    Width="123" Height="26" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="3" Grid.ColumnSpan="5" Grid.Column="0">
+            <StackPanel HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Orientation="Horizontal"
+                        Margin="5">
+                <DataGrid
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    CanUserAddRows="False"
+                    x:Name="ScheduleViewDataGrid"
+                    Width="1283" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="0">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Button Width="40" Height="40"
+                        Style="{DynamicResource PurpleButton}"
+                        Click="UploadButton_OnClick">
+                    <!-- <Image Height="30" Source="выгрузить.ico" Stretch="Fill" Width="30"/> -->
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="4" Grid.Column="1"
+                    Grid.ColumnSpan="4"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    Margin="25,0">
+            <Button
+                Style="{DynamicResource PurpleButton}"
+                Height="35"
+                Click="HeldButton_OnClick"
+                Content="Провести" />
+            <Button
+                Style="{DynamicResource PurpleButton}"
+                Height="35"
+                Click="AddButton_OnClick" 
+                Content="Добавить" />
+            <Button
+                Style="{DynamicResource PurpleButton}"
+                Height="35"
+                Click="EditButton_OnClick" 
+                Content="Изменить" />
+            <Button
+                Style="{DynamicResource PurpleButton}"
+                Height="35"
+                Click="RemoveButton_OnClick" 
+                Content="Удалить" />
+        </StackPanel>
+    </Grid>
+</Page>

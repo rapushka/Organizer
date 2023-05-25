@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Windows.Pages;
 using OrganizerCore.Windows.Pages.GroupsTab;
+using OrganizerCore.Windows.Pages.ScheduleTab;
 using OrganizerCore.Windows.Pages.StudentsTab;
 
 namespace OrganizerCore
@@ -19,10 +20,7 @@ namespace OrganizerCore
 			DataBaseConnection.Instance.OpenDataBase();
 		}
 
-		private void ScheduleButton_Click(object sender, RoutedEventArgs e)
-		{
-			// OpenPage<Schedule>();
-		}
+		private void ScheduleButton_Click(object sender, RoutedEventArgs e) => OpenPage<FullSchedulePage>();
 
 		private void StudentsButton_Click(object sender, RoutedEventArgs e) => OpenPage<StudentsListPage>();
 
