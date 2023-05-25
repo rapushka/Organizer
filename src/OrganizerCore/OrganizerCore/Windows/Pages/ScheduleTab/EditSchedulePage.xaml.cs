@@ -54,8 +54,18 @@ public partial class EditSchedulePage
 
 	private void CourseComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
-		LessonComboBox.ItemsSource = Context.IndividualCourses.Observe().Cast<object>()
-		                                    .Concat(Context.Groups.Observe());
+		if (CourseComboBox.SelectionBoxItem is Course selectedCourse)
+		{
+			var groups = Context.Groups.Observe().Where((g) => g.Course == selectedCourse);
+			var individualCourses = Context.IndividualCourses.Observe().Where((ic) => ic.Course == selectedCourse);
+			LessonComboBox.ItemsSource = individualCourses.Cast<object>().Concat(groups);
+			LessonComboBox.IsEnabled = true;
+		}
+		else
+		{
+			LessonComboBox.ItemsSource = null;
+			LessonComboBox.IsEnabled = false;
+		}
 	}
 
 #region Save-Load
