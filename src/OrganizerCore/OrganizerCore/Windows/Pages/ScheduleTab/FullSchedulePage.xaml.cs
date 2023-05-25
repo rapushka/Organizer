@@ -90,7 +90,13 @@ public partial class FullSchedulePage
 
 #region Held
 
-	private void HeldButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void HeldButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureSelected(out var schedule))
+		{
+			
+		}
+	}
 
 #endregion
 

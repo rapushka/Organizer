@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -60,28 +61,41 @@ public partial class EditSchedulePage
 
 	private void UpdateLessorComboBox()
 	{
-		if (CourseComboBox.SelectedItem is Course selectedCourse)
+		if (CourseComboBox.SelectedItem is not Course selectedCourse)
 		{
-			var groups = Context.Groups.Observe().Where((g) => g.Course == selectedCourse);
-			var individualCourses = Context.IndividualCourses.Observe().Where((ic) => ic.Course == selectedCourse);
+			DisableLessonComboBox();
+			return;
+		}
 
-			LessonComboBox.ItemsSource
-				= CourseTypeShow switch
-				{
-					CourseTypeShow.All        => individualCourses.Concat(groups.Cast<object>()),
-					CourseTypeShow.Group      => groups,
-					CourseTypeShow.Individual => individualCourses,
-					_                         => throw new Exception()
-				};
-			LessonComboBox.IsEnabled = true;
-		}
-		else
-		{
-			LessonComboBox.ItemsSource = null;
-			LessonComboBox.SelectedItem = null;
-			LessonComboBox.IsEnabled = false;
-		}
+		var groups = GetGroupsFor(selectedCourse);
+		var individualCourses = GetIndividualCoursesFor(selectedCourse);
+
+		LessonComboBox.ItemsSource = PickCollectionByTypeFilter(individualCourses, groups);
+		LessonComboBox.IsEnabled = true;
 	}
+
+	private void DisableLessonComboBox()
+	{
+		LessonComboBox.ItemsSource = null;
+		LessonComboBox.SelectedItem = null;
+		LessonComboBox.IsEnabled = false;
+	}
+
+	private IEnumerable<object> PickCollectionByTypeFilter
+		(IEnumerable<IndividualCoursesOfStudent> individualCourses, IEnumerable<Group> groups)
+		=> CourseTypeShow switch
+		{
+			CourseTypeShow.All        => individualCourses.Concat(groups.Cast<object>()),
+			CourseTypeShow.Group      => groups,
+			CourseTypeShow.Individual => individualCourses,
+			_                         => throw new Exception()
+		};
+
+	private static IEnumerable<IndividualCoursesOfStudent> GetIndividualCoursesFor(Course selectedCourse)
+		=> Context.IndividualCourses.Observe().Where((ic) => ic.Course == selectedCourse);
+
+	private static IEnumerable<Group> GetGroupsFor(Course selectedCourse)
+		=> Context.Groups.Observe().Where((g) => g.Course == selectedCourse);
 
 #region Save-Load
 
