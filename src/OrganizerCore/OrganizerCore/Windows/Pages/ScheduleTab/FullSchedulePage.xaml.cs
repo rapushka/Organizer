@@ -98,8 +98,25 @@ public partial class FullSchedulePage
 			return;
 		}
 
-		schedule!.IsHeld = true;
+		if (schedule!.IsHeld == false)
+		{
+			schedule.IsHeld = true;
+			MessageBoxUtils.ShowInfo("Занятие успешно проведено!");
+		}
+		else
+		{
+			UnHeldSchedule(schedule);
+		}
+
 		Context.SaveChanges();
+	}
+
+	private void UnHeldSchedule(Schedule schedule)
+	{
+		if (MessageBoxUtils.ShowEnsure("Занятие уже проведено. Вы хотите отменить проведение?"))
+		{
+			schedule.IsHeld = false;
+		}
 	}
 
 	private static bool CanBeHelded(Schedule schedule)
