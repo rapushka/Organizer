@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 using OrganizerCore.Model.Views;
 
@@ -20,6 +21,29 @@ public class Schedule : Table
 		IndividualCourse is not null ? new ScheduleView(IndividualCourse, this)
 		: Group is not null          ? new ScheduleView(Group!, this)
 		                               : throw new NullReferenceException();
+
+	[NotMapped]
+	public object Lessor
+	{
+		get => (object?)IndividualCourse
+		       ?? Group
+		       ?? throw new NullReferenceException("schedule must contain at least one");
+		set
+		{
+			if (value is Group group)
+			{
+				Group = group;
+			}
+			else if (value is IndividualCoursesOfStudent individualCourse)
+			{
+				IndividualCourse = individualCourse;
+			}
+			else
+			{
+				throw new ArgumentException($"SelectedItem is unknown type ({value.GetType().Name})");
+			}
+		}
+	}
 
 	public override string ToString()
 	{

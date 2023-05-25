@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using OrganizerCore.DbWorking;
@@ -16,8 +17,6 @@ public partial class EditSchedulePage
 		_schedule = schedule;
 		InitializeComponent();
 	}
-
-	private void Page_Load(object sender, RoutedEventArgs e) => Load();
 
 	private static ApplicationContext Context => DataBaseConnection.Instance.CurrentContext;
 
@@ -40,9 +39,24 @@ public partial class EditSchedulePage
 		}
 	}
 
+	private void Page_Load(object sender, RoutedEventArgs e)
+	{
+		Load();
+		SetupCoursesComboBox();
+	}
+
+	private void SetupCoursesComboBox()
+	{
+		CourseComboBox.ItemsSource = Context.Courses.Observe();
+	}
+
 	private void RadioButton_Click(object sender, RoutedEventArgs e) { }
 
-	private void CourseComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) { }
+	private void CourseComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+		LessonComboBox.ItemsSource = Context.IndividualCourses.Observe().Cast<object>()
+		                                    .Concat(Context.Groups.Observe());
+	}
 
 #region Save-Load
 
@@ -50,7 +64,7 @@ public partial class EditSchedulePage
 	{
 		CourseTypeShow = CourseTypeShow.All;
 		CourseComboBox.SelectedItem = _schedule.View.Course;
-		LessonComboBox.SelectedItem = _schedule.View.Lesson;
+		LessonComboBox.SelectedItem = _schedule.Lessor;
 		DateTimePicker.Value = _schedule.ScheduledTime;
 		NoteTextBox.Text = _schedule.Note;
 	}
@@ -58,25 +72,9 @@ public partial class EditSchedulePage
 	private void Save()
 	{
 		_schedule.View.Course = (Course)CourseComboBox.SelectedItem;
-		SetLesson();
+		_schedule.Lessor = LessonComboBox.SelectedItem;
 		_schedule.ScheduledTime = DateTimePicker.Value ?? DateTime.MinValue;
 		_schedule.Note = NoteTextBox.Text;
-	}
-
-	private void SetLesson()
-	{
-		if (LessonComboBox.SelectedItem is Group group)
-		{
-			_schedule.Group = group;
-		}
-		else if (LessonComboBox.SelectedItem is IndividualCoursesOfStudent individualCourse)
-		{
-			_schedule.IndividualCourse = individualCourse;
-		}
-		else
-		{
-			throw new Exception($"SelectedItem is unknown type ({LessonComboBox.SelectedItem.GetType().Name})");
-		}
 	}
 
 #endregion
