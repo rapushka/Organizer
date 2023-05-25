@@ -117,7 +117,15 @@ public partial class FullSchedulePage
 		}
 	}
 
-	private void RemoveButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void RemoveButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		if (EnsureSelected(out var schedule)
+		    && MessageBoxUtils.ConfirmDeletion(schedule!))
+		{
+			Context.Schedules.Observe().Remove(schedule!);
+			Context.SaveChanges();
+		}
+	}
 
 	private bool EnsureSelected(out Schedule? schedule)
 	{

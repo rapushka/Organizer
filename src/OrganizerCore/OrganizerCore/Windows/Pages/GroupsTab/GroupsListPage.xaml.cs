@@ -103,6 +103,7 @@ public partial class GroupsListPage
 		    && MessageBoxUtils.ConfirmDeletion(group!))
 		{
 			DataBaseConnection.Instance.Observe<Group>().Remove(group!);
+			DataBaseConnection.Instance.CurrentContext.SaveChanges();
 		}
 	}
 
