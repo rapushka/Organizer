@@ -54,7 +54,7 @@ public partial class EditSchedulePage
 
 	private void CourseComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
-		if (CourseComboBox.SelectionBoxItem is Course selectedCourse)
+		if (CourseComboBox.SelectedItem is Course selectedCourse)
 		{
 			var groups = Context.Groups.Observe().Where((g) => g.Course == selectedCourse);
 			var individualCourses = Context.IndividualCourses.Observe().Where((ic) => ic.Course == selectedCourse);
