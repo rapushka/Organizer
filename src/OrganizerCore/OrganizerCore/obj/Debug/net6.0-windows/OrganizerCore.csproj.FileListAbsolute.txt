@@ -159,3 +159,7 @@ C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-w
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\ScheduleTab\FullSchedulePage.baml
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\ScheduleTab\EditSchedulePage.g.cs
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\ScheduleTab\EditSchedulePage.baml
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\DotNetProjects.Wpf.Extended.Toolkit.dll
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\PropertyTools.dll
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\PropertyTools.Wpf.dll
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\PropertyTools.Wpf.Extended.Toolkit.dll

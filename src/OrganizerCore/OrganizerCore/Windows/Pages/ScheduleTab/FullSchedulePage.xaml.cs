@@ -55,7 +55,7 @@ public partial class FullSchedulePage
 		var applyDatesFilter = ApplyDatesFilterCheckBox?.IsChecked ?? false;
 		var showOnlyForToday = IsTodayCheckBox?.IsChecked ?? false;
 
-		var fitsByLessonType = schedule.View.LessonType.Contains(SearchStudentTextBox.Text);
+		var fitsByLessonType = schedule.View.Lesson.Contains(SearchStudentTextBox.Text);
 		var fitsByDates = applyDatesFilter == false
 		                  || (showOnlyForToday && schedule.ScheduledTime.IsToday())
 		                  || schedule.ScheduledTime.IsBetween(from, to);
@@ -74,7 +74,7 @@ public partial class FullSchedulePage
 		ScheduleViewDataGrid.AddTextColumn("ID", nameof(Schedule.Id), Visibility.Collapsed);
 		ScheduleViewDataGrid.AddTextColumn("Дата-Время", view + nameof(ScheduleView.ScheduledTime));
 		ScheduleViewDataGrid.AddTextColumn("Курс", view + nameof(ScheduleView.CourseTitle));
-		ScheduleViewDataGrid.AddTextColumn("Занятие", view + nameof(ScheduleView.LessonType));
+		ScheduleViewDataGrid.AddTextColumn("Занятие", view + nameof(ScheduleView.Lesson));
 		ScheduleViewDataGrid.AddTextColumn("Примечание", view + nameof(ScheduleView.Note));
 		ScheduleViewDataGrid.AddTextColumn("Проведено", view + nameof(ScheduleView.IsHeld));
 	}

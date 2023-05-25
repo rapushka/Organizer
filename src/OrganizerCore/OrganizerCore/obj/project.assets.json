@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "DotNetProjects.Extended.Wpf.Toolkit/4.5.71": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/DotNetProjects.Wpf.Extended.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/DotNetProjects.Wpf.Extended.Toolkit.dll": {}
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -363,6 +372,40 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "PropertyTools/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/PropertyTools.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PropertyTools.dll": {}
+        }
+      },
+      "PropertyTools.Wpf/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "PropertyTools": "3.0.0"
+        },
+        "compile": {
+          "lib/net45/PropertyTools.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/net45/PropertyTools.Wpf.dll": {}
+        }
+      },
+      "PropertyTools.Wpf.Extended.Toolkit/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "DotNetProjects.Extended.Wpf.Toolkit": "4.5.71",
+          "PropertyTools.Wpf": "3.0.0"
+        },
+        "compile": {
+          "lib/net45/PropertyTools.Wpf.Extended.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/net45/PropertyTools.Wpf.Extended.Toolkit.dll": {}
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.4": {
         "type": "package",
         "dependencies": {
@@ -590,6 +633,19 @@
     }
   },
   "libraries": {
+    "DotNetProjects.Extended.Wpf.Toolkit/4.5.71": {
+      "sha512": "shE8+cDquG96j3dqJfQS+tGQE7xHaR60XjOIRHE+uK+2ipif/YyPTcD9gi7J166KX+oM6H9N+au42zC6pWdGtA==",
+      "type": "package",
+      "path": "dotnetprojects.extended.wpf.toolkit/4.5.71",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotnetprojects.extended.wpf.toolkit.4.5.71.nupkg.sha512",
+        "dotnetprojects.extended.wpf.toolkit.nuspec",
+        "lib/net40/DotNetProjects.Wpf.Extended.Toolkit.dll",
+        "lib/netcoreapp3.0/DotNetProjects.Wpf.Extended.Toolkit.dll"
+      ]
+    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",
@@ -1083,6 +1139,43 @@
         "mono.texttemplating.nuspec"
       ]
     },
+    "PropertyTools/3.0.0": {
+      "sha512": "yj4z4ZHeV0gHTGKxDNKz1nMjGzxpM5N3B3/zk6T6joJreIwIhRwYw6+qVG5VArY9h6M2MRj1zlSskcT106nNgQ==",
+      "type": "package",
+      "path": "propertytools/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/PropertyTools.dll",
+        "lib/netstandard2.0/PropertyTools.dll",
+        "propertytools.3.0.0.nupkg.sha512",
+        "propertytools.nuspec"
+      ]
+    },
+    "PropertyTools.Wpf/3.0.0": {
+      "sha512": "Vw7PRd5FoLirVCGkY/NiMh3u0gHzAFOSGGAdnLn0KUNV9HQT8TTPzs8ydO89SK78YbFODCnV3ROrdgViVd2OQw==",
+      "type": "package",
+      "path": "propertytools.wpf/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/PropertyTools.Wpf.dll",
+        "propertytools.wpf.3.0.0.nupkg.sha512",
+        "propertytools.wpf.nuspec"
+      ]
+    },
+    "PropertyTools.Wpf.Extended.Toolkit/3.0.0": {
+      "sha512": "HSh2pVYsUc8HQqQuU/v8vSrio06G5cbxETv5W1J2XVKjD+D3z3wVskHtD8qyW6PklmjarESKg0p7Rpqqj2FlVw==",
+      "type": "package",
+      "path": "propertytools.wpf.extended.toolkit/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/PropertyTools.Wpf.Extended.Toolkit.dll",
+        "propertytools.wpf.extended.toolkit.3.0.0.nupkg.sha512",
+        "propertytools.wpf.extended.toolkit.nuspec"
+      ]
+    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.4": {
       "sha512": "EWI1olKDjFEBMJu0+3wuxwziIAdWDVMYLhuZ3Qs84rrz+DHwD00RzWPZCa+bLnHCf3oJwuFZIRsHT5p236QXww==",
       "type": "package",
@@ -1347,7 +1440,8 @@
     "net6.0-windows7.0": [
       "Microsoft.EntityFrameworkCore >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.5",
-      "Microsoft.EntityFrameworkCore.Tools >= 7.0.5"
+      "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
+      "PropertyTools.Wpf.Extended.Toolkit >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -1400,6 +1494,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[7.0.5, )"
+          },
+          "PropertyTools.Wpf.Extended.Toolkit": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           }
         },
         "imports": [
@@ -1424,5 +1522,27 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'PropertyTools.Wpf 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PropertyTools.Wpf",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'PropertyTools.Wpf.Extended.Toolkit 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PropertyTools.Wpf.Extended.Toolkit",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

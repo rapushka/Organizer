@@ -26,9 +26,23 @@ public class ScheduleView
 
 	public DateTime ScheduledTime => _schedule.ScheduledTime;
 	public string   CourseTitle   => Course.Title;
-	public string   LessonType    => _isGroup ? _group!.Title : _individualCourse!.Student.FullName;
+	public string   Lesson        => _isGroup ? _group!.Title : _individualCourse!.Student.FullName;
 	public string   Note          => _schedule.Note;
 	public bool     IsHeld        => _schedule.IsHeld;
 
-	private Course Course => _isGroup ? _group!.Course : _individualCourse!.Course;
+	public Course Course
+	{
+		get => _isGroup ? _group!.Course : _individualCourse!.Course;
+		set
+		{
+			if (_isGroup)
+			{
+				_group!.Course = value;
+			}
+			else
+			{
+				_individualCourse!.Course = value;
+			}
+		}
+	}
 }
