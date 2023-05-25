@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Controls;
 using OrganizerCore.DbWorking;
@@ -79,6 +78,7 @@ public partial class EditSchedulePage
 		else
 		{
 			LessonComboBox.ItemsSource = null;
+			LessonComboBox.SelectedItem = null;
 			LessonComboBox.IsEnabled = false;
 		}
 	}

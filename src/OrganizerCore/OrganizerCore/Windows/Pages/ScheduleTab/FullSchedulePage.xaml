@@ -112,7 +112,7 @@
                     Width="123" Height="26" />
             </StackPanel>
         </Border>
-        <Border Grid.Row="3" Grid.ColumnSpan="5">
+        <Border Grid.Row="3" Grid.ColumnSpan="5" Grid.Column="0">
             <StackPanel HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Orientation="Horizontal"
