@@ -92,19 +92,29 @@ public partial class FullSchedulePage
 
 	private void HeldButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		if (EnsureSelected(out var schedule) == false)
+		if (EnsureSelected(out var schedule) == false
+		    || CanBeHelded(schedule!) == false)
 		{
 			return;
 		}
 
-		var lessonsCount = schedule!.IndividualCourse is not null
-			? schedule.IndividualCourse.LessonsCount
-			: schedule.Group!.Course.LessonsCount;
+		schedule!.IsHeld = true;
+		Context.SaveChanges();
+	}
 
-		if (lessonsCount <= 0)
+	private static bool CanBeHelded(Schedule schedule)
+	{
+		var lessonsCount = schedule.IndividualCourse?.LessonsCount
+		                   ?? schedule.Group?.Course.LessonsCount
+		                   ?? throw new NullReferenceException();
+
+		var anyLessonsLeft = lessonsCount > 0;
+		if (anyLessonsLeft == false)
 		{
 			MessageBoxUtils.ShowError("Все уроки по данному курсу уже проведены!");
 		}
+
+		return anyLessonsLeft;
 	}
 
 #endregion
