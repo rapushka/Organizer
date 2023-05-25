@@ -92,9 +92,18 @@ public partial class FullSchedulePage
 
 	private void HeldButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		if (EnsureSelected(out var schedule))
+		if (EnsureSelected(out var schedule) == false)
 		{
-			
+			return;
+		}
+
+		var lessonsCount = schedule!.IndividualCourse is not null
+			? schedule.IndividualCourse.LessonsCount
+			: schedule.Group!.Course.LessonsCount;
+
+		if (lessonsCount <= 0)
+		{
+			MessageBoxUtils.ShowError("Все уроки по данному курсу уже проведены!");
 		}
 	}
 
