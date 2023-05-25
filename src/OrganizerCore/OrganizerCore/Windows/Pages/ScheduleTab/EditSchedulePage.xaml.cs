@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Controls;
 using OrganizerCore.DbWorking;
@@ -22,6 +23,9 @@ public partial class EditSchedulePage
 
 	private CourseTypeShow CourseTypeShow
 	{
+		get => ShowAllRadioButton.IsChecked ?? false       ? CourseTypeShow.All
+			: OnlyIndividualRadioButton.IsChecked ?? false ? CourseTypeShow.Individual
+			: OnlyGroupRadioButton.IsChecked ?? false      ? CourseTypeShow.Group : throw new ArgumentException();
 		set
 		{
 			if (value is CourseTypeShow.All)
@@ -50,15 +54,26 @@ public partial class EditSchedulePage
 		CourseComboBox.ItemsSource = Context.Courses.Observe();
 	}
 
-	private void RadioButton_Click(object sender, RoutedEventArgs e) { }
+	private void RadioButton_Click(object sender, RoutedEventArgs e) => UpdateLessorComboBox();
 
 	private void CourseComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+		=> UpdateLessorComboBox();
+
+	private void UpdateLessorComboBox()
 	{
 		if (CourseComboBox.SelectedItem is Course selectedCourse)
 		{
 			var groups = Context.Groups.Observe().Where((g) => g.Course == selectedCourse);
 			var individualCourses = Context.IndividualCourses.Observe().Where((ic) => ic.Course == selectedCourse);
-			LessonComboBox.ItemsSource = individualCourses.Cast<object>().Concat(groups);
+
+			LessonComboBox.ItemsSource
+				= CourseTypeShow switch
+				{
+					CourseTypeShow.All        => individualCourses.Concat(groups.Cast<object>()),
+					CourseTypeShow.Group      => groups,
+					CourseTypeShow.Individual => individualCourses,
+					_                         => throw new Exception()
+				};
 			LessonComboBox.IsEnabled = true;
 		}
 		else
