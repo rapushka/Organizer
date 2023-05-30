@@ -91,6 +91,21 @@ public partial class FullSchedulePage
 
 	private void UploadButton_OnClick(object sender, RoutedEventArgs e)
 	{
+		try
+		{
+			if (!GenerateReport())
+			{
+				MessageBoxUtils.ShowInfo("Отчёт создан!");
+			}
+		}
+		catch (Exception ex)
+		{
+			MessageBoxUtils.ShowError($"Ошибка!\n{ex.Message}");
+		}
+	}
+
+	private static bool GenerateReport()
+	{
 		using var document = WordprocessingDocument.Create("Schedule.docx", WordprocessingDocumentType.Document);
 		var mainPart = document.AddMainDocumentPart();
 
@@ -111,7 +126,7 @@ public partial class FullSchedulePage
 			body.AppendChild(noSchedulesParagraph);
 
 			mainPart.Document.Save();
-			return;
+			return true;
 		}
 
 		var groupedSchedules = schedules.GroupBy(s => s.IsGroup ? s.Group.Title : s.IndividualCourse.Course.Title);
@@ -155,7 +170,7 @@ public partial class FullSchedulePage
 		}
 
 		mainPart.Document.Save();
-		MessageBoxUtils.ShowInfo("Отчёт создан!");
+		return false;
 	}
 
 #endregion
