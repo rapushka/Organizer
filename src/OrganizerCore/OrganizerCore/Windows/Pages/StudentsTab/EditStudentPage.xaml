@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
-      Title="EditStudentPage" Height="450" Width="800"
+      Title="EditStudentPage" Width="1200" Height="560"
       Loaded="Page_OnLoaded">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -36,16 +36,16 @@
                    Text="ФИО:" />
         <TextBox Grid.Column="1" Grid.Row="1"
                  Style="{StaticResource TextBox}"
-                 x:Name="FullNameTextBox" />
+                 x:Name="FullNameTextBox" Margin="10,10,179,10" />
 
         <!-- PhoneNumber -->
         <TextBlock Grid.Column="0" Grid.Row="2"
                    Style="{StaticResource Header}"
                    HorizontalAlignment="Right"
-                   Text="Номер Телефона:" />
+                   Text="Номер телефона:" />
         <TextBox Grid.Column="1" Grid.Row="2"
                  Style="{StaticResource TextBox}"
-                 x:Name="PhoneNumberTextBox" />
+                 x:Name="PhoneNumberTextBox" Margin="10,10,179,10" />
 
         <!-- Birthdate -->
         <TextBlock Grid.Column="0" Grid.Row="3"
@@ -54,7 +54,7 @@
                    Text="Дата рождения:" />
         <TextBox Grid.Column="1" Grid.Row="3"
                  Style="{StaticResource TextBox}"
-                 x:Name="BirthdateTextBox" />
+                 x:Name="BirthdateTextBox" Margin="10,10,179,10" />
 
         <!-- Email -->
         <TextBlock Grid.Column="0" Grid.Row="4"
@@ -63,7 +63,7 @@
                    Text="Электронная почта:" />
         <TextBox Grid.Column="1" Grid.Row="4"
                  Style="{StaticResource TextBox}"
-                 x:Name="EmailTextBox" />
+                 x:Name="EmailTextBox" Margin="10,10,179,10" />
 
         <TextBlock Grid.Column="0" Grid.Row="5"
                    Grid.ColumnSpan="2"
@@ -78,7 +78,7 @@
                    Text="ФИО:" />
         <TextBox Grid.Column="1" Grid.Row="6"
                  Style="{StaticResource TextBox}"
-                 x:Name="ProxyFullNameTextBox" />
+                 x:Name="ProxyFullNameTextBox" Margin="10,10,179,10" />
 
         <!-- ProxyPhoneNumber -->
         <TextBlock Grid.Column="0" Grid.Row="7"
@@ -87,7 +87,7 @@
                    Text="Номер телефона:" />
         <TextBox Grid.Column="1" Grid.Row="7"
                  Style="{StaticResource TextBox}"
-                 x:Name="ProxyPhoneNumberTextBox" />
+                 x:Name="ProxyPhoneNumberTextBox" Margin="10,10,179,10" />
 
         <!-- Buttons -->
         <StackPanel Grid.Column="0" Grid.Row="8"

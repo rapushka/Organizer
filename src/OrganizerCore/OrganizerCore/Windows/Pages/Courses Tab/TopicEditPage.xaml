@@ -39,7 +39,7 @@
                    x:Name="CourseTitleTextBlock"
                    VerticalAlignment="Center"
                    Style="{StaticResource Header}"
-                   FontSize="16"
+                    FontSize="18" FontFamily="Segoe UI Light"
                    Text="[Название курса]" />
 
         <TextBlock Grid.Column="0" Grid.Row="2"
@@ -50,7 +50,7 @@
                  x:Name="TitleTextBox"
                  VerticalAlignment="Center"
                  Margin="10"
-                 FontSize="16"
+                 FontSize="18"
                  FontFamily="Segoe UI Light"
                  LostFocus="TitleTextBox_OnLostFocus"
                  Text="[Название темы]" />
@@ -76,10 +76,10 @@
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
                     Click="AddLessonButton_OnClick"
-                    Content="Добавить" />
+                    Content="Добавить"  Width="110"/>
             <Button Style="{StaticResource PurpleButton}"
                     Click="RemoveLessonButton_OnClick"
-                    Content="Удалить" />
+                    Content="Удалить" Width="110"/>
             <Button Style="{StaticResource PurpleButton}"
                     Click="EditLessonsTypesListButton_OnClick"
                     Content="Редактировать Виды занятий" />
@@ -91,10 +91,10 @@
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource PurpleButton}"
                     Click="ApplyButton_OnClick"
-                    Content="Применить" />
+                    Content="Применить" Width="150" />
             <Button Style="{StaticResource PurpleButton}"
                     Click="ApplyButton_OnClick"
-                    Content="Отмена" />
+                    Content="Отмена"  Width="150"/>
         </StackPanel>
     </Grid>
 </Page>
