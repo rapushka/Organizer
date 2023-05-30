@@ -51,13 +51,13 @@
                     Margin="50,5"
                     Click="ShowIndividualCoursesButton_Click"
                     Content="Индивидуальные курсы"
-                    FontSize="16" FontFamily="Segoe UI Light" Width="245" />
+                    FontSize="16" Width="245" />
                 <Button
                     Style="{StaticResource PurpleButton}"
                     Margin="50,5"
                     Click="ShowGroupCoursesButton_Click"
                     Content="Груповые курсы"
-                    FontSize="16" FontFamily="Segoe UI Light" Width="245" />
+                    FontSize="16" Width="245" />
             </StackPanel>
         </Border>
 
@@ -69,17 +69,14 @@
                     Style="{StaticResource PurpleButton}"
                     Height="31"
                     Click="AddStudentButton_OnClick"
-                    Content="Добавить"
-                    FontSize="18" FontFamily="Segoe UI Light" />
+                    Content="Добавить" />
                 <Button
                     Style="{StaticResource PurpleButton}"
-                    FontSize="18" FontFamily="Segoe UI Light"
                     Height="31"
                     Click="EditStudentButton_OnClick"
                     Content="Изменить" />
                 <Button
                     Style="{StaticResource PurpleButton}"
-                    FontSize="18" FontFamily="Segoe UI Light"
                     Height="31"
                     Click="RemoveStudentButton_OnClick"
                     Content="Удалить" />
@@ -88,7 +85,6 @@
         <Border Grid.Column="1" Grid.Row="3">
             <StackPanel>
                 <Button Style="{StaticResource PurpleButton}"
-                        FontSize="18" FontFamily="Segoe UI Light"
                         Height="35"
                         VerticalAlignment="Top"
                         Click="EnrollStudentButton_OnClick"
@@ -119,20 +115,17 @@
 
             <TextBlock Grid.Column="0" Grid.Row="0"
                        Style="{StaticResource Header}"
-                       FontSize="18" FontFamily="Segoe UI Light"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Right"
                        Text="Наименование:" />
-            <TextBox Grid.Column="1"
+            <TextBox Grid.Row="0" Grid.Column="1"
                      x:Name="CourseTitleSearchTextBox"
                      Style="{StaticResource TextBox}"
-                     FontSize="18" FontFamily="Segoe UI Light"
                      TextChanged="CourseTitleSearchTextBox_OnTextChanged"
                      VerticalAlignment="Center" Margin="10,0,25,0" />
 
             <TextBlock Grid.Column="0" Grid.Row="1"
                        Style="{StaticResource Header}"
-                       FontSize="18" FontFamily="Segoe UI Light"
                        HorizontalAlignment="Right"
                        Text="Показатель:" />
             <ComboBox Grid.Column="1" Grid.Row="1"

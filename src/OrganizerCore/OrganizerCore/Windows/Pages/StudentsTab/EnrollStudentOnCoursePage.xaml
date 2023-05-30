@@ -26,20 +26,17 @@
                    Style="{StaticResource Header}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Text="[Ученик]" 
-                   FontSize="18" FontFamily="Segoe UI Light"/>
+                   Text="[Ученик]" />
         <TextBlock Grid.Column="0" Grid.Row="1"
                    Style="{StaticResource Header}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Text="Индивидуальные курсы" 
-                   FontSize="18" FontFamily="Segoe UI Light"/>
+                   Text="Индивидуальные курсы" />
         <TextBlock Grid.Column="1" Grid.Row="1"
                    Style="{StaticResource Header}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Text="Груповые курсы" 
-                   FontSize="18" FontFamily="Segoe UI Light"/>
+                   Text="Груповые курсы" />
 
         <DockPanel Grid.Column="0" Grid.Row="2"
                    Height="45">
@@ -49,8 +46,7 @@
             <TextBox
                 x:Name="CourseTitleSearchTextBox"
                 TextChanged="OnFiltersTextChanged"
-                Style="{StaticResource TextBox}" 
-                FontSize="18" FontFamily="Segoe UI Light"/>
+                Style="{StaticResource TextBox}" />
         </DockPanel>
         <DockPanel Grid.Column="1" Grid.Row="2"
                    Height="45">
@@ -60,8 +56,7 @@
             <TextBox
                 x:Name="GroupTitleSearchTextBox"
                 TextChanged="OnFiltersTextChanged"
-                Style="{StaticResource TextBox}" 
-                FontSize="18" FontFamily="Segoe UI Light"/>
+                Style="{StaticResource TextBox}" />
         </DockPanel>
 
 

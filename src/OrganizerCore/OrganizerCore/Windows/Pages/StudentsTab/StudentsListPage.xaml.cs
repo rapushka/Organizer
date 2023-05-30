@@ -160,8 +160,6 @@ public partial class StudentsListPage
 
 	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupStudentsDataGrid();
 
-	private void OnPickedBirthdateChanged(object? sender, SelectionChangedEventArgs e) => SetupStudentsDataGrid();
-
 	private void OnIndicatorSelected(object sender, SelectionChangedEventArgs e) => UpdateCoursesView();
 
 	private void CourseTitleSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateCoursesView();

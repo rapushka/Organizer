@@ -26,14 +26,14 @@
         </Grid>
         <Border Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Grid.Column="0"
-                       Style="{StaticResource Header}"
+                <TextBlock
+                    Style="{StaticResource Header}"
                        Text="Поиск по названию:" Height="28" />
-                <TextBox Grid.Column="1"
-                     x:Name="SearchByNameTextBox"
+                <TextBox
+                    x:Name="SearchByNameTextBox"
                      TextChanged="SearchByTitleTextBox_OnTextChanged"
-                     Style="{StaticResource TextBox}" 
-                      FontSize="18" FontFamily="Segoe UI Light" Margin="10,10,10,7" Width="997"/>
+                     Style="{StaticResource TextBox}"
+                    Margin="10,10,10,7" Width="997"/>
             </StackPanel>
         </Border>
 
@@ -42,14 +42,14 @@
                 <TextBlock
                    Style="{StaticResource Header}"
                    VerticalAlignment="Top"
-                   Text="Курсы:" Height="24" Grid.RowSpan="2" />
+                   Text="Курсы:" Height="24" />
             </StackPanel>
         </Border>
 
         <Border Grid.Row="2">
             <StackPanel VerticalAlignment="Stretch">
-                <DataGrid Grid.Row="2"
-                  x:Name="CoursesDataGrid"
+                <DataGrid
+                    x:Name="CoursesDataGrid"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   LostFocus="CoursesDataGrid_OnLostFocus"
