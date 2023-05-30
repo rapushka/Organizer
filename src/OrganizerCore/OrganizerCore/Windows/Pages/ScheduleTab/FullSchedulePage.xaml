@@ -50,10 +50,10 @@
                     x:Name="SearchFromDateTPicker"
                     FontSize="18" FontFamily="Segoe UI Light"
                     SelectedDateChanged="UpdateFrom_DatePicker"
-                    Width="195" Margin="13,0,0,0" />
+                    Width="182" Margin="13,0,0,0" />
             </StackPanel>
         </Border>
-        <Border Grid.Row="0" Grid.Column="4"
+        <Border Grid.Column="4"
                 Grid.RowSpan="2">
             <StackPanel Orientation="Vertical"
                         HorizontalAlignment="Center"
@@ -90,7 +90,7 @@
                 <DatePicker
                     x:Name="SearchToDatePicker"
                     FontSize="18" FontFamily="Segoe UI Light"
-                    Width="190" Height="34" />
+                    Width="176" Height="34" />
             </StackPanel>
         </Border>
         <Border Grid.Row="2" Grid.Column="3">
@@ -122,7 +122,8 @@
                     IsReadOnly="True"
                     CanUserAddRows="False"
                     x:Name="ScheduleViewDataGrid"
-                    Width="1283" />
+                    Width="1194" 
+                    FontSize="18" FontFamily="Segoe UI Light"/>
             </StackPanel>
         </Border>
         <Border Grid.Row="4" Grid.Column="0">
@@ -135,32 +136,34 @@
                 </Button>
             </StackPanel>
         </Border>
-
-        <StackPanel Grid.Row="4" Grid.Column="1"
-                    Grid.ColumnSpan="4"
-                    HorizontalAlignment="Right"
-                    Orientation="Horizontal"
-                    Margin="25,0">
-            <Button
-                Style="{DynamicResource PurpleButton}"
-                Height="35"
-                Click="HeldButton_OnClick"
-                Content="Провести" />
-            <Button
-                Style="{DynamicResource PurpleButton}"
-                Height="35"
-                Click="AddButton_OnClick" 
-                Content="Добавить" />
-            <Button
-                Style="{DynamicResource PurpleButton}"
-                Height="35"
-                Click="EditButton_OnClick" 
-                Content="Изменить" />
-            <Button
-                Style="{DynamicResource PurpleButton}"
-                Height="35"
-                Click="RemoveButton_OnClick" 
-                Content="Удалить" />
-        </StackPanel>
+        <Border Grid.Row="4" Grid.ColumnSpan="5">
+            <StackPanel
+                Grid.ColumnSpan="4"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Margin="25,0">
+                <Button
+                    Style="{DynamicResource PurpleButton}"
+                    Height="35"
+                    Click="HeldButton_OnClick"
+                    Content="Провести" Width="150"
+                    Margin="0,0,30,0"/>
+                <Button
+                    Style="{DynamicResource PurpleButton}"
+                    Height="35"
+                    Click="AddButton_OnClick" 
+                    Content="Добавить" Width="150" />
+                <Button
+                    Style="{DynamicResource PurpleButton}"
+                    Height="35"
+                    Click="EditButton_OnClick" 
+                    Content="Изменить" Width="150"/>
+                <Button
+                    Style="{DynamicResource PurpleButton}"
+                    Height="34"
+                    Click="RemoveButton_OnClick" 
+                    Content="Удалить" Width="150" />
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

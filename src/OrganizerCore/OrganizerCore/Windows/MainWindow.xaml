@@ -52,13 +52,13 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="19*"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="140*"/>
         </Grid.RowDefinitions>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Resources/Background.jpeg" TileMode="FlipXY"/>
-        </Grid.Background>
-        <Border Grid.Row="0" Grid.RowSpan="2">
+        
+        
+        
+        <Border Grid.Row="0" >
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top">
@@ -85,7 +85,12 @@
                         Height="65" Width="319"/>
             </StackPanel>
         </Border>
+        
         <Grid Grid.Row="1">
+            <Grid.Background>
+                <!--<ImageBrush ImageSource="/Resources/Background.jpeg" TileMode="FlipXY"/>-->
+                <ImageBrush ImageSource="/Resources/Background.jpeg" TileMode="FlipXY"/>
+            </Grid.Background>
             <Frame x:Name="MainFrame"
                    NavigationUIVisibility="Hidden"/>
         </Grid>

@@ -54,13 +54,14 @@
                     Orientation="Horizontal">
                     <TextBlock
                         Style="{DynamicResource Header}"
-                        Text="Курс:" />
+                        Text="Курс:"  />
                     <ComboBox
                         Name="CourseComboBox"
                         IsEditable="True"
-                        Height="25"
+                        Height="27"
                         Width="250"
-                        SelectionChanged="CourseComboBox_OnSelectionChanged" />
+                        SelectionChanged="CourseComboBox_OnSelectionChanged" 
+                        FontSize="18" FontFamily="Segoe UI Light"/>
                 </StackPanel>
                 <StackPanel
                     HorizontalAlignment="Right"
@@ -71,8 +72,9 @@
                     <ComboBox
                         Name="LessonComboBox"
                         IsEditable="True"
-                        Height="25"
-                        Width="250" />
+                        Height="29"
+                        Width="250" 
+                        FontSize="18" FontFamily="Segoe UI Light"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -86,9 +88,9 @@
                    Text="Дата и время:" />
         <xctk:DateTimePicker Grid.Column="1" Grid.Row="1"
                              x:Name="DateTimePicker"
-                             Height="25"
-                             Margin="15"
-                             ValueChanged="DateTimePicker_ValueChanged" />
+                             Margin="15,13,15,12"
+                             ValueChanged="DateTimePicker_ValueChanged" 
+                             FontSize="18" FontFamily="Segoe UI Light"/>
         <!-- note -->
         <TextBlock Grid.Column="0" Grid.Row="2"
                    Style="{DynamicResource Header}"
@@ -100,7 +102,8 @@
                  Name="NoteTextBox"
                  Style="{DynamicResource TextBox}"
                  Margin="15"
-                 MaxLines="100" />
+                 MaxLines="100" 
+                 FontSize="18" FontFamily="Segoe UI Light"/>
 
         <!-- buttons -->
         <StackPanel Grid.Column="0" Grid.Row="3"
@@ -110,11 +113,11 @@
             <Button
                 Style="{DynamicResource PurpleButton}"
                 Content="Применить"
-                Click="ApplyButton_OnClick" />
+                Click="ApplyButton_OnClick" Width="125"/>
             <Button
                 Style="{DynamicResource PurpleButton}"
                 Content="Отменить"
-                Click="CancelButton_OnClick" />
+                Click="CancelButton_OnClick" Width="125" />
         </StackPanel>
     </Grid>
 </Page>

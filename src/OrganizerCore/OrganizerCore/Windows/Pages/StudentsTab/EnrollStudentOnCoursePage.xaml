@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
-      Title="EnrollStudentOnCoursePage" Height="450" Width="800"
+      Title="EnrollStudentOnCoursePage" Width="1200" Height="560"
       Loaded="OnPageLoad">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -26,17 +26,20 @@
                    Style="{StaticResource Header}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Text="[Ученик]" />
+                   Text="[Ученик]" 
+                   FontSize="18" FontFamily="Segoe UI Light"/>
         <TextBlock Grid.Column="0" Grid.Row="1"
                    Style="{StaticResource Header}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Text="Индивидуальные курсы" />
+                   Text="Индивидуальные курсы" 
+                   FontSize="18" FontFamily="Segoe UI Light"/>
         <TextBlock Grid.Column="1" Grid.Row="1"
                    Style="{StaticResource Header}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Text="Груповые курсы" />
+                   Text="Груповые курсы" 
+                   FontSize="18" FontFamily="Segoe UI Light"/>
 
         <DockPanel Grid.Column="0" Grid.Row="2"
                    Height="45">
@@ -46,7 +49,8 @@
             <TextBox
                 x:Name="CourseTitleSearchTextBox"
                 TextChanged="OnFiltersTextChanged"
-                Style="{StaticResource TextBox}" />
+                Style="{StaticResource TextBox}" 
+                FontSize="18" FontFamily="Segoe UI Light"/>
         </DockPanel>
         <DockPanel Grid.Column="1" Grid.Row="2"
                    Height="45">
@@ -56,7 +60,8 @@
             <TextBox
                 x:Name="GroupTitleSearchTextBox"
                 TextChanged="OnFiltersTextChanged"
-                Style="{StaticResource TextBox}" />
+                Style="{StaticResource TextBox}" 
+                FontSize="18" FontFamily="Segoe UI Light"/>
         </DockPanel>
 
 
@@ -65,14 +70,16 @@
                   Margin="10"
                   IsReadOnly="False"
                   AutoGenerateColumns="False"
-                  CanUserAddRows="False" />
+                  CanUserAddRows="False" 
+                  FontSize="18" FontFamily="Segoe UI Light"/>
 
         <DataGrid Grid.Column="1" Grid.Row="3"
                   x:Name="GroupCoursesDataGrid"
                   Margin="10"
                   IsReadOnly="False"
                   AutoGenerateColumns="False"
-                  CanUserAddRows="False" />
+                  CanUserAddRows="False" 
+                  FontSize="18" FontFamily="Segoe UI Light"/>
 
         <StackPanel Grid.Column="0" Grid.Row="4"
                     Orientation="Horizontal"
@@ -80,11 +87,11 @@
             <Button
                 Style="{StaticResource PurpleButton}"
                 Click="AddIndividualButton_OnClick"
-                Content="Добавить" />
+                Content="Добавить" Width="130" />
             <Button
                 Style="{StaticResource PurpleButton}"
                 Click="RemoveIndividualButton_OnClick"
-                Content="Удалить" />
+                Content="Удалить" Width="130" />
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="4"
                     Orientation="Horizontal"
@@ -92,11 +99,11 @@
             <Button
                 Style="{StaticResource PurpleButton}"
                 Click="AddGroupButton_OnClick"
-                Content="Добавить" />
+                Content="Добавить" Width="130" />
             <Button
                 Style="{StaticResource PurpleButton}"
                 Click="RemoveGroupButton_OnClick"
-                Content="Удалить" />
+                Content="Удалить" Width="130" />
         </StackPanel>
 
         <!-- Button back -->
@@ -108,13 +115,13 @@
                 Style="{StaticResource PurpleButton}"
                 Margin="10,5"
                 Click="ApplyButton_OnClick"
-                Content="Применить" />
+                Content="Применить" Width="130"  />
             <Button
                 Style="{StaticResource PurpleButton}"
-                Height="35"
+                Height="47"
                 Margin="10,5"
                 Click="CancelButton_OnClick"
-                Content="Отмена" />
+                Content="Отмена" Width="130" />
         </StackPanel>
     </Grid>
 </Page>

@@ -5,7 +5,12 @@
         <TargetFramework>net6.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
+        <ApplicationIcon>1486504340-calendar-date-event-month-schedule_81325.ico</ApplicationIcon>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\Background.jpeg" />
+    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
@@ -22,15 +27,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Resources\Background.jpeg" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Resource Include="Resources\Background.jpeg" />
+      <Content Include="1486504340-calendar-date-event-month-schedule_81325.ico" />
     </ItemGroup>
 
     <ItemGroup>
       <Reference Include="System.Windows.Forms" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Resources\Background.jpeg" />
     </ItemGroup>
 
 </Project>

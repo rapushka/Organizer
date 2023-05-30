@@ -37,7 +37,8 @@
                    Text="Наименование:" />
         <TextBox Grid.Column="1" Grid.Row="0"
                  x:Name="TitleTextBox"
-                 Style="{StaticResource Field}" />
+                 Style="{StaticResource Field}" 
+                 FontSize="18" FontFamily="Segoe UI Light" Height="30" Margin="10,0,10,0"/>
 
         <!-- course -->
         <TextBlock Grid.Column="0" Grid.Row="1"
@@ -45,8 +46,8 @@
                    Text="Курс:" />
         <ComboBox Grid.Column="1" Grid.Row="1"
                   x:Name="CourseComboBox"
-                  Margin="10"
-                  Height="25" />
+                  Margin="10,25,10,21" 
+                  FontSize="18" FontFamily="Segoe UI Light"/>
 
         <!-- dates -->
         <DockPanel Grid.Column="0" Grid.Row="2"
@@ -57,14 +58,15 @@
             <DatePicker
                 x:Name="BeginDatePiker"
                 Width="235"
-                Height="25" />
+                Height="29"
+                FontSize="18" FontFamily="Segoe UI Light"/>
             <TextBlock
                 Style="{StaticResource Label}"
                 Text="Дата Окончания:" />
             <DatePicker
                 x:Name="EndDatePiker"
                 Width="235"
-                Height="25" />
+                Height="31" FontSize="18" FontFamily="Segoe UI Light"/>
         </DockPanel>
 
         <!-- ages -->
@@ -76,14 +78,16 @@
             <TextBox
                 x:Name="MinAgeTextBox"
                 Width="175"
-                Style="{StaticResource Field}" />
+                Style="{StaticResource Field}" 
+                FontSize="18" FontFamily="Segoe UI Light" Height="31"/>
             <TextBlock
                 Style="{StaticResource Label}"
                 Text="Максимальный возраст:" />
             <TextBox
                 x:Name="MaxAgeTextBox"
-                Width="175"
-                Style="{StaticResource Field}" />
+                Width="172"
+                Style="{StaticResource Field}" 
+                FontSize="18" FontFamily="Segoe UI Light" Height="30"/>
         </DockPanel>
 
         <!-- places count -->
@@ -92,7 +96,8 @@
                    Text="Количество мест:" />
         <TextBox Grid.Column="1" Grid.Row="4"
                  x:Name="PlacesCountTextBox"
-                 Style="{StaticResource Field}" />
+                 Style="{StaticResource Field}" 
+                 FontSize="18" FontFamily="Segoe UI Light" Height="33" Margin="10,0,10,0"/>
 
         <!-- buttons -->
         <StackPanel Grid.Column="0" Grid.Row="5"
@@ -102,11 +107,11 @@
             <Button
                 Style="{StaticResource PurpleButton}"
                 Click="AcceptButton_OnClick"
-                Content="Применить" />
+                Content="Применить" Width="150" />
             <Button
                 Style="{StaticResource PurpleButton}"
                 Click="CancelButton_OnClick"
-                Content="Отменить" />
+                Content="Отменить" Width="150"/>
         </StackPanel>
     </Grid>
 </Page>

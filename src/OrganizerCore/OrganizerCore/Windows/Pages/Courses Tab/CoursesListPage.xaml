@@ -4,91 +4,110 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
-      Title="CoursesListPage" Height="450" Width="800"
+      Title="CoursesListPage" Width="1200" Height="560"
       Loaded="Page_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="62" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="175*" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="124*" />
+            <RowDefinition Height="62" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" VerticalAlignment="Center">
+        <Grid VerticalAlignment="Center" Height="44">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0"
+        </Grid>
+        <Border Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Grid.Column="0"
                        Style="{StaticResource Header}"
-                       Text="Поиск по названию:" />
-            <TextBox Grid.Column="1"
+                       Text="Поиск по названию:" Height="28" />
+                <TextBox Grid.Column="1"
                      x:Name="SearchByNameTextBox"
                      TextChanged="SearchByTitleTextBox_OnTextChanged"
-                     Style="{StaticResource TextBox}" />
-        </Grid>
+                     Style="{StaticResource TextBox}" 
+                      FontSize="18" FontFamily="Segoe UI Light" Margin="10,10,10,7" Width="997"/>
+            </StackPanel>
+        </Border>
 
-        <TextBlock Grid.Row="1"
+        <Border Grid.Row="1">
+            <StackPanel VerticalAlignment="Top">
+                <TextBlock
                    Style="{StaticResource Header}"
-                   Margin="10,0"
-                   VerticalAlignment="Bottom"
-                   Text="Курсы:" />
-        <DataGrid Grid.Row="2"
+                   VerticalAlignment="Top"
+                   Text="Курсы:" Height="24" Grid.RowSpan="2" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2">
+            <StackPanel VerticalAlignment="Stretch">
+                <DataGrid Grid.Row="2"
                   x:Name="CoursesDataGrid"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   LostFocus="CoursesDataGrid_OnLostFocus"
-                  SelectionChanged="CoursesDataGrid_SelectionChanged" />
-
-        <StackPanel Grid.Row="3"
+                  SelectionChanged="CoursesDataGrid_SelectionChanged" 
+                   FontSize="18" FontFamily="Segoe UI Light" Margin="0,9,0,0" Height="157"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="3">
+            <StackPanel 
                     Orientation="Horizontal"
-                    HorizontalAlignment="Right"
-                    Margin="0,0,25,0">
-            <Button
+                    HorizontalAlignment="Left" Width="520" Margin="680,0,0,0">
+                <Button
                 Style="{StaticResource PurpleButton}"
                 Click="AddCourseButton_Click"
-                Content="Добавить" />
-            <Button
+                Content="Добавить" Width="162" />
+                <Button
                 Style="{StaticResource PurpleButton}"
                 Click="EditSelectedCourseButton_Click"
-                Content="Редактировать" />
-            <Button
+                Content="Редактировать" Width="162" />
+                <Button
                 Style="{StaticResource PurpleButton}"
                 Click="RemoveSelectedCourseButton_Click"
-                Content="Удалить" />
-        </StackPanel>
-
-        <TextBlock Grid.Row="4"
+                Content="Удалить"  Width="162"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="4">
+            <TextBlock
                    Style="{StaticResource Header}"
-                   Margin="10,0"
-                   VerticalAlignment="Bottom"
-                   Text="Темы курса:" />
-        <DataGrid Grid.Row="5"
+                   VerticalAlignment="Top"
+                   Text="Темы курса:" Height="24"/>
+        </Border>
+        <Border Grid.Row="5">
+            <StackPanel>
+                <DataGrid 
                   x:Name="TopicsOfCourseDataGrid"
                   AutoGenerateColumns="False"
-                  CanUserAddRows="False" />
-
-        <StackPanel Grid.Row="6"
+                  CanUserAddRows="False" 
+                   FontSize="18" FontFamily="Segoe UI Light" Height="120"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="6">
+            <StackPanel 
                     Orientation="Horizontal"
-                    HorizontalAlignment="Right"
-                    Margin="0,0,25,0">
-            <Button
+                    HorizontalAlignment="Left"
+                    Width="520" Margin="680,0,0,0">
+                <Button
                 Style="{StaticResource PurpleButton}"
                 Click="AddTopicButton_Click"
-                Content="Добавить" />
-            <Button
+                Content="Добавить" Width="162" />
+                <Button
                 Style="{StaticResource PurpleButton}"
                 Click="EditSelectedTopicButton_Click"
-                Content="Редактировать" />
-            <Button
+                Content="Редактировать" Width="162"  />
+                <Button
                 Style="{StaticResource PurpleButton}"
                 Click="RemoveSelectedTopicButton_OnClick"
-                Content="Удалить" />
-        </StackPanel>
-
+                Content="Удалить" Width="162"  />
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

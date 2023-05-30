@@ -162,3 +162,99 @@ C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-w
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\PropertyTools.dll
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\PropertyTools.Wpf.dll
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\PropertyTools.Wpf.Extended.Toolkit.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\OrganizerCore.exe
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\OrganizerCore.deps.json
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\OrganizerCore.runtimeconfig.json
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\OrganizerCore.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\OrganizerCore.pdb
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\DotNetProjects.Wpf.Extended.Toolkit.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Humanizer.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Data.Sqlite.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\Mono.TextTemplating.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\PropertyTools.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\PropertyTools.Wpf.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\PropertyTools.Wpf.Extended.Toolkit.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\SQLitePCLRaw.core.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\alpine-arm\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\alpine-arm64\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\alpine-x64\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\browser-wasm\nativeassets\net6.0\e_sqlite3.a
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-mips64\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-musl-arm\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-musl-arm64\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-ppc64le\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-s390x\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\osx-arm64\native\libe_sqlite3.dylib
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\win-arm\native\e_sqlite3.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.csproj.AssemblyReference.cache
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\MainWindow.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\CoursesListPage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\EditCoursePage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\TopicEditPage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\TypesOfLessonsListPage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\GroupsTab\EditGroupPage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\GroupsTab\GroupsListPage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\ScheduleTab\EditSchedulePage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\ScheduleTab\FullSchedulePage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\EditStudentPage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\EnrollStudentOnCoursePage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\StudentsListPage.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\App.baml
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\MainWindow.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\CoursesListPage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\EditCoursePage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\TopicEditPage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\Courses Tab\TypesOfLessonsListPage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\GroupsTab\EditGroupPage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\GroupsTab\GroupsListPage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\ScheduleTab\EditSchedulePage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\ScheduleTab\FullSchedulePage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\EditStudentPage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\EnrollStudentOnCoursePage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\Windows\Pages\StudentsTab\StudentsListPage.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore_MarkupCompile.cache
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.g.resources
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.AssemblyInfoInputs.cache
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.AssemblyInfo.cs
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.csproj.CoreCompileInputs.cache
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.csproj.CopyComplete
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\refint\OrganizerCore.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.pdb
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore.genruntimeconfig.cache
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\ref\OrganizerCore.dll
+C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore_Content.g.cs
