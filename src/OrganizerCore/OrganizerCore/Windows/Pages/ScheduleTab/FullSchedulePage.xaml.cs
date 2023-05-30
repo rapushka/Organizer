@@ -75,7 +75,7 @@ public partial class FullSchedulePage
 		ScheduleViewDataGrid.AddTextColumn("ID", nameof(Schedule.Id), Visibility.Collapsed);
 		ScheduleViewDataGrid.AddTextColumn("Дата-Время", view + nameof(ScheduleView.ScheduledTime));
 		ScheduleViewDataGrid.AddTextColumn("Курс", view + nameof(ScheduleView.CourseTitle));
-		ScheduleViewDataGrid.AddTextColumn("Занятие", view + nameof(ScheduleView.Lesson));
+		ScheduleViewDataGrid.AddTextColumn("Занятие", nameof(Schedule.Lessor));
 		ScheduleViewDataGrid.AddTextColumn("Примечание", view + nameof(ScheduleView.Note));
 		ScheduleViewDataGrid.AddTextColumn("Проведено", view + nameof(ScheduleView.IsHeld));
 	}

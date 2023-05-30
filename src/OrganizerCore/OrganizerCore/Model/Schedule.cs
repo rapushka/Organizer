@@ -8,48 +8,47 @@ namespace OrganizerCore.Model;
 
 public class Schedule : Table
 {
-	[Key] public int                         Id               { get; set; }
-	public       IndividualCoursesOfStudent? IndividualCourse { get; set; }
-	public       Group?                      Group            { get; set; }
-	public       DateTime                    ScheduledTime    { get; set; }
-	public       string                      Note             { get; set; } = null!;
-	public       bool                        IsHeld           { get; set; }
+	[Key] public int                        Id               { get; set; }
+	public       IndividualCoursesOfStudent IndividualCourse { get; set; } = null!;
+	public       Group                      Group            { get; set; } = null!;
+	public       DateTime                   ScheduledTime    { get; set; }
+	public       string                     Note             { get; set; } = null!;
+	public       bool                       IsHeld           { get; set; }
+	public       bool                       IsGroup          { get; set; }
 
 	public ScheduleView View
-		=> IndividualCourse is not null ? new ScheduleView(IndividualCourse, this)
-			: Group is not null         ? new ScheduleView(Group!, this)
-			                              : throw new NullReferenceException();
+		=> IsGroup              ? new ScheduleView(IndividualCourse, this)
+			: Group is not null ? new ScheduleView(Group!, this)
+			                      : throw new NullReferenceException();
 
 	[NotMapped]
 	public object Lessor
 	{
-		get => (object?)IndividualCourse
-		       ?? Group
-		       ?? throw new NullReferenceException("schedule must contain at least one");
+		get => IsGroup ? Group : IndividualCourse;
 		set
 		{
 			if (value is Group group)
 			{
 				Group = group;
+				return;
 			}
-			else if (value is IndividualCoursesOfStudent individualCourse)
+
+			if (value is IndividualCoursesOfStudent individualCourse)
 			{
 				IndividualCourse = individualCourse;
+				return;
 			}
-			else
-			{
-				throw new ArgumentException($"SelectedItem is unknown type ({value.GetType().Name})");
-			}
+
+			throw new ArgumentException($"SelectedItem is unknown type ({value.GetType().Name})");
 		}
 	}
 
 	public override string ToString()
 	{
-		var individualCourseEntry = IndividualCourse?.ToString() ?? string.Empty;
-		var groupCourseEntry = Group?.ToString() ?? string.Empty;
+		var lessorEntry = IsGroup ? Group.ToString() : IndividualCourse.ToString();
 		var scheduledTime = ScheduledTime.ToString(CultureInfo.InvariantCulture);
 		var isHeld = IsHeld ? "[ПРОВЕДЕНО] " : string.Empty;
 
-		return $"{isHeld}{individualCourseEntry}{groupCourseEntry} в {scheduledTime}";
+		return $"{isHeld}{lessorEntry} в {scheduledTime}";
 	}
 }

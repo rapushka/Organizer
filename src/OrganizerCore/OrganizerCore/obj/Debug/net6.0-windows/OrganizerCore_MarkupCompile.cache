@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\
 OrganizerCore
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\App.xaml
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\App.xaml
 12403793752
 1-1287763798
-63-1943499660
-2162011182340
+65-2103272553
+216-137388514
 Windows\MainWindow.xaml;Windows\Pages\Courses Tab\CoursesListPage.xaml;Windows\Pages\Courses Tab\EditCoursePage.xaml;Windows\Pages\Courses Tab\TopicEditPage.xaml;Windows\Pages\Courses Tab\TypesOfLessonsListPage.xaml;Windows\Pages\GroupsTab\EditGroupPage.xaml;Windows\Pages\GroupsTab\GroupsListPage.xaml;Windows\Pages\ScheduleTab\EditSchedulePage.xaml;Windows\Pages\ScheduleTab\FullSchedulePage.xaml;Windows\Pages\StudentsTab\EditStudentPage.xaml;Windows\Pages\StudentsTab\EnrollStudentOnCoursePage.xaml;Windows\Pages\StudentsTab\StudentsListPage.xaml;
 
 False

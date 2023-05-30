@@ -1445,31 +1445,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ekaterina Rogach\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Rapuska\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ekaterina Rogach\\OneDrive\\Документы\\GitHub\\Organizer\\src\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj",
+      "projectUniqueName": "C:\\Projects\\Diploms\\Organizer\\src\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj",
       "projectName": "OrganizerCore",
-      "projectPath": "C:\\Users\\Ekaterina Rogach\\OneDrive\\Документы\\GitHub\\Organizer\\src\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj",
-      "packagesPath": "C:\\Users\\Ekaterina Rogach\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ekaterina Rogach\\OneDrive\\Документы\\GitHub\\Organizer\\src\\OrganizerCore\\OrganizerCore\\obj\\",
+      "projectPath": "C:\\Projects\\Diploms\\Organizer\\src\\OrganizerCore\\OrganizerCore\\OrganizerCore.csproj",
+      "packagesPath": "C:\\Users\\Rapuska\\.nuget\\packages\\",
+      "outputPath": "C:\\Projects\\Diploms\\Organizer\\src\\OrganizerCore\\OrganizerCore\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Ekaterina Rogach\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Rapuska\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1535,7 +1528,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"PropertyTools.Wpf 3.0.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'PropertyTools.Wpf 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "PropertyTools.Wpf",
       "targetGraphs": [
         "net6.0-windows7.0"
@@ -1545,7 +1538,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"PropertyTools.Wpf.Extended.Toolkit 3.0.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'PropertyTools.Wpf.Extended.Toolkit 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "PropertyTools.Wpf.Extended.Toolkit",
       "targetGraphs": [
         "net6.0-windows7.0"
