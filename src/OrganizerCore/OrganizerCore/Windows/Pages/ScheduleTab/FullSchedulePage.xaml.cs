@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,6 +9,10 @@ using OrganizerCore.Model;
 using OrganizerCore.Model.Views;
 using OrganizerCore.Tools;
 using OrganizerCore.Tools.Extensions;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Table = DocumentFormat.OpenXml.Wordprocessing.Table;
 
 namespace OrganizerCore.Windows.Pages.ScheduleTab;
 
@@ -84,7 +89,81 @@ public partial class FullSchedulePage
 
 #region Upload
 
-	private void UploadButton_OnClick(object sender, RoutedEventArgs e) { }
+	private void UploadButton_OnClick(object sender, RoutedEventArgs e)
+	{
+		using var document = WordprocessingDocument.Create("Schedule.docx", WordprocessingDocumentType.Document);
+		var mainPart = document.AddMainDocumentPart();
+
+		mainPart.Document = new Document();
+		var body = mainPart.Document.AppendChild(new Body());
+
+		var now = DateTime.Now;
+		var endOfDay = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
+
+		var schedules = Context.Schedules
+		                       .Where(s => s.ScheduledTime >= now && s.ScheduledTime <= endOfDay && !s.IsHeld)
+		                       .OrderBy(s => s.ScheduledTime)
+		                       .ToList();
+
+		if (schedules.Any() == false)
+		{
+			var noSchedulesParagraph = new Paragraph(new Run(new Text("No schedules found for today.")));
+			body.AppendChild(noSchedulesParagraph);
+
+			mainPart.Document.Save();
+			return;
+		}
+
+		var groupedSchedules = schedules.GroupBy(s => s.IsGroup ? s.Group.Title : s.IndividualCourse.Course.Title);
+
+		var table = new Table();
+		var properties = new TableProperties
+		(
+			new TableBorders
+			(
+				new TopBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+				new BottomBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+				new LeftBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+				new RightBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+				new InsideHorizontalBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+				new InsideVerticalBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 }
+			)
+		);
+		table.AppendChild(properties);
+
+		foreach (var group in groupedSchedules)
+		{
+			var row = new TableRow();
+
+			var typeCell = new TableCell(new Paragraph(new Run(new Text($"Type: {group.Key}"))));
+			row.AppendChild(typeCell);
+
+			foreach (var schedule in group)
+			{
+				var scheduleRow = new TableRow();
+
+				var timeString = schedule.ScheduledTime.ToString(CultureInfo.InvariantCulture);
+				var timeCell = new TableCell(new Paragraph(new Run(new Text($"Scheduled Time: {timeString}"))));
+				scheduleRow.AppendChild(timeCell);
+
+				var noteCell = new TableCell(new Paragraph(new Run(new Text($"Note: {schedule.Note}"))));
+				scheduleRow.AppendChild(noteCell);
+
+				table.AppendChild(scheduleRow);
+			}
+
+			row.AppendChild(table);
+			table = new Table();
+			table.AppendChild(properties);
+			table.AppendChild(new TableRow());
+			table.AppendChild(new TableRow());
+			table.AppendChild(new TableRow());
+
+			body.AppendChild(row);
+		}
+
+		mainPart.Document.Save();
+	}
 
 #endregion
 

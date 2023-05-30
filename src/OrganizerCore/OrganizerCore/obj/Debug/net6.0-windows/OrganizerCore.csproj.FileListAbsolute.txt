@@ -259,3 +259,4 @@ C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\Organ
 C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\ref\OrganizerCore.dll
 C:\Users\Ekaterina Rogach\OneDrive\Документы\GitHub\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore_Content.g.cs
 C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\obj\Debug\net6.0-windows\OrganizerCore_Content.g.cs
+C:\Projects\Diploms\Organizer\src\OrganizerCore\OrganizerCore\bin\Debug\net6.0-windows\DocumentFormat.OpenXml.dll
