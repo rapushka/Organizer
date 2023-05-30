@@ -121,9 +121,9 @@ public partial class FullSchedulePage
 
 	private static bool CanBeHelded(Schedule schedule)
 	{
-		var lessonsCount = schedule.IndividualCourse?.LessonsCount
-		                   ?? schedule.Group?.Course.LessonsCount
-		                   ?? throw new NullReferenceException();
+		var lessonsCount = schedule.IsGroup
+			? schedule.Group.Course.LessonsCount
+			: schedule.IndividualCourse.LessonsCount;
 
 		var anyLessonsLeft = lessonsCount > 0;
 		if (anyLessonsLeft == false)

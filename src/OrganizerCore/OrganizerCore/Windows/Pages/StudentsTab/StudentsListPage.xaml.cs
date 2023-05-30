@@ -64,14 +64,11 @@ public partial class StudentsListPage
 
 	private void FilterStudents(object sender, FilterEventArgs e)
 	{
-		var from = FromBirthdateDatePicker.SelectedDate;
-		var to = ToBirthdateDatePicker.SelectedDate;
 		var student = (Student)e.Item;
 
-		var fitsByBirthdate = (from is null || student.Birthdate >= from) && (to is null || student.Birthdate <= to);
 		var fitsByName = student.FullName.Contains(FullnameSearchTextBox.Text);
 
-		e.Accepted = fitsByName && fitsByBirthdate;
+		e.Accepted = fitsByName;
 	}
 
 #endregion
@@ -162,8 +159,6 @@ public partial class StudentsListPage
 	private void ShowGroupCoursesButton_Click(object sender, RoutedEventArgs e) => ShowGroupCourses();
 
 	private void FullnameSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => SetupStudentsDataGrid();
-
-	private void OnPickedBirthdateChanged(object? sender, SelectionChangedEventArgs e) => SetupStudentsDataGrid();
 
 	private void OnIndicatorSelected(object sender, SelectionChangedEventArgs e) => UpdateCoursesView();
 

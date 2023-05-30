@@ -39,7 +39,6 @@
                    x:Name="CourseTitleTextBlock"
                    VerticalAlignment="Center"
                    Style="{StaticResource Header}"
-                    FontSize="18" FontFamily="Segoe UI Light"
                    Text="[Название курса]" />
 
         <TextBlock Grid.Column="0" Grid.Row="2"

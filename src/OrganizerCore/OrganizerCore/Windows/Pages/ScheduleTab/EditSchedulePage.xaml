@@ -102,8 +102,7 @@
                  Name="NoteTextBox"
                  Style="{DynamicResource TextBox}"
                  Margin="15"
-                 MaxLines="100" 
-                 FontSize="18" FontFamily="Segoe UI Light"/>
+                 MaxLines="100" />
 
         <!-- buttons -->
         <StackPanel Grid.Column="0" Grid.Row="3"

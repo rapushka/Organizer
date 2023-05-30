@@ -4,19 +4,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
-      Title="GroupsListPage"  Width="1200" Height="560"
+      Title="GroupsListPage" Width="1200" Height="560"
       Loaded="GroupsListPage_OnLoaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70" />
-            <RowDefinition Height="327*" />
-            <RowDefinition Height="90" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <StackPanel
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center" Height="41" Width="706">
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" Height="41" Width="706">
             <TextBlock
                 Style="{StaticResource Header}"
                 HorizontalAlignment="Right"
@@ -27,20 +27,17 @@
                 Style="{StaticResource TextBox}"
                 Margin="1,5,10,5"
                 TextChanged="Search_OnTextChanged"
-                 FontSize="18" FontFamily="Segoe UI Light"
                 Width="150" Height="28" />
             <TextBlock
                 Style="{StaticResource Header}"
                 HorizontalAlignment="Right"
-               Margin="0,5,10,0"
-                Text="Название курса:" 
-                />
+                Margin="0,5,10,0"
+                Text="Название курса:" />
             <TextBox
                 x:Name="CourseTitleTextBox"
                 Style="{StaticResource TextBox}"
                 Margin="1,5,10,5"
                 TextChanged="Search_OnTextChanged"
-                 FontSize="18" FontFamily="Segoe UI Light"
                 Width="251" Height="29" />
         </StackPanel>
 
@@ -48,9 +45,9 @@
                   x:Name="GroupsDataGrid"
                   CanUserAddRows="False"
                   AutoGenerateColumns="False" Margin="0,0,0,0"
-                  FontSize="18" FontFamily="Segoe UI Light"/>
+                  FontSize="18" FontFamily="Segoe UI Light" />
 
-        <StackPanel Grid.Row="3"
+        <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" Height="60" Margin="719,0,0,0" Width="481">
@@ -61,12 +58,11 @@
             <Button
                 Style="{StaticResource PurpleButton}"
                 Click="EditButton_OnClick"
-                Content="Изменить"  Width="150" 
-                />
+                Content="Изменить" Width="150" />
             <Button
                 Style="{StaticResource PurpleButton}"
                 Click="RemoveButton_OnClick"
-                Content="Удалить"  Width="150" />
+                Content="Удалить" Width="150" />
         </StackPanel>
     </Grid>
 </Page>
