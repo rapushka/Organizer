@@ -98,7 +98,7 @@ public partial class FullSchedulePage
 		var body = mainPart.Document.AppendChild(new Body());
 
 		var now = DateTime.Now;
-		var endOfDay = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
+		var endOfDay = now.Date.AddDays(1).AddSeconds(-1); // end of day is start of next day minus one second
 
 		var schedules = Context.Schedules
 		                       .Where(s => s.ScheduledTime >= now && s.ScheduledTime <= endOfDay && !s.IsHeld)
@@ -116,50 +116,42 @@ public partial class FullSchedulePage
 
 		var groupedSchedules = schedules.GroupBy(s => s.IsGroup ? s.Group.Title : s.IndividualCourse.Course.Title);
 
-		var table = new Table();
-		var properties = new TableProperties
-		(
-			new TableBorders
-			(
-				new TopBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
-				new BottomBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
-				new LeftBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
-				new RightBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
-				new InsideHorizontalBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
-				new InsideVerticalBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 }
-			)
-		);
-		table.AppendChild(properties);
-
 		foreach (var group in groupedSchedules)
 		{
-			var row = new TableRow();
+			var table = new Table();
+			var properties = new TableProperties
+			(
+				new TableBorders
+				(
+					new TopBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+					new BottomBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+					new LeftBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+					new RightBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+					new InsideHorizontalBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 },
+					new InsideVerticalBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 6 }
+				)
+			);
+			table.AppendChild(properties);
 
 			var typeCell = new TableCell(new Paragraph(new Run(new Text($"Type: {group.Key}"))));
-			row.AppendChild(typeCell);
+			var typeRow = new TableRow(typeCell);
+			table.AppendChild(typeRow);
 
 			foreach (var schedule in group)
 			{
-				var scheduleRow = new TableRow();
-
-				var timeString = schedule.ScheduledTime.ToString(CultureInfo.InvariantCulture);
-				var timeCell = new TableCell(new Paragraph(new Run(new Text($"Scheduled Time: {timeString}"))));
-				scheduleRow.AppendChild(timeCell);
-
-				var noteCell = new TableCell(new Paragraph(new Run(new Text($"Note: {schedule.Note}"))));
-				scheduleRow.AppendChild(noteCell);
-
+				var scheduleRow = new TableRow
+				(
+					new TableCell
+					(
+						new Paragraph
+							(new Run(new Text($"Scheduled Time: {schedule.ScheduledTime:yyyy/MM/dd HH:mm:ss}")))
+					),
+					new TableCell(new Paragraph(new Run(new Text($"Note: {schedule.Note}"))))
+				);
 				table.AppendChild(scheduleRow);
 			}
 
-			row.AppendChild(table);
-			table = new Table();
-			table.AppendChild(properties);
-			table.AppendChild(new TableRow());
-			table.AppendChild(new TableRow());
-			table.AppendChild(new TableRow());
-
-			body.AppendChild(row);
+			body.AppendChild(table);
 		}
 
 		mainPart.Document.Save();
