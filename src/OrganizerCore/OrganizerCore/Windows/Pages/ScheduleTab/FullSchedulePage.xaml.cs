@@ -155,6 +155,7 @@ public partial class FullSchedulePage
 		}
 
 		mainPart.Document.Save();
+		MessageBoxUtils.ShowInfo("Отчёт создан!");
 	}
 
 #endregion
