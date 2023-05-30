@@ -64,14 +64,11 @@ public partial class StudentsListPage
 
 	private void FilterStudents(object sender, FilterEventArgs e)
 	{
-		var from = FromBirthdateDatePicker.SelectedDate;
-		var to = ToBirthdateDatePicker.SelectedDate;
 		var student = (Student)e.Item;
 
-		var fitsByBirthdate = (from is null || student.Birthdate >= from) && (to is null || student.Birthdate <= to);
 		var fitsByName = student.FullName.Contains(FullnameSearchTextBox.Text);
 
-		e.Accepted = fitsByName && fitsByBirthdate;
+		e.Accepted = fitsByName;
 	}
 
 #endregion
