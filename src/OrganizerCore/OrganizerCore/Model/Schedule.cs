@@ -31,15 +31,16 @@ public class Schedule : Table
 			if (value is Group group)
 			{
 				Group = group;
+				return;
 			}
-			else if (value is IndividualCoursesOfStudent individualCourse)
+
+			if (value is IndividualCoursesOfStudent individualCourse)
 			{
 				IndividualCourse = individualCourse;
+				return;
 			}
-			else
-			{
-				throw new ArgumentException($"SelectedItem is unknown type ({value.GetType().Name})");
-			}
+
+			throw new ArgumentException($"SelectedItem is unknown type ({value.GetType().Name})");
 		}
 	}
 
