@@ -113,10 +113,9 @@ public partial class EditSchedulePage
 	{
 		if (IsNoEmpty == false)
 		{
-			MessageBoxUtils.ShowError("Не все поля заполнены!");
-			return;
+			throw new InvalidOperationException("Не все поля заполнены!");
 		}
-		
+
 		_schedule.View.Course = (Course)CourseComboBox.SelectedItem;
 		_schedule.Lessor = LessonComboBox.SelectedItem;
 		_schedule.ScheduledTime = DateTimePicker.Value ?? DateTime.MinValue;
@@ -134,10 +133,6 @@ public partial class EditSchedulePage
 			Save();
 			Context.SaveChanges();
 			NavigationService!.GoBack();
-		}
-		catch (NullReferenceException)
-		{
-			MessageBoxUtils.ShowError("Не все поля установлены");
 		}
 		catch (Exception ex)
 		{
