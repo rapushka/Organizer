@@ -4,8 +4,6 @@ using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
 using OrganizerCore.Windows.Pages.Courses_Tab;
-using static System.Globalization.CultureInfo;
-
 
 namespace OrganizerCore.Windows.Pages.GroupsTab;
 

@@ -71,18 +71,19 @@ public partial class EditStudentPage
 	{
 		var canParseDuration = DateTime.TryParse(BirthdateTextBox.Text, out birthdate);
 
-		if (IsNoEmpty == false)
+		var isValid = IsNoEmpty && canParseDuration;
+
+		if (isValid == false)
 		{
-			MessageBoxUtils.ShowError("Не все поля заполнены!");
-			return false;
+			MessageBoxUtils.ShowError
+			(
+				!IsNoEmpty          ? "Не все поля заполнены!"
+				: !canParseDuration ? "Дата рождения введена некорректно!"
+				                      : throw new Exception("Сообщение не найдено")
+			);
 		}
 
-		if (canParseDuration == false)
-		{
-			MessageBoxUtils.ShowError("Дата рождения введена некорректно!");
-		}
-
-		return canParseDuration;
+		return isValid;
 	}
 
 	private bool IsNoEmpty
