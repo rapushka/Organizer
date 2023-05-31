@@ -17,9 +17,9 @@ public class Schedule : Table
 	public       bool                       IsGroup          { get; set; }
 
 	public ScheduleView View
-		=> IsGroup              ? new ScheduleView(IndividualCourse, this)
-			: Group is not null ? new ScheduleView(Group, this)
-			                      : throw new NullReferenceException();
+		=> IsGroup
+			? new ScheduleView(Group, this)
+			: new ScheduleView(IndividualCourse, this);
 
 	[NotMapped]
 	public object Lessor
