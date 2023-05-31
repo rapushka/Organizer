@@ -3,7 +3,11 @@ using System.Windows;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
+<<<<<<< Updated upstream
 using static System.Globalization.CultureInfo;
+=======
+using OrganizerCore.Windows.Pages.Courses_Tab;
+>>>>>>> Stashed changes
 
 namespace OrganizerCore.Windows.Pages.GroupsTab;
 
@@ -66,7 +70,16 @@ public partial class EditGroupPage
 
 		var valid = canParseBeginDate && canParseEdnDate && canParseMinAge && canParseMaxAge && canParsePlacesCount;
 
+<<<<<<< Updated upstream
 		if (valid)
+=======
+		if (InNoEmpty == false)
+		{
+			MessageBoxUtils.ShowError("Не все поля заполнены");
+		}
+
+		if (valid == false)
+>>>>>>> Stashed changes
 		{
 			_group.Title = TitleTextBox.Text;
 			_group.Course = (Course)CourseComboBox.SelectedItem;
@@ -81,4 +94,13 @@ public partial class EditGroupPage
 		MessageBoxUtils.ShowError("Данные введены некорректно!");
 		return false;
 	}
+
+	private bool InNoEmpty
+		=> TitleTextBox.IsNotEmpty()
+		   && CourseComboBox.IsNotEmpty()
+		   && MinAgeTextBox.IsNotEmpty()
+		   && MaxAgeTextBox.IsNotEmpty()
+		   && PlacesCountTextBox.IsNotEmpty()
+		   && BeginDatePiker.IsNotEmpty()
+		   && EndDatePiker.IsNotEmpty();
 }
