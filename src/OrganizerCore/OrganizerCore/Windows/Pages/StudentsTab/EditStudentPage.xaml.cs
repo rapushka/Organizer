@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
+using OrganizerCore.Windows.Pages.Courses_Tab;
 
 namespace OrganizerCore.Windows.Pages.StudentsTab;
 
@@ -70,6 +71,12 @@ public partial class EditStudentPage
 	{
 		var canParseDuration = DateTime.TryParse(BirthdateTextBox.Text, out birthdate);
 
+		if (IsNoEmpty == false)
+		{
+			MessageBoxUtils.ShowError("Не все поля заполнены!");
+			return false;
+		}
+
 		if (canParseDuration == false)
 		{
 			MessageBoxUtils.ShowError("Дата рождения введена некорректно!");
@@ -77,4 +84,10 @@ public partial class EditStudentPage
 
 		return canParseDuration;
 	}
+
+	private bool IsNoEmpty
+		=> FullNameTextBox.IsNotEmpty()
+		   && PhoneNumberTextBox.IsNotEmpty()
+		   && BirthdateTextBox.IsNotEmpty()
+		   && EmailTextBox.IsNotEmpty();
 }

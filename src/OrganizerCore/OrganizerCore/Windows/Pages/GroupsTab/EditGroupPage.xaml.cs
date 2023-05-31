@@ -3,6 +3,9 @@ using System.Windows;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
+using OrganizerCore.Windows.Pages.Courses_Tab;
+using static System.Globalization.CultureInfo;
+
 
 namespace OrganizerCore.Windows.Pages.GroupsTab;
 
@@ -68,6 +71,11 @@ public partial class EditGroupPage
 
 		var valid = isValidDates && canParseMinAge && canParseMaxAge && canParsePlacesCount;
 
+		if (InNoEmpty == false)
+		{
+			MessageBoxUtils.ShowError("Не все поля заполнены");
+		}
+
 		if (valid == false)
 		{
 			MessageBoxUtils.ShowError("Данные введены некорректно!");
@@ -83,4 +91,13 @@ public partial class EditGroupPage
 		_group.MaxStudentsInGroupCount = placesCount;
 		return true;
 	}
+
+	private bool InNoEmpty
+		=> TitleTextBox.IsNotEmpty()
+		   && CourseComboBox.IsNotEmpty()
+		   && MinAgeTextBox.IsNotEmpty()
+		   && MaxAgeTextBox.IsNotEmpty()
+		   && PlacesCountTextBox.IsNotEmpty()
+		   && BeginDatePiker.IsNotEmpty()
+		   && EndDatePiker.IsNotEmpty();
 }

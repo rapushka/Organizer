@@ -44,7 +44,6 @@ public partial class EditCoursePage
 		TitleTextBox.Text = _selectedCourse.Title;
 		DescriptionTextBox.Text = _selectedCourse.Description;
 		DurationTextBox.Text = _selectedCourse.Duration.ToString(CultureInfo.InvariantCulture);
-		//LessonsCountTextBox.Text = _selectedCourse.LessonsCount.ToString(CultureInfo.InvariantCulture);
 		PriceTextBox.Text = _selectedCourse.Price.ToString(CultureInfo.InvariantCulture);
 	}
 
@@ -79,6 +78,16 @@ public partial class EditCoursePage
 			);
 		}
 
+		if (IsNoEmpty == false)
+		{
+			MessageBoxUtils.ShowError("Не все поля заполнены!");
+		}
+
 		return canBeParsed;
 	}
+
+	private bool IsNoEmpty
+		=> TitleTextBox.IsNotEmpty()
+		   && DurationTextBox.IsNotEmpty()
+		   && PriceTextBox.IsNotEmpty();
 }

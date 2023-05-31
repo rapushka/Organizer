@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
+using OrganizerCore.Windows.Pages.Courses_Tab;
 
 namespace OrganizerCore.Windows.Pages.ScheduleTab;
 
@@ -110,6 +111,12 @@ public partial class EditSchedulePage
 
 	private void Save()
 	{
+		if (IsNoEmpty == false)
+		{
+			MessageBoxUtils.ShowError("Не все поля заполнены!");
+			return;
+		}
+		
 		_schedule.View.Course = (Course)CourseComboBox.SelectedItem;
 		_schedule.Lessor = LessonComboBox.SelectedItem;
 		_schedule.ScheduledTime = DateTimePicker.Value ?? DateTime.MinValue;
@@ -143,6 +150,12 @@ public partial class EditSchedulePage
 #endregion
 
 	private void DateTimePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e) { }
+
+	private bool IsNoEmpty
+		=> CourseComboBox.IsNotEmpty()
+		   && LessonComboBox.IsNotEmpty()
+		   && DateTimePicker.IsNotEmpty()
+		   && NoteTextBox.IsNotEmpty();
 }
 
 public enum CourseTypeShow
