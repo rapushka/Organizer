@@ -60,6 +60,6 @@ public static class MessageBoxUtils
 			icon: Information
 		);
 
-	public static void ShowException(Exception ex, string message = "Ошибка сохранения!")
+	public static void ShowException(Exception ex, string message = "Не удалось сохранить изменения!")
 		=> ShowError($"{message}\n{ex.InnerException?.Message ?? ex.Message}");
 }
