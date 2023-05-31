@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -93,10 +92,8 @@ public partial class FullSchedulePage
 	{
 		try
 		{
-			if (!GenerateReport())
-			{
-				MessageBoxUtils.ShowInfo("Отчёт создан!");
-			}
+			GenerateReport();
+			MessageBoxUtils.ShowInfo("Отчёт создан!");
 		}
 		catch (Exception ex)
 		{
@@ -104,7 +101,7 @@ public partial class FullSchedulePage
 		}
 	}
 
-	private static bool GenerateReport()
+	private static void GenerateReport()
 	{
 		using var document = WordprocessingDocument.Create("Schedule.docx", WordprocessingDocumentType.Document);
 		var mainPart = document.AddMainDocumentPart();
@@ -126,7 +123,7 @@ public partial class FullSchedulePage
 			body.AppendChild(noSchedulesParagraph);
 
 			mainPart.Document.Save();
-			return true;
+			return;
 		}
 
 		var groupedSchedules = schedules.GroupBy(s => s.IsGroup ? s.Group.Title : s.IndividualCourse.Course.Title);
@@ -170,7 +167,6 @@ public partial class FullSchedulePage
 		}
 
 		mainPart.Document.Save();
-		return false;
 	}
 
 #endregion
