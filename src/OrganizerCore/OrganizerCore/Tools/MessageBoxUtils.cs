@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
@@ -58,4 +59,7 @@ public static class MessageBoxUtils
 			button: OK,
 			icon: Information
 		);
+
+	public static void ShowException(Exception ex, string message = "Ошибка сохранения!")
+		=> ShowError($"{message}\n{ex.InnerException?.Message ?? ex.Message}");
 }

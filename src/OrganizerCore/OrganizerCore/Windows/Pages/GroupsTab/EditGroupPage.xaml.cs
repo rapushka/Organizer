@@ -43,10 +43,15 @@ public partial class EditGroupPage
 
 	private void AcceptButton_OnClick(object sender, RoutedEventArgs e)
 	{
-		if (TrySave())
+		try
 		{
+			Save();
 			Context.SaveChanges();
 			NavigationService!.GoBack();
+		}
+		catch (Exception ex)
+		{
+			MessageBoxUtils.ShowException(ex);
 		}
 	}
 
@@ -56,7 +61,7 @@ public partial class EditGroupPage
 		NavigationService!.GoBack();
 	}
 
-	private bool TrySave()
+	private void Save()
 	{
 		var beginDate = BeginDatePiker.SelectedDate ?? DateTime.Now;
 		var endDate = EndDatePiker.SelectedDate ?? DateTime.Now;
@@ -71,13 +76,12 @@ public partial class EditGroupPage
 
 		if (InNoEmpty == false)
 		{
-			MessageBoxUtils.ShowError("Не все поля заполнены");
+			throw new InvalidOperationException("Не все поля заполнены");
 		}
 
 		if (valid == false)
 		{
-			MessageBoxUtils.ShowError("Данные введены некорректно!");
-			return false;
+			throw new InvalidOperationException("Данные введены некорректно");
 		}
 
 		_group.Title = TitleTextBox.Text;
@@ -87,7 +91,6 @@ public partial class EditGroupPage
 		_group.MinAge = minAge;
 		_group.MaxAge = maxAge;
 		_group.MaxStudentsInGroupCount = placesCount;
-		return true;
 	}
 
 	private bool InNoEmpty

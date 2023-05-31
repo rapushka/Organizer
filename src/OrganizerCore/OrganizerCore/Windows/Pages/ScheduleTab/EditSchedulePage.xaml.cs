@@ -136,7 +136,7 @@ public partial class EditSchedulePage
 		}
 		catch (Exception ex)
 		{
-			MessageBoxUtils.ShowError($"Ошибка сохранения!\n{ex.InnerException?.Message ?? ex.Message}");
+			MessageBoxUtils.ShowException(ex);
 		}
 	}
 
