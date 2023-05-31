@@ -64,26 +64,22 @@ public partial class EditCoursePage
 
 	private bool Validate(out float duration, out decimal price)
 	{
+		var canParseCost = decimal.TryParse(PriceTextBox.Text, out price);
 		var canParseDuration = float.TryParse(DurationTextBox.Text, out duration);
-		var canParsePrice = decimal.TryParse(PriceTextBox.Text, out price);
-		var canBeParsed = canParseDuration && canParsePrice;
+		var isValid = IsNoEmpty && canParseCost && canParseDuration;
 
-		if (canBeParsed == false)
+		if (isValid == false)
 		{
 			MessageBoxUtils.ShowError
 			(
-				canParsePrice      ? "Стоимость должна быть числом"
-				: canParseDuration ? "Продолжительность должна быть числом"
-				                     : throw new InvalidOperationException("сообщение не найдено")
+				!IsNoEmpty          ? "Не все поля заполнены!"
+				: !canParseCost     ? "Стоимость должна быть числом"
+				: !canParseDuration ? "Продолжительность должна быть числом"
+				                      : throw new InvalidOperationException("сообщение не найдено")
 			);
 		}
 
-		if (IsNoEmpty == false)
-		{
-			MessageBoxUtils.ShowError("Не все поля заполнены!");
-		}
-
-		return canBeParsed;
+		return isValid;
 	}
 
 	private bool IsNoEmpty
