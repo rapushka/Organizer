@@ -3,12 +3,8 @@ using System.Windows;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Tools;
-
-<<<<<<< Updated upstream
-using static System.Globalization.CultureInfo;
-	=======
 using OrganizerCore.Windows.Pages.Courses_Tab;
->>>>>>> Stashed changes
+using static System.Globalization.CultureInfo;
 
 namespace OrganizerCore.Windows.Pages.GroupsTab;
 
