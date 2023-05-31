@@ -226,6 +226,7 @@ public partial class FullSchedulePage
 		var schedule = new Schedule
 		{
 			IndividualCourse = Context.IndividualCourses.First(),
+			Group = Context.Groups.First(),
 			ScheduledTime = DateTime.Now,
 			IsHeld = false,
 			Note = string.Empty,

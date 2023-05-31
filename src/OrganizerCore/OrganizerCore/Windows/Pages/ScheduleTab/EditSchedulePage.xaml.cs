@@ -139,6 +139,10 @@ public partial class EditSchedulePage
 		{
 			MessageBoxUtils.ShowError("Не все поля установлены");
 		}
+		catch (Exception ex)
+		{
+			MessageBoxUtils.ShowError($"Ошибка сохранения!\n{ex.InnerException?.Message ?? ex.Message}");
+		}
 	}
 
 	private void CancelButton_OnClick(object sender, RoutedEventArgs e)
