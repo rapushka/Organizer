@@ -153,8 +153,7 @@ public partial class EditSchedulePage
 	private bool IsNoEmpty
 		=> CourseComboBox.IsNotEmpty()
 		   && LessonComboBox.IsNotEmpty()
-		   && DateTimePicker.IsNotEmpty()
-		   && NoteTextBox.IsNotEmpty();
+		   && DateTimePicker.IsNotEmpty();
 }
 
 public enum CourseTypeShow
