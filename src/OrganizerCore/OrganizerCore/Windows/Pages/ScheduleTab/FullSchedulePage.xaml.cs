@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 using OrganizerCore.DbWorking;
 using OrganizerCore.Model;
 using OrganizerCore.Model.Views;
@@ -67,6 +68,29 @@ public partial class FullSchedulePage
 		var fitsByHeld = (ShowOnlyHeld && schedule.IsHeld) || (ShowOnlyNotHeld && !schedule.IsHeld);
 
 		e.Accepted = fitsByLessonType && fitsByDates && fitsByHeld;
+	}
+
+	private void ScheduleViewDataGrid_Loaded(object sender, RoutedEventArgs e)
+	{
+		ScheduleViewDataGrid.Dispatcher.BeginInvoke
+		(
+			new Action
+			(
+				() =>
+				{
+					foreach (var item in ScheduleViewDataGrid.Items)
+					{
+						var row = ScheduleViewDataGrid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
+						var schedule = item as Schedule;
+						if (schedule.ScheduledTime < DateTime.Now
+						    && !schedule.IsHeld)
+						{
+							row.Background = new SolidColorBrush(Colors.Red);
+						}
+					}
+				}
+			)
+		);
 	}
 
 	private void SetupColumns()
