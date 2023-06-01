@@ -213,6 +213,7 @@ public partial class FullSchedulePage
 		}
 
 		Context.SaveChanges();
+		NavigationService!.Refresh();
 	}
 
 	private void UnHeldSchedule(Schedule schedule)
