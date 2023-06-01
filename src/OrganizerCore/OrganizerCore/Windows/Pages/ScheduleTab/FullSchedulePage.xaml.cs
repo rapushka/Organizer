@@ -71,27 +71,24 @@ public partial class FullSchedulePage
 	}
 
 	private void ScheduleViewDataGrid_Loaded(object sender, RoutedEventArgs e)
+		=> ScheduleViewDataGrid.Dispatcher.BeginInvoke(new Action(PaintMissedSchedules));
+
+	private void PaintMissedSchedules()
 	{
-		ScheduleViewDataGrid.Dispatcher.BeginInvoke
-		(
-			new Action
-			(
-				() =>
-				{
-					foreach (var item in ScheduleViewDataGrid.Items)
-					{
-						var row = ScheduleViewDataGrid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
-						var schedule = item as Schedule;
-						if (schedule.ScheduledTime < DateTime.Now
-						    && !schedule.IsHeld)
-						{
-							row.Background = new SolidColorBrush(Colors.Red);
-						}
-					}
-				}
-			)
-		);
+		foreach (var item in ScheduleViewDataGrid.Items)
+		{
+			if (GetContainerOf(item) is DataGridRow row
+			    && item is Schedule schedule
+			    && schedule.ScheduledTime < DateTime.Now
+			    && !schedule.IsHeld)
+			{
+				row.Background = new SolidColorBrush(Colors.Red);
+			}
+		}
 	}
+
+	private DependencyObject GetContainerOf(object item)
+		=> ScheduleViewDataGrid.ItemContainerGenerator.ContainerFromItem(item);
 
 	private void SetupColumns()
 	{
