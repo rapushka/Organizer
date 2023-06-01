@@ -290,13 +290,29 @@ public partial class FullSchedulePage
 
 #region Update filters
 
-	private void RadioButton_Click(object sender, RoutedEventArgs e) => UpdateViewTable();
+	private void RadioButton_Click(object sender, RoutedEventArgs e)
+	{
+		UpdateViewTable();
+		NavigationService!.Refresh();
+	}
 
-	private void UpdateFrom_TextBox(object sender, TextChangedEventArgs e) => UpdateViewTable();
+	private void UpdateFrom_TextBox(object sender, TextChangedEventArgs e)
+	{
+		UpdateViewTable();
+		NavigationService!.Refresh();
+	}
 
-	private void UpdateFrom_CheckBox(object sender, RoutedEventArgs e) => UpdateViewTable();
+	private void UpdateFrom_CheckBox(object sender, RoutedEventArgs e)
+	{
+		UpdateViewTable();
+		NavigationService!.Refresh();
+	}
 
-	private void UpdateFrom_DatePicker(object? sender, SelectionChangedEventArgs e) => UpdateViewTable();
+	private void UpdateFrom_DatePicker(object? sender, SelectionChangedEventArgs e)
+	{
+		UpdateViewTable();
+		NavigationService!.Refresh();
+	}
 
 #endregion
 }
